@@ -4,7 +4,7 @@
 *.so
 
 # Folders
-server/bin
+server/src/src
 _obj
 _test
 
