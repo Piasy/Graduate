@@ -39,7 +39,7 @@ func (this *RawTrainRecordController) Post() {
 
   var data PostData
 	json.Unmarshal(this.Ctx.Input.RequestBody, &data)
-  switch (data.Op) {
+  switch(data.Op) {
     case "append":
       models.AppendRawTrainData(data.Player, &data.Data)
       this.Data["json"] = &Success {true}
@@ -55,7 +55,7 @@ func (this *RawTrainRecordController) Post() {
       }
     default:
       this.Data["json"] = errors.Issue("parameter op needed",
-        errors.E_TYPE_SERVICE + errors.E_MODULE_TRAINRECORD + errors.E_DETAIL_NEED_MORE_PARAM,
+        errors.E_TYPE_SERVICE + errors.E_MODULE_TRAINRECORD + errors.E_DETAIL_ILLEGAL_PARAM,
         this.Ctx.Request.URL.String())
   }
   this.ServeJson()

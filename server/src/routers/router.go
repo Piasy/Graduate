@@ -15,6 +15,8 @@ func init() {
   beego.Router("/api/player", &controllers.PlayersController{})
 	beego.Router("/api/auth", &controllers.AuthController{})
 	beego.Router("/api/rawtrainrecord", &controllers.RawTrainRecordController{})
+	beego.Router("/api/trainremark", &controllers.TrainRemarkController{})
+	beego.Router("/api/trainhistory", &controllers.TrainHistoryController{})
 }
 
 var loginChecker = func(ctx *context.Context) {

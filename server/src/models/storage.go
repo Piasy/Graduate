@@ -23,6 +23,7 @@ var dbHelper *dbhelper.DBHelper
 var username, password, token string
 var rander *rand.Rand
 var rawTrainRecord map[string] types.RawTrainRecord
+var processedRemark map[string] types.TrainRecord
 
 func init() {
   //open db
@@ -58,6 +59,8 @@ func init() {
 
   //raw train record
   rawTrainRecord = make(map[string]types.RawTrainRecord)
+  //processed remark
+  processedRemark = make(map[string]types.TrainRecord)
 }
 
 func VerifyAdmin(user, pass string) bool {
@@ -93,6 +96,39 @@ func QueryPlayer(page, num int) *types.QueryResult {
   return &types.QueryResult {result, len(players), page - 1, page, next}
 }
 
+
+func QueryTrainRecord(coll string, page, num int) *types.QueryResult {
+  var result []types.TrainRecord
+  var next, count int
+  var err error
+
+  if page < 0 || num < 0 {
+    result, count, err = dbHelper.QueryTrainRecord(coll, 0, 10)
+    if err != nil {
+      return &types.QueryResult {make([]types.Player, 0), 0, page - 1, page, -1}
+    }
+    if count < 10 {
+      next = -1
+    } else {
+      next = page + 1
+    }
+    return &types.QueryResult {result, count, page - 1, page, next}
+  }
+
+  result, count, err = dbHelper.QueryTrainRecord(coll, page, num)
+  if err != nil {
+    return &types.QueryResult {make([]types.Player, 0), 0, page - 1, page, -1}
+  }
+
+  if len(result) < num {
+    next = -1
+  } else {
+    next = page + 1
+  }
+
+  return &types.QueryResult {result, count, page - 1, page, next}
+}
+
 func InsertPlayer(p *types.Player) error {
   err := dbHelper.InsertPlayer(p)
   if err != nil {
@@ -119,7 +155,8 @@ func UpdatePlayer(p *types.Player) error {
 }
 
 func AppendRawTrainData(coll string, data *types.RawTrainRecord) {
-  tmp := rawTrainRecord[coll]   //when no key-value pair, tmp will be an empty RawTrainRecord
+  //when no key-value pair, tmp will be an empty RawTrainRecord
+  tmp := rawTrainRecord[coll]
 
   //when tmp is an empty RawTrainRecord, its GpsData field is nil;
   //but this usage of append is legal
@@ -128,6 +165,46 @@ func AppendRawTrainData(coll string, data *types.RawTrainRecord) {
   tmp.GyroData = append(rawTrainRecord[coll].GyroData, data.GyroData...)
   tmp.HeartRateData = append(rawTrainRecord[coll].HeartRateData, data.HeartRateData...)
   rawTrainRecord[coll] = tmp
+
+  //TODO calculate remarks
+}
+
+func GetTrainSpeed(coll string, page, num int) *types.QueryResult {
+  data := processedRemark[coll]
+  var next int
+  var result []float32
+  if 0 <= page * num && page * num < len(data.Speed) {
+    if (page + 1) * num <= len(data.Speed) {
+      next = page + 1
+      result = data.Speed[page * num : (page + 1) * num]
+    } else {
+      next = -1
+      result = data.Speed[page * num :]
+    }
+  } else {
+    result = make([]float32, 0)
+  }
+
+  return &types.QueryResult {result, len(data.Speed), page - 1, page, next}
+}
+
+func GetTrainDistance(coll string, page, num int) *types.QueryResult {
+  data := processedRemark[coll]
+  var next int
+  var result []float32
+  if 0 <= page * num && page * num < len(data.Distance) {
+    if (page + 1) * num <= len(data.Distance) {
+      next = page + 1
+      result = data.Distance[page * num : (page + 1) * num]
+    } else {
+      next = -1
+      result = data.Distance[page * num :]
+    }
+  } else {
+    result = make([]float32, 0)
+  }
+
+  return &types.QueryResult {result, len(data.Distance), page - 1, page, next}
 }
 
 func FlushRawTrainData() error {

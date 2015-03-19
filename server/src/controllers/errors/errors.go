@@ -27,6 +27,8 @@ const E_TYPE_SERVICE string =     "2"
 const E_MODULE_ANY string =           "00"
 const E_MODULE_PLAYER string =        "01"
 const E_MODULE_TRAINRECORD string =   "02"
+const E_MODULE_TRAINREMARK string =   "03"
+const E_MODULE_TRAINHISTORY string =  "04"
 
 const E_DETAIL_INTERNAL_DB_ERROR string =     "01"
 const E_DETAIL_PARSE_PARAM_ERROR string =     "02"

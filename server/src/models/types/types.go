@@ -54,7 +54,7 @@ func (p1 *Player) Equals(p2 *Player) bool {
 type TrainRecord struct {
   ObjId bson.ObjectId             `bson:"_id,omitempty" json:"_id"`
   Speed []float32                 `bson:"speed" json:"speed"`
-  Distance float32                `bson:"distance" json:"distance"`
+  Distance []float32              `bson:"distance" json:"distance"`
   /**
   more display criterion
   */
@@ -62,12 +62,18 @@ type TrainRecord struct {
 
 func (p1 *TrainRecord) Equals(p2 *TrainRecord) bool {
   if len(p1.Speed) != len(p2.Speed) ||
-      p1.Distance != p2.Distance {
+      len(p1.Distance) != len(p2.Distance) {
     return false
   }
 
   for i, _ := range p1.Speed {
     if p1.Speed[i] != p2.Speed[i] {
+      return false
+    }
+  }
+
+  for i, _ := range p1.Distance {
+    if p1.Distance[i] != p2.Distance[i] {
       return false
     }
   }

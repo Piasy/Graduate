@@ -5,6 +5,7 @@ import (
   "gopkg.in/mgo.v2/bson"
 
   "models/types"
+  "utils"
 )
 
 const rawSuffix string = "_raw"
@@ -111,19 +112,19 @@ func (db *DBHelper) InsertTrainRecord(coll string,
 }
 
 func (db *DBHelper) QueryTrainRecord(coll string, page, num int) (
-      []types.TrainRecord, bool, error) {
+      []types.TrainRecord, int, error) {
   query := findAll(db.db.C(coll))
   count, err := query.Count()
   if err != nil {
-    return nil, false, err
+    return nil, 0, err
   }
 
   if count <= page * num {
-    return nil, false, nil
+    return nil, count, nil
   }
   query = query.Skip(page * num)
 
-  length := min(count - page * num, num)
+  length := utils.Min(count - page * num, num)
   result := make([]types.TrainRecord, length)
   iter := query.Iter()
   index := 0
@@ -136,13 +137,13 @@ func (db *DBHelper) QueryTrainRecord(coll string, page, num int) (
         break
       }
     } else if iter.Err() != nil {
-      return result, false, err
+      return result, count, err
     } else {
       break
     }
   }
 
-  return result, num < count - page * num, nil
+  return result, count, nil
 }
 
 func (db *DBHelper) QueryRawTrainRecord(coll string, page, num int) (
@@ -158,7 +159,7 @@ func (db *DBHelper) QueryRawTrainRecord(coll string, page, num int) (
   }
   query = query.Skip(page * num)
 
-  length := min(count - page * num, num)
+  length := utils.Min(count - page * num, num)
   result := make([]types.RawTrainRecord, length)
   iter := query.Iter()
   index := 0
@@ -203,12 +204,4 @@ func  hasColl(db *mgo.Database, coll string) (bool, error) {
 
 func findAll(coll *mgo.Collection) *mgo.Query {
   return coll.Find(bson.M{})
-}
-
-func min(a, b int) int {
-  if a < b {
-    return a
-  }
-
-  return b
 }

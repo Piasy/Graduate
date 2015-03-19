@@ -119,12 +119,12 @@ func TestInsertAndQueryTrainRecord1(t *testing.T) {
   result := make([]types.TrainRecord, 10)
   num := 3
   for page := 0; page < 4; page++ {
-    res, more, err := dbHelper.QueryTrainRecord(testOneTrainRecordCollName,
+    res, count, err := dbHelper.QueryTrainRecord(testOneTrainRecordCollName,
           page, num)
-    if res == nil || !((page != 3 && more) || (page == 3 && !more)) ||
-        err != nil {
-      t.Fatalf("Query TrainRecord failed! res: %s, page: %d, more: %s, err: %s",
-          res, page, more, err)
+    if res == nil || !((page != 3 && (page + 1) * num < count)
+          || (page == 3 && (page + 1) * num >= count)) || err != nil {
+      t.Fatalf("Query TrainRecord failed! res: %s, page: %d, count: %s, err: %s",
+          res, page, count, err)
     }
   }
 
