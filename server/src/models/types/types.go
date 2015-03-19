@@ -97,11 +97,11 @@ type GYROData struct {
 }
 
 type RawTrainRecord struct {
-  ObjId bson.ObjectId              `bson:"_id,omitempty" json:"_id"`
-  GpsData []GPSData                `bson:"gpsdata" json:"gpsdata"`
-  AccData []ACCData                `bson:"accdata" json:"accdata"`
-  GyroData []GYROData              `bson:"gyrodata" json:"gyrodata"`
-  HeartRateData []int              `bson:"heartratedata" json:"heartratedata"`
+  ObjId bson.ObjectId             `bson:"_id,omitempty" json:"_id"`
+  GpsData []GPSData               `bson:"gpsdata" json:"gpsdata"`
+  AccData []ACCData               `bson:"accdata" json:"accdata"`
+  GyroData []GYROData             `bson:"gyrodata" json:"gyrodata"`
+  HeartRateData []int             `bson:"heartratedata" json:"heartratedata"`
 }
 
 func (p1 *RawTrainRecord) Equals(p2 *RawTrainRecord) bool {

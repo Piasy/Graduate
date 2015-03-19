@@ -14,6 +14,7 @@ func init() {
 	beego.InsertFilter("/*", beego.BeforeRouter, loginChecker)
   beego.Router("/api/player", &controllers.PlayersController{})
 	beego.Router("/api/auth", &controllers.AuthController{})
+	beego.Router("/api/rawtrainrecord", &controllers.RawTrainRecordController{})
 }
 
 var loginChecker = func(ctx *context.Context) {

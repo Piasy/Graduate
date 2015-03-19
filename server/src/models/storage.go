@@ -22,14 +22,17 @@ var players []types.Player
 var dbHelper *dbhelper.DBHelper
 var username, password, token string
 var rander *rand.Rand
+var rawTrainRecord map[string] types.RawTrainRecord
 
 func init() {
+  //open db
   var err error
   dbHelper, err = dbhelper.Open(dbHost, dbName, playersCollName)
   if err != nil {
     panic(err)
   }
 
+  //preload all players
   players, err = dbHelper.QueryAllPlayer()
   if err != nil {
     if players == nil {
@@ -42,6 +45,7 @@ func init() {
     players = make([]types.Player, 0)
   }
 
+  //auth
   appConf, err := config.NewConfig("ini", "conf/app.conf")
   if err != nil {
     panic(err)
@@ -51,6 +55,9 @@ func init() {
   password = appConf.String("admin::password")
   rander = rand.New(rand.NewSource(time.Now().UnixNano()))
   ResetToken()
+
+  //raw train record
+  rawTrainRecord = make(map[string]types.RawTrainRecord)
 }
 
 func VerifyAdmin(user, pass string) bool {
@@ -107,6 +114,32 @@ func UpdatePlayer(p *types.Player) error {
       players[i] = *p
       break
     }
+  }
+  return nil
+}
+
+func AppendRawTrainData(coll string, data *types.RawTrainRecord) {
+  tmp := rawTrainRecord[coll]   //when no key-value pair, tmp will be an empty RawTrainRecord
+
+  //when tmp is an empty RawTrainRecord, its GpsData field is nil;
+  //but this usage of append is legal
+  tmp.GpsData = append(rawTrainRecord[coll].GpsData, data.GpsData...)
+  tmp.AccData = append(rawTrainRecord[coll].AccData, data.AccData...)
+  tmp.GyroData = append(rawTrainRecord[coll].GyroData, data.GyroData...)
+  tmp.HeartRateData = append(rawTrainRecord[coll].HeartRateData, data.HeartRateData...)
+  rawTrainRecord[coll] = tmp
+}
+
+func FlushRawTrainData() error {
+  for coll, data := range rawTrainRecord {
+    err := dbHelper.InsertRawTrainRecord(coll, &data)
+    if err != nil {
+      return err
+    }
+  }
+
+  for coll, _ := range rawTrainRecord {
+    delete(rawTrainRecord, coll)
   }
   return nil
 }

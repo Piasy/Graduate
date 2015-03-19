@@ -24,7 +24,6 @@ GET: for redirect, return error message
 }
 */
 func (this *AuthController) Get() {
-  beego.Info("req: ", this.GetString("req"))
   req, err := base64.URLEncoding.DecodeString(this.GetString("req"))
   var reqStr string
   if err != nil {
@@ -61,8 +60,11 @@ func (this *AuthController) Post() {
   if auth.Valid() && models.VerifyAdmin(auth.Username, auth.Password) {
     this.Data["json"] = &Success {true}
     this.SetSession("token", models.GetToken())
+    beego.Info("Authenticate success, token: ", models.GetToken())
   } else {
     this.Data["json"] = &Success {false}
+    beego.Info("Authenticate fail, username, password = ", auth.Username,
+      auth.Password)
   }
   this.ServeJson()
 }
