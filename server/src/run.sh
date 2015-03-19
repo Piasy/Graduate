@@ -2,4 +2,5 @@
 CWD=`pwd`
 cd .. && export GOPATH=`pwd`:$GOPATH && cd $CWD
 
-bee run
+#bee run
+bash

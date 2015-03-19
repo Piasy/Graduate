@@ -9,6 +9,5 @@ import (
 
 func main() {
 	defer models.CloseDB()
-	beego.SessionOn = true
 	beego.Run()
 }
