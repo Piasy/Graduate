@@ -1,0 +1,83 @@
+Applications Graphics Acceleration Info:
+Uptime: 152417 Realtime: 152417
+
+** Graphics info for pid 2465 [com.example.piasy.startup] **
+
+Recent DisplayList operations
+            DrawText
+            RestoreToCount
+          RestoreToCount
+  DrawPatch
+DrawBitmapRect
+multiDraw
+  DrawPatch
+DrawPatch
+DrawPatch
+multiDraw
+  DrawText
+DrawBitmap
+DrawText
+DrawBitmapRect
+DrawDisplayList
+  DrawDisplayList
+    DrawDisplayList
+      DrawDisplayList
+        DrawDisplayList
+          DrawDisplayList
+            DrawPatch
+            Save
+            ClipRect
+            Translate
+            DrawText
+            RestoreToCount
+          DrawDisplayList
+            DrawPatch
+            Save
+            ClipRect
+            Translate
+            DrawText
+            RestoreToCount
+  DrawDisplayList
+  DrawPatch
+DrawBitmapRect
+multiDraw
+  DrawPatch
+DrawPatch
+multiDraw
+  DrawText
+DrawBitmapRect
+DrawDisplayList
+  DrawDisplayList
+    DrawDisplayList
+      DrawDisplayList
+        DrawDisplayList
+  DrawDisplayList
+  DrawPatch
+DrawBitmapRect
+
+Caches:
+Current memory usage / total memory usage (bytes):
+  TextureCache                0 / 25165824
+  LayerCache                  0 / 16777216
+  RenderBufferCache           0 /  2097152
+  GradientCache               0 /   524288
+  PathCache                   0 / 10485760
+  TextDropShadowCache         0 /  2097152
+  PatchCache               1920 /   131072
+  FontRenderer 0 A8      524288 /   524288
+  FontRenderer 0 RGBA         0 /        0
+  FontRenderer 0 total   524288 /   524288
+Other:
+  FboCache                    0 /       16
+Total memory usage:
+  526208 bytes, 0.50 MB
+
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0.00 kB
+

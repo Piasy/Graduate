@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Demo</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_my_activity2">MyActivity2</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text1">TEXT2</string>
+    <string name="text2">TEXT1</string>
+    <string name="text3">New Button Test</string>
+    <string name="bt2">New Button2</string>
+
+</resources>
