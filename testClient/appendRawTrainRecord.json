@@ -1,0 +1,414 @@
+{
+  "op": "append",
+  "player": "5508f6b522c3c263c5dfe6cf",
+  "data": {
+    "gpsdata": [
+      {
+        "bearing": 96.9000015258789,
+        "longitude": 116.32371427,
+        "time": 1427774768000,
+        "latitude": 40.00797556,
+        "accuracy": 3,
+        "speed": 1.2744019031524658,
+        "altitude": 30
+      },
+      {
+        "bearing": 97.0999984741211,
+        "longitude": 116.32372781,
+        "time": 1427774769000,
+        "latitude": 40.00797243,
+        "accuracy": 3,
+        "speed": 1.202663779258728,
+        "altitude": 29
+      },
+      {
+        "bearing": 96.80000305175781,
+        "longitude": 116.32374223,
+        "time": 1427774770000,
+        "latitude": 40.00797186,
+        "accuracy": 3,
+        "speed": 1.201499104499817,
+        "altitude": 29
+      },
+      {
+        "bearing": 96.80000305175781,
+        "longitude": 116.32375775,
+        "time": 1427774771000,
+        "latitude": 40.00797323,
+        "accuracy": 3,
+        "speed": 1.1842296123504639,
+        "altitude": 29
+      },
+      {
+        "bearing": 97.0999984741211,
+        "longitude": 116.32377234,
+        "time": 1427774772000,
+        "latitude": 40.00797461,
+        "accuracy": 3,
+        "speed": 1.196829080581665,
+        "altitude": 28
+      },
+      {
+        "bearing": 78.4000015258789,
+        "longitude": 116.32378679,
+        "time": 1427774773000,
+        "latitude": 40.00797592,
+        "accuracy": 3,
+        "speed": 1.182708740234375,
+        "altitude": 28
+      },
+      {
+        "bearing": 92.0999984741211,
+        "longitude": 116.32380077,
+        "time": 1427774774000,
+        "latitude": 40.00797766,
+        "accuracy": 3,
+        "speed": 1.1715373992919922,
+        "altitude": 28
+      },
+      {
+        "bearing": 92.69999694824219,
+        "longitude": 116.32381363,
+        "time": 1427774775000,
+        "latitude": 40.00797838,
+        "accuracy": 3,
+        "speed": 1.1643023490905762,
+        "altitude": 29
+      },
+      {
+        "bearing": 83,
+        "longitude": 116.32382731,
+        "time": 1427774776000,
+        "latitude": 40.00797934,
+        "accuracy": 3,
+        "speed": 1.2271103858947754,
+        "altitude": 29
+      },
+      {
+        "bearing": 84.0999984741211,
+        "longitude": 116.32384161,
+        "time": 1427774777000,
+        "latitude": 40.00798163,
+        "accuracy": 3,
+        "speed": 1.4993665218353271,
+        "altitude": 28
+      },
+      {
+        "bearing": 84.19999694824219,
+        "longitude": 116.3238553,
+        "time": 1427774778000,
+        "latitude": 40.00798387,
+        "accuracy": 3,
+        "speed": 1.1738823652267456,
+        "altitude": 28
+      },
+      {
+        "bearing": 84.19999694824219,
+        "longitude": 116.32386882,
+        "time": 1427774779000,
+        "latitude": 40.00798554,
+        "accuracy": 3,
+        "speed": 1.1627552509307861,
+        "altitude": 28
+      },
+      {
+        "bearing": 84.19999694824219,
+        "longitude": 116.3238822,
+        "time": 1427774780000,
+        "latitude": 40.00798611,
+        "accuracy": 5,
+        "speed": 1.1506954431533813,
+        "altitude": 28
+      },
+      {
+        "bearing": 84.19999694824219,
+        "longitude": 116.32389658,
+        "time": 1427774781000,
+        "latitude": 40.00798745,
+        "accuracy": 5,
+        "speed": 1.1803812980651855,
+        "altitude": 28
+      },
+      {
+        "bearing": 70.9000015258789,
+        "longitude": 116.32390865,
+        "time": 1427774782000,
+        "latitude": 40.00799106,
+        "accuracy": 5,
+        "speed": 1.1970797777175903,
+        "altitude": 29
+      },
+      {
+        "bearing": 70.9000015258789,
+        "longitude": 116.32392122,
+        "time": 1427774783000,
+        "latitude": 40.00799587,
+        "accuracy": 5,
+        "speed": 1.2020399570465088,
+        "altitude": 29
+      },
+      {
+        "bearing": 71.0999984741211,
+        "longitude": 116.3239317,
+        "time": 1427774784000,
+        "latitude": 40.00799995,
+        "accuracy": 4,
+        "speed": 1.1600431203842163,
+        "altitude": 29
+      },
+      {
+        "bearing": 70.4000015258789,
+        "longitude": 116.32394507,
+        "time": 1427774785000,
+        "latitude": 40.00800638,
+        "accuracy": 4,
+        "speed": 1.1954915523529053,
+        "altitude": 28
+      },
+      {
+        "bearing": 47.29999923706055,
+        "longitude": 116.32395771,
+        "time": 1427774786000,
+        "latitude": 40.00801482,
+        "accuracy": 4,
+        "speed": 1.1503912210464478,
+        "altitude": 28
+      },
+      {
+        "bearing": 47.70000076293945,
+        "longitude": 116.32396801,
+        "time": 1427774787000,
+        "latitude": 40.00802321,
+        "accuracy": 4,
+        "speed": 1.152779221534729,
+        "altitude": 28
+      }
+    ],
+    "accdata": [
+      {
+        "xacc": 1.4322,
+        "yacc": 2.322,
+        "zacc": 9.6372
+      },
+      {
+        "xacc": 1.4322,
+        "yacc": 2.322,
+        "zacc": 9.6372
+      },
+      {
+        "xacc": 1.4322,
+        "yacc": 2.322,
+        "zacc": 9.6372
+      },
+      {
+        "xacc": 1.4322,
+        "yacc": 2.322,
+        "zacc": 9.6372
+      },
+      {
+        "xacc": 1.4322,
+        "yacc": 2.322,
+        "zacc": 9.6372
+      },
+      {
+        "xacc": 1.4322,
+        "yacc": 2.322,
+        "zacc": 9.6372
+      },
+      {
+        "xacc": 1.4322,
+        "yacc": 2.322,
+        "zacc": 9.6372
+      },
+      {
+        "xacc": 1.4322,
+        "yacc": 2.322,
+        "zacc": 9.6372
+      },
+      {
+        "xacc": 1.4322,
+        "yacc": 2.322,
+        "zacc": 9.6372
+      },
+      {
+        "xacc": 1.4322,
+        "yacc": 2.322,
+        "zacc": 9.6372
+      },
+      {
+        "xacc": 1.4322,
+        "yacc": 2.322,
+        "zacc": 9.6372
+      },
+      {
+        "xacc": 1.4322,
+        "yacc": 2.322,
+        "zacc": 9.6372
+      },
+      {
+        "xacc": 1.4322,
+        "yacc": 2.322,
+        "zacc": 9.6372
+      },
+      {
+        "xacc": 1.4322,
+        "yacc": 2.322,
+        "zacc": 9.6372
+      },
+      {
+        "xacc": 1.4322,
+        "yacc": 2.322,
+        "zacc": 9.6372
+      },
+      {
+        "xacc": 1.4322,
+        "yacc": 2.322,
+        "zacc": 9.6372
+      },
+      {
+        "xacc": 1.4322,
+        "yacc": 2.322,
+        "zacc": 9.6372
+      },
+      {
+        "xacc": 1.4322,
+        "yacc": 2.322,
+        "zacc": 9.6372
+      },
+      {
+        "xacc": 1.4322,
+        "yacc": 2.322,
+        "zacc": 9.6372
+      },
+      {
+        "xacc": 1.4322,
+        "yacc": 2.322,
+        "zacc": 9.6372
+      }
+    ],
+    "gyrodata": [
+      {
+        "xgyro": 1,
+        "ygyro": 2,
+        "zgyro": 3
+      },
+      {
+        "xgyro": 1,
+        "ygyro": 2,
+        "zgyro": 3
+      },
+      {
+        "xgyro": 1,
+        "ygyro": 2,
+        "zgyro": 3
+      },
+      {
+        "xgyro": 1,
+        "ygyro": 2,
+        "zgyro": 3
+      },
+      {
+        "xgyro": 1,
+        "ygyro": 2,
+        "zgyro": 3
+      },
+      {
+        "xgyro": 1,
+        "ygyro": 2,
+        "zgyro": 3
+      },
+      {
+        "xgyro": 1,
+        "ygyro": 2,
+        "zgyro": 3
+      },
+      {
+        "xgyro": 1,
+        "ygyro": 2,
+        "zgyro": 3
+      },
+      {
+        "xgyro": 1,
+        "ygyro": 2,
+        "zgyro": 3
+      },
+      {
+        "xgyro": 1,
+        "ygyro": 2,
+        "zgyro": 3
+      },
+      {
+        "xgyro": 1,
+        "ygyro": 2,
+        "zgyro": 3
+      },
+      {
+        "xgyro": 1,
+        "ygyro": 2,
+        "zgyro": 3
+      },
+      {
+        "xgyro": 1,
+        "ygyro": 2,
+        "zgyro": 3
+      },
+      {
+        "xgyro": 1,
+        "ygyro": 2,
+        "zgyro": 3
+      },
+      {
+        "xgyro": 1,
+        "ygyro": 2,
+        "zgyro": 3
+      },
+      {
+        "xgyro": 1,
+        "ygyro": 2,
+        "zgyro": 3
+      },
+      {
+        "xgyro": 1,
+        "ygyro": 2,
+        "zgyro": 3
+      },
+      {
+        "xgyro": 1,
+        "ygyro": 2,
+        "zgyro": 3
+      },
+      {
+        "xgyro": 1,
+        "ygyro": 2,
+        "zgyro": 3
+      },
+      {
+        "xgyro": 1,
+        "ygyro": 2,
+        "zgyro": 3
+      }
+    ],
+    "heartratedata": [
+      88,
+      94,
+      99,
+      100,
+      108,
+      113,
+      115,
+      119,
+      123,
+      128,
+      131,
+      133,
+      131,
+      135,
+      133,
+      128,
+      122,
+      115,
+      104,
+      96
+    ]
+  }
+}

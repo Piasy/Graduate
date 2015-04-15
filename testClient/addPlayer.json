@@ -1,0 +1,16 @@
+{
+  "name": "Zhang San",
+  "detailinfo": {
+    "name": "Zhang San",
+    "gender": 0,
+    "age": 28,
+    "height": 175.5,
+    "weight": 67.5,
+    "heartrate": 88,
+    "maxheartrate": 164
+  },
+  "overallremark": {
+    "speed": 8.9,
+    "heartrate": 93
+  }
+}

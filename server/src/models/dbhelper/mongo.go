@@ -1,6 +1,11 @@
 package dbhelper
 
 import (
+  "crypto/sha1"
+  "fmt"
+  "bytes"
+  "encoding/gob"
+
   "gopkg.in/mgo.v2"
   "gopkg.in/mgo.v2/bson"
 
@@ -39,6 +44,13 @@ if use different database, the performance becomes very bad!!
 */
 func (db *DBHelper) InsertPlayer(data *types.Player) error {
   data.ObjId = bson.NewObjectId()
+  w := new(bytes.Buffer)
+  encoder := gob.NewEncoder(w)
+  err := encoder.Encode(data)
+  if err != nil {
+    return err
+  }
+  data.History = fmt.Sprintf("%x", sha1.Sum(w.Bytes()))
   return db.players.Insert(data)
 }
 

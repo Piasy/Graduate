@@ -55,22 +55,11 @@ func (this *TrainRemarkController) Get() {
     return
   }
 
-  mType := this.GetString("type")
   player := this.GetString("player")
+  this.Data["json"] = models.GetTrainRecord(player, page, num)
 
-  switch(mType) {
-    case "speed":
-      this.Data["json"] = models.GetTrainSpeed(player, page, num)
-    case "distance":
-      this.Data["json"] = models.GetTrainDistance(player, page, num)
-    default:
-      this.Data["json"] = errors.Issue("Invalid type parameter",
-        errors.E_TYPE_SERVICE + errors.E_MODULE_TRAINREMARK + errors.E_DETAIL_ILLEGAL_PARAM,
-        this.Ctx.Request.URL.String())
-  }
-
-  beego.Info(fmt.Sprintf("Query train remark, req: %s, player: %s, type: %s, page: %d, num: %d",
-    this.Ctx.Request.URL.String(), player, mType, page, num))
+  beego.Info(fmt.Sprintf("Query train remark, req: %s, player: %s, page: %d, num: %d",
+    this.Ctx.Request.URL.String(), player, page, num))
 
   this.ServeJson()
 }

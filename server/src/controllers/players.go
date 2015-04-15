@@ -112,9 +112,9 @@ func (this *PlayersController) Post() {
 	beego.Info("Add/Update players success, player id: ", player.ObjId.Hex())
 
 	type Success struct {
-		Succ bool `json:"success"`
-		Id string	`json:"id"`
+		Succ bool 			`json:"success"`
+		types.Player		`json:"player"`
 	}
-	this.Data["json"] = &Success {true, player.ObjId.Hex()}
+	this.Data["json"] = &Success {true, player}
 	this.ServeJson()
 }

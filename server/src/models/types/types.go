@@ -26,7 +26,7 @@ func (p *Person) Valid() bool {
 }
 
 type Remark struct {
-  Speed float32                 `bson:"speed" json:"speed"`
+  Speed float64                 `bson:"speed" json:"speed"`
   HeartRate int                 `bson:"heartrate" json:"heartrate"`
   /**
   more remark criterion
@@ -42,7 +42,11 @@ type Player struct {
 }
 
 func (p *Player) Valid() bool {
-  return p.Name != "" && p.DetailInfo.Valid() && p.History != ""
+  if p.ObjId.Hex() == "" {
+    return p.Name != "" && p.DetailInfo.Valid()
+  } else {
+    return p.Name != "" && p.DetailInfo.Valid() && p.History != ""
+  }
 }
 
 func (p1 *Player) Equals(p2 *Player) bool {
@@ -51,10 +55,20 @@ func (p1 *Player) Equals(p2 *Player) bool {
     p1.History == p2.History
 }
 
+type TrainDesc struct {
+  TimeStamp int64                 `bson:"timestamp" json:"timestamp"`
+  Title string                    `bson:"title" json:"title"`
+  Time string                     `bson:"time" json:"time"`
+  Place string                    `bson:"place" json:"place"`
+  Desc string                     `bson:"desc" json:"desc"`
+}
+
 type TrainRecord struct {
   ObjId bson.ObjectId             `bson:"_id,omitempty" json:"_id"`
-  Speed []float32                 `bson:"speed" json:"speed"`
-  Distance []float32              `bson:"distance" json:"distance"`
+  Desc TrainDesc                  `bson:"desc" json:"desc"`
+  Speed []float64                 `bson:"speed" json:"speed"`
+  Distance []float64              `bson:"distance" json:"distance"`
+  HeartRate []int                 `bson:"heartrate" json:"heartrate"`
   /**
   more display criterion
   */
@@ -85,21 +99,25 @@ func (p1 *TrainRecord) Equals(p2 *TrainRecord) bool {
 Raw train record
 */
 type GPSData struct {
-  Latitude float32                `bson:"latitude" json:"latitude"`
-  Longitude float32               `bson:"longitude" json:"longitude"`
-  Height float32                  `bson:"height" json:"height"`
+  Latitude float64                `bson:"latitude" json:"latitude"`
+  Longitude float64               `bson:"longitude" json:"longitude"`
+  Altitude float64                `bson:"altitude" json:"altitude"`
+  Bearing float64                 `bson:"bearing" json:"bearing"`
+  Speed float64                   `bson:"speed" json:"speed"`
+  Accuracy float64                `bson:"accuracy" json:"accuracy"`
+  Time int64                      `bson:"time" json:"time"`
 }
 
 type ACCData struct {
-  XAcc float32                    `bson:"xacc" json:"xacc"`
-  YAcc float32                    `bson:"yacc" json:"yacc"`
-  ZAcc float32                    `bson:"zacc" json:"zacc"`
+  XAcc float64                    `bson:"xacc" json:"xacc"`
+  YAcc float64                    `bson:"yacc" json:"yacc"`
+  ZAcc float64                    `bson:"zacc" json:"zacc"`
 }
 
 type GYROData struct {
-  XGyro float32                   `bson:"xgyro" json:"xgyro"`
-  YGyro float32                   `bson:"ygyro" json:"ygyro"`
-  ZGyro float32                   `bson:"zgyro" json:"zgyro"`
+  XGyro float64                   `bson:"xgyro" json:"xgyro"`
+  YGyro float64                   `bson:"ygyro" json:"ygyro"`
+  ZGyro float64                   `bson:"zgyro" json:"zgyro"`
 }
 
 type RawTrainRecord struct {
