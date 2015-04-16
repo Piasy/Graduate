@@ -63,15 +63,60 @@ type TrainDesc struct {
   Desc string                     `bson:"desc" json:"desc"`
 }
 
+type HighIntensityRun struct {
+  Times int                       `bson:"times" json:"times"`
+  Interval []float32              `bson:"interval" json:"interval"`
+  AveInterval float32             `bson:"aveinterval" json:"aveinterval"`
+}
+
 type TrainRecord struct {
   ObjId bson.ObjectId             `bson:"_id,omitempty" json:"_id"`
   Desc TrainDesc                  `bson:"desc" json:"desc"`
+  TimeStamp []int64               `bson:"timestamp" json:"timestamp"`
+
   Speed []float64                 `bson:"speed" json:"speed"`
+  CurSpeed float64                `bson:"curspeed" json:"curspeed"`
+  HIRun HighIntensityRun          `bson:"hirun" json:"hirun"`
+
   Distance []float64              `bson:"distance" json:"distance"`
+  CurDistance float64             `bson:"curdistance" json:"curdistance"`
+  DistWithSpeed []float64         `bson:"distwithspeed" json:"distwithspeed"`
+  DistWithHR []float64            `bson:"distwithhr" json:"distwithhr"`
+
   HeartRate []int                 `bson:"heartrate" json:"heartrate"`
+  CurHeartRate int                `bson:"curheartrate" json:"curheartrate"`
+  HeartRateElapse []float32       `bson:"hrelapse" json:"hrelapse"`
+  HRWithSpeed []int               `bson:"hrwithspeed" json:"hrwithspeed"`
+
+  //private
+  hrWithSpeedCount []int
+
+  Position []GPSData              `bson:"position" json:"position"`
   /**
   more display criterion
   */
+}
+
+func (r *TrainRecord) SetHRWithSpeedCount(count []int) {
+  r.hrWithSpeedCount = count
+}
+
+func (r1 *TrainRecord) MergeHRWithSpeed(r2 *TrainRecord) {
+  //assume legal data
+  if r1.HRWithSpeed == nil {
+    r1.HRWithSpeed = make([]int, len(r2.HRWithSpeed))
+  }
+  if r1.hrWithSpeedCount == nil {
+    r1.hrWithSpeedCount = make([]int, len(r2.hrWithSpeedCount))
+  }
+  for i, _ := range r1.HRWithSpeed {
+    if r2.hrWithSpeedCount[i] > 0 {
+      r1.HRWithSpeed[i] = (r1.HRWithSpeed[i] * r1.hrWithSpeedCount[i] +
+        r2.HRWithSpeed[i] * r2.hrWithSpeedCount[i]) /
+        (r1.hrWithSpeedCount[i] + r2.hrWithSpeedCount[i])
+      r1.hrWithSpeedCount[i] += r2.hrWithSpeedCount[i]
+    }
+  }
 }
 
 func (p1 *TrainRecord) Equals(p2 *TrainRecord) bool {
@@ -112,12 +157,19 @@ type ACCData struct {
   XAcc float64                    `bson:"xacc" json:"xacc"`
   YAcc float64                    `bson:"yacc" json:"yacc"`
   ZAcc float64                    `bson:"zacc" json:"zacc"`
+  Time int64                      `bson:"time" json:"time"`
 }
 
 type GYROData struct {
   XGyro float64                   `bson:"xgyro" json:"xgyro"`
   YGyro float64                   `bson:"ygyro" json:"ygyro"`
   ZGyro float64                   `bson:"zgyro" json:"zgyro"`
+  Time int64                      `bson:"time" json:"time"`
+}
+
+type HeartRateData struct {
+  HeartRate int                   `bson:"heartrate" json:"heartrate"`
+  Time int64                      `bson:"time" json:"time"`
 }
 
 type RawTrainRecord struct {
@@ -125,13 +177,13 @@ type RawTrainRecord struct {
   GpsData []GPSData               `bson:"gpsdata" json:"gpsdata"`
   AccData []ACCData               `bson:"accdata" json:"accdata"`
   GyroData []GYROData             `bson:"gyrodata" json:"gyrodata"`
-  HeartRateData []int             `bson:"heartratedata" json:"heartratedata"`
+  HRData []HeartRateData          `bson:"hrdata" json:"hrdata"`
 }
 
 func (p1 *RawTrainRecord) Equals(p2 *RawTrainRecord) bool {
   if len(p1.GpsData) != len(p2.GpsData) ||
       len(p1.AccData) != len(p2.AccData) || len(p1.GyroData) != len(p2.GyroData) ||
-      len(p1.HeartRateData) != len(p2.HeartRateData) {
+      len(p1.HRData) != len(p2.HRData) {
     return false
   }
 
@@ -153,8 +205,8 @@ func (p1 *RawTrainRecord) Equals(p2 *RawTrainRecord) bool {
     }
   }
 
-  for i, _ := range p1.HeartRateData {
-    if p1.HeartRateData[i] != p2.HeartRateData[i] {
+  for i, _ := range p1.HRData {
+    if p1.HRData[i] != p2.HRData[i] {
       return false
     }
   }

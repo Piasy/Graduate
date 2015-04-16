@@ -181,7 +181,7 @@ func AppendRawTrainData(coll string, data *types.RawTrainRecord) {
   tmpRaw.GpsData = append(tmpRaw.GpsData, data.GpsData...)
   tmpRaw.AccData = append(tmpRaw.AccData, data.AccData...)
   tmpRaw.GyroData = append(tmpRaw.GyroData, data.GyroData...)
-  tmpRaw.HeartRateData = append(tmpRaw.HeartRateData, data.HeartRateData...)
+  tmpRaw.HRData = append(tmpRaw.HRData, data.HRData...)
   rawTrainRecord[coll] = tmpRaw
   rawLock.Unlock()
 
@@ -189,70 +189,56 @@ func AppendRawTrainData(coll string, data *types.RawTrainRecord) {
   recordLock.Lock()
   tmp := processedRecord[coll]
   processed := rawDataProcessor.RawData2Record(data)
+
+  tmp.TimeStamp = append(tmp.TimeStamp, processed.TimeStamp...)
+
   tmp.Speed = append(tmp.Speed, processed.Speed...)
+  tmp.CurSpeed = tmp.Speed[len(tmp.Speed) - 1]
+  tmp.HIRun.Interval = append(tmp.HIRun.Interval, processed.HIRun.Interval...)
+  if processed.HIRun.Times > 0 {
+    tmp.HIRun.AveInterval = (tmp.HIRun.AveInterval * float32(tmp.HIRun.Times) +
+      processed.HIRun.AveInterval * float32(processed.HIRun.Times)) /
+      float32(tmp.HIRun.Times + processed.HIRun.Times)
+    tmp.HIRun.Times += processed.HIRun.Times
+  }
+
   tmp.Distance = append(tmp.Distance, processed.Distance...)
+  tmp.CurDistance = tmp.Distance[len(tmp.Distance) - 1]
+  if tmp.DistWithSpeed == nil {
+    tmp.DistWithSpeed = make([]float64, len(processed.DistWithSpeed))
+  }
+  for i, _ := range tmp.DistWithSpeed {
+    tmp.DistWithSpeed[i] += processed.DistWithSpeed[i]
+  }
+  if tmp.DistWithHR == nil {
+    tmp.DistWithHR = make([]float64, len(processed.DistWithHR))
+  }
+  for i, _ := range tmp.DistWithHR {
+    tmp.DistWithHR[i] += processed.DistWithHR[i]
+  }
+
   tmp.HeartRate = append(tmp.HeartRate, processed.HeartRate...)
+  tmp.CurHeartRate = tmp.HeartRate[len(tmp.HeartRate) - 1]
+  if tmp.HeartRateElapse == nil {
+    tmp.HeartRateElapse = make([]float32, len(processed.HeartRateElapse))
+  }
+  for i, _ := range tmp.HeartRateElapse {
+    tmp.HeartRateElapse[i] += processed.HeartRateElapse[i]
+  }
+  tmp.MergeHRWithSpeed(processed)
+
+  tmp.Position = append(tmp.Position, processed.Position...)
+
   processedRecord[coll] = tmp
   recordLock.Unlock()
 }
 
-func GetTrainRecord(coll string, page, num int) *types.QueryResult {
+func GetTrainRecord(coll string) *types.TrainRecord {
   recordLock.RLock()
   data := processedRecord[coll]
   recordLock.RUnlock()
-  record := types.TrainRecord {}
-  var next, total int
-  total = 0
 
-  //speed
-  if 0 <= page * num && page * num < len(data.Speed) {
-    if total < len(data.Speed) {
-      total = len(data.Speed)
-    }
-    if (page + 1) * num <= len(data.Speed) {
-      next = page + 1
-      record.Speed = data.Speed[page * num : (page + 1) * num]
-    } else {
-      next = -1
-      record.Speed = data.Speed[page * num :]
-    }
-  } else {
-    record.Speed = make([]float64, 0)
-  }
-
-  //distance
-  if 0 <= page * num && page * num < len(data.Distance) {
-    if total < len(data.Distance) {
-      total = len(data.Distance)
-    }
-    if (page + 1) * num <= len(data.Distance) {
-      next = page + 1
-      record.Distance = data.Distance[page * num : (page + 1) * num]
-    } else {
-      next = -1
-      record.Distance = data.Distance[page * num :]
-    }
-  } else {
-    record.Distance = make([]float64, 0)
-  }
-
-  //heart rate
-  if 0 <= page * num && page * num < len(data.HeartRate) {
-    if total < len(data.HeartRate) {
-      total = len(data.HeartRate)
-    }
-    if (page + 1) * num <= len(data.HeartRate) {
-      next = page + 1
-      record.HeartRate = data.HeartRate[page * num : (page + 1) * num]
-    } else {
-      next = -1
-      record.HeartRate = data.HeartRate[page * num :]
-    }
-  } else {
-    record.HeartRate = make([]int, 0)
-  }
-
-  return &types.QueryResult {record, total, page - 1, page, next}
+  return &data
 }
 
 func FlushRawTrainData() error {
@@ -279,9 +265,10 @@ func FlushRawTrainData() error {
     }
   }
 
-  for coll, _ := range processedRecord {
+  //TODO when to clear this map?
+  /*for coll, _ := range processedRecord {
     delete(processedRecord, coll)
-  }
+  }*/
   recordLock.Unlock()
   return nil
 }

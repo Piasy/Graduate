@@ -30,7 +30,7 @@ func (this *TrainHistoryController) Get() {
   if err != nil {
     beego.Warn("Query train history error, parse page error: ", err)
     this.Data["json"] = errors.Issue("Parse page error",
-      errors.E_TYPE_SERVICE + errors.E_MODULE_PLAYER + errors.E_DETAIL_PARSE_PARAM_ERROR,
+      errors.E_TYPE_SERVICE + errors.E_MODULE_TRAINHISTORY + errors.E_DETAIL_PARSE_PARAM_ERROR,
       this.Ctx.Request.URL.String())
     this.ServeJson()
     return
@@ -40,7 +40,7 @@ func (this *TrainHistoryController) Get() {
   if err != nil {
     beego.Warn("Query train history error, parse num error: ", err)
     this.Data["json"] = errors.Issue("Parse num error",
-      errors.E_TYPE_SERVICE + errors.E_MODULE_PLAYER + errors.E_DETAIL_PARSE_PARAM_ERROR,
+      errors.E_TYPE_SERVICE + errors.E_MODULE_TRAINHISTORY + errors.E_DETAIL_PARSE_PARAM_ERROR,
       this.Ctx.Request.URL.String())
     this.ServeJson()
     return
@@ -49,13 +49,21 @@ func (this *TrainHistoryController) Get() {
   if page < 0 || num < 0 {
     beego.Warn("Query train history error, wrong params: page, num = ", page, num)
     this.Data["json"] = errors.Issue("Page and num must be non-negative",
-      errors.E_TYPE_SERVICE + errors.E_MODULE_PLAYER + errors.E_DETAIL_ILLEGAL_PARAM,
+      errors.E_TYPE_SERVICE + errors.E_MODULE_TRAINHISTORY + errors.E_DETAIL_ILLEGAL_PARAM,
       this.Ctx.Request.URL.String())
     this.ServeJson()
     return
   }
 
   player := this.GetString("player")
+  if len(player) != 40 {
+    beego.Warn("Query train history error, wrong params: player = ", player)
+    this.Data["json"] = errors.Issue("Invalid player",
+      errors.E_TYPE_SERVICE + errors.E_MODULE_TRAINHISTORY + errors.E_DETAIL_ILLEGAL_PARAM,
+      this.Ctx.Request.URL.String())
+    this.ServeJson()
+    return
+  }
 
   this.Data["json"] = models.QueryTrainRecord(player, page, num)
 
