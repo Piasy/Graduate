@@ -90,7 +90,7 @@ func ResetToken() {
 }
 
 func QueryPlayer(page, num int) *types.QueryResult {
-  var next int
+  next := -1
   var result []types.Player
   playersLock.RLock()
   defer playersLock.RUnlock()
@@ -99,7 +99,6 @@ func QueryPlayer(page, num int) *types.QueryResult {
       next = page + 1
       result = players[page * num : (page + 1) * num]
     } else {
-      next = -1
       result = players[page * num :]
     }
   } else {
@@ -112,7 +111,7 @@ func QueryPlayer(page, num int) *types.QueryResult {
 
 func QueryTrainRecord(coll string, page, num int) *types.QueryResult {
   var result []types.TrainRecord
-  var next, count int
+  next, count := -1, 0
   var err error
 
   if page < 0 || num < 0 {
@@ -120,9 +119,7 @@ func QueryTrainRecord(coll string, page, num int) *types.QueryResult {
     if err != nil {
       return &types.QueryResult {make([]types.Player, 0), 0, page - 1, page, -1}
     }
-    if count < 10 {
-      next = -1
-    } else {
+    if count > 10 {
       next = page + 1
     }
     return &types.QueryResult {result, count, page - 1, page, next}
@@ -133,9 +130,7 @@ func QueryTrainRecord(coll string, page, num int) *types.QueryResult {
     return &types.QueryResult {make([]types.Player, 0), 0, page - 1, page, -1}
   }
 
-  if len(result) < num {
-    next = -1
-  } else {
+  if len(result) > num {
     next = page + 1
   }
 
@@ -233,12 +228,61 @@ func AppendRawTrainData(coll string, data *types.RawTrainRecord) {
   recordLock.Unlock()
 }
 
-func GetTrainRecord(coll string) *types.TrainRecord {
+func GetTrainRecord(coll string, page, num int) *types.QueryResult {
   recordLock.RLock()
   data := processedRecord[coll]
   recordLock.RUnlock()
 
-  return &data
+  next := -1
+  result := make([]types.TrainRecord, 1)
+  record := types.TrainRecord {}
+  record.Desc = data.Desc
+  if 0 <= page * num && page * num < len(data.TimeStamp) {
+    if (page + 1) * num <= len(data.TimeStamp) {
+      next = page + 1
+      record.TimeStamp = data.TimeStamp[page * num : (page + 1) * num]
+    } else {
+      record.TimeStamp = data.TimeStamp[page * num :]
+    }
+
+    if (page + 1) * num <= len(data.Speed) {
+      record.Speed = data.Speed[page * num : (page + 1) * num]
+    } else {
+      record.Speed = data.Speed[page * num :]
+    }
+
+    record.CurSpeed = data.CurSpeed
+    record.HIRun = data.HIRun
+
+    if (page + 1) * num <= len(data.Distance) {
+      record.Distance = data.Distance[page * num : (page + 1) * num]
+    } else {
+      record.Distance = data.Distance[page * num :]
+    }
+
+    record.CurDistance = data.CurDistance
+    record.DistWithSpeed = data.DistWithSpeed
+    record.DistWithHR = data.DistWithHR
+
+    if (page + 1) * num <= len(data.HeartRate) {
+      record.HeartRate = data.HeartRate[page * num : (page + 1) * num]
+    } else {
+      record.HeartRate = data.HeartRate[page * num :]
+    }
+
+    record.CurHeartRate = data.CurHeartRate
+    record.HeartRateElapse = data.HeartRateElapse
+    record.HRWithSpeed = data.HRWithSpeed
+
+    if (page + 1) * num <= len(data.Position) {
+      record.Position = data.Position[page * num : (page + 1) * num]
+    } else {
+      record.Position = data.Position[page * num :]
+    }
+  }
+  result[0] = record
+
+  return &types.QueryResult {result, len(data.TimeStamp), page - 1, page, next}
 }
 
 func FlushRawTrainData() error {

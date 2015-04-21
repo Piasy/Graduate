@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>运动员</title>
+    <link type="text/css" href="css/common.css" rel="stylesheet"/>
+    <script type="application/javascript" src="js/jquery-2.1.1.min.js"></script>
+    <script type="application/javascript" src="js/common.js"></script>
+</head>
+<body>
+<div class="top_bar">
+    <div class="top_bar back_btn">
+        <span class="s1">返</span>
+        <span class="s2">回</span>
+    </div>
+</div>
+<div class="main_body config_players">
+    <div class="players_name_list">
+        <ul class="names_list">
+            <li>
+                <div class="names_list name">
+                    <span style="color: #0388b5">内马尔</span>
+                    <img src="img/player_name_selected.jpg" style="position: relative; top: 3px; left: 240px;">
+                </div>
+                <hr class="divider_of_names_list"/>
+            </li>
+            <li>
+                <div class="names_list name">
+                    <span style="color: black">内马尔</span>
+                    <img src="img/player_name_not_selected.jpg" style="position: relative; top: 3px; left: 240px;">
+                </div>
+                <hr class="divider_of_names_list"/>
+            </li>
+            <li>
+                <div class="add_player_btn">
+                    <img src="img/add_btn.jpg" style="position: relative; left: -85px; top: 6px;">
+                    <span style="color: black;float: left;position: relative;top: 10px;left: 41px;">点击添加更多</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="player_detail">
+        <img src="img/neymar.jpg" class="player_avatar">
+        <table class="player_detail">
+            <tr class="table_header">
+                <td class="attr">
+                    <span>姓名</span>
+                </td>
+                <td class="value">
+                    <span>内马尔</span>
+                </td>
+            </tr>
+            <tr class="table_body">
+                <td class="attr">
+                    <span>性别</span>
+                </td>
+                <td class="value">
+                    <span>男</span>
+                </td>
+            </tr>
+            <tr class="table_body">
+                <td class="attr">
+                    <span>身高</span>
+                </td>
+                <td class="value">
+                    <span>175cm</span>
+                </td>
+            </tr>
+            <tr class="table_body">
+                <td class="attr">
+                    <span>体重</span>
+                </td>
+                <td class="value">
+                    <span>64kg</span>
+                </td>
+            </tr>
+            <tr class="table_body">
+                <td class="attr">
+                    <span>位置</span>
+                </td>
+                <td class="value">
+                    <span>前锋</span>
+                </td>
+            </tr>
+            <tr class="table_body">
+                <td class="attr">
+                    <span>设备编号</span>
+                </td>
+                <td class="value">
+                    <span>432452234</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<script type="application/javascript">
+    $(document).ready(function() {
+        $("div.top_bar.back_btn").click(function () {
+            console.log("Go back clicked!");
+        });
+
+        $("div.add_player_btn").click(function () {
+            console.log("add player clicked!");
+        });
+
+        loadPlayers(function(players) {
+            console.log(players.length + " players");
+
+            //clear remark data, avoid error
+            localStorage.clear();
+            localStorage.setItem("players", JSON.stringify(players));
+
+            /*var worker = new Worker("js/data_loader.js");
+            worker.onmessage = function (msg) {
+                var msg = JSON.parse(msg.data);
+                if (msg.type == "error") {
+                    console.log("worker error: " + event.data);
+                    worker.terminate();
+                } else if (msg.type == "remark") {
+                    concatAndSaveTrainRemark(msg.player, msg.remark);
+                }
+            };
+            var start_msg = {};
+            start_msg.type = "players";
+            start_msg.players = players;
+            worker.postMessage(JSON.stringify(start_msg));*/
+        }, function() {
+            console.log("Error happened");
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,304 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/**
+top bar
+*/
+div.top_bar {
+    position: relative;
+
+    background-color: #474747;
+}
+
+div.top_bar.back_btn {
+    width: 143px;
+    height: 69px;
+
+    position: relative;
+
+    text-align: left;
+    background: url("../img/back_btn.png") no-repeat 23px 14px;
+}
+div.top_bar span.s1 {
+    font:22px/38px "微软雅黑";
+    color: #5c5c5c;
+    position: absolute;
+    top:13px;
+    left: 60px;
+}
+div.top_bar span.s2 {
+    font:22px/38px "微软雅黑";
+    color: #5c5c5c;
+    position: absolute;
+    top:13px;
+    left: 96px;
+}
+
+div.main_body.chart_with_players_panel {
+    min-width: 976px;
+    height: 685px;
+    margin: 0 auto;
+    padding: 7px 23px;
+
+    background-color: #dcdcdc;
+}
+
+/**
+chart with players panel
+*/
+div.players_panel {
+    width: 100%;
+    height: 192px;
+    margin: 0;
+    padding: 0;
+
+    background-color: white;
+}
+
+img.players_panel.before_btn {
+    position: absolute;
+    top: 145px;
+    left: 45px;
+}
+
+div.players_panel.before_btn_line {
+    height: 173px;
+    width: 2px;
+    margin: 0;
+    padding: 0;
+
+    position: absolute;
+    top: 85px;
+    left: 75px;
+
+    background-color: #e9e9e9;
+    display: inline-block;
+}
+
+img.players_panel.after_btn {
+    position: absolute;
+    top: 145px;
+    left: 960px;
+}
+
+div.players_panel.after_btn_line {
+    height: 173px;
+    width: 2px;
+    margin: 0;
+    padding: 0;
+
+    position: absolute;
+    top: 85px;
+    left: 945px;
+
+    background-color: #e9e9e9;
+    display: inline-block;
+}
+
+ul.players_list {
+    padding: 0;
+    margin: 0;
+    top: 15px;
+    left: 46px;
+
+    position: relative;
+
+    list-style: none;
+    display: inline-block;
+}
+
+.players_list li {
+    float: left;
+}
+
+.players_list li img.player_avatar {
+    width: 128px;
+    height: 160px;
+    margin-left: 40px;
+}
+
+div.player_name {
+    width: 126px;
+    height: 30px;
+
+    position: relative;
+    top: -30px;
+    left: 42px;
+
+    background: url("../img/black_bg.png") repeat-x;
+}
+
+.player_name span {
+    position: absolute;
+    top: 7px;
+    left: 10px;
+
+    clear: both;
+    color: white;
+}
+
+.player_name img.player_avatar.player_selected {
+    width: 18px;
+    height: 18px;
+    border: 0;
+
+    position: absolute;
+    top: 7px;
+    left: 65px;
+
+    clear: both;
+    color: white;
+}
+
+div.chart_area {
+    margin: 7px 0 0 0;
+    padding: 0;
+    width: 100%;
+    height: 487px;
+    background-color: white;
+    text-align: center;
+}
+
+/**
+configure players
+*/
+div.main_body.config_players {
+    min-width: 976px;
+    height: 685px;
+    margin: 0 auto;
+    padding: 8px 12px;
+
+    background-color: #dcdcdc;
+}
+
+div.players_name_list {
+    width: 345px;
+    height: 670px;
+
+    position: relative;
+
+    float: left;
+    background-color: white;
+    box-shadow: 2px 0 5px #888888;
+}
+
+div.player_detail {
+    width: 641px;
+    height: 670px;
+
+    position: relative;
+    left: 12px;
+
+    float: left;
+    background-color: white;
+}
+
+ul.names_list {
+    width: 324px;
+    padding: 0;
+    margin: 0;
+
+    position: relative;
+    top: 3px;
+    left: 10px;
+
+    list-style: none;
+    display: inline-block;
+
+    /*border: solid 2px red;*/
+}
+
+.names_list li {
+    height: 48px;
+    /*border: solid 1px blue;*/
+}
+
+.names_list li span.name {
+    position: relative;
+    top: 15px;
+    left: 12px;
+
+    font-size: 16px;
+}
+
+hr.divider_of_names_list {
+    position: relative;
+    top: 16px;
+    border: 1px dashed #c1c1c1;
+}
+
+div.names_list.name {
+    width: 324px;
+
+    position: relative;
+    top: 7px;
+    left: 10px;
+
+    float: left;
+}
+
+div.add_player_btn {
+    width: 150px;
+    height: 40px;
+    margin: 0;
+
+    position: relative;
+    top: 2px;
+    left: 90px;
+}
+
+div.player_detail img.player_avatar {
+    width: 217px;
+    height: 263px;
+
+    position: relative;
+    top: 26px;
+    left: 190px;
+
+    border: 2px solid #b8b7b7;
+}
+
+table.player_detail {
+    width: 582px;
+
+    position: relative;
+    top: 40px;
+    left: 29px;
+}
+
+table.player_detail tr td.attr {
+     text-align: left;
+}
+
+table.player_detail tr td.value {
+    text-align: right;
+}
+
+table.player_detail tr td.attr span {
+    position: relative;
+    left: 28px;
+}
+
+table.player_detail tr td.value span {
+    position: relative;
+    right: 28px;
+}
+
+table.player_detail tr td span {
+    color: #efefef;
+    font:18px/44px "微软雅黑";
+}
+
+table.player_detail tr.table_header {
+    background-color: #0388b5;
+}
+
+table.player_detail tr.table_body {
+    background-color: #5d5c5c;
+}
+
+table.player_detail tr td {
+    border: 1px solid #b8b7b7;
+}

@@ -11,7 +11,8 @@ import (
 )
 
 func init() {
-	beego.InsertFilter("/*", beego.BeforeRouter, loginChecker)
+	//beego.InsertFilter("/*", beego.BeforeRouter, loginChecker)
+	beego.SetStaticPath("/web", "web")
   beego.Router("/api/player", &controllers.PlayersController{})
 	beego.Router("/api/auth", &controllers.AuthController{})
 	beego.Router("/api/rawtrainrecord", &controllers.RawTrainRecordController{})
