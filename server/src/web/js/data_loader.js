@@ -14,13 +14,13 @@
 
 function loadTrainRemark(players) {
     players.forEach(function (player, index, arr) {
-        loadRestTrainRemarkOf(player);
+        loadRestTrainRemarkOf(player, index < players.length - 1);
     });
 
     //setTimeout(loadTrainRemark(players), 60 * 1000);
 }
 
-function loadRestTrainRemarkOf(player) {
+function loadRestTrainRemarkOf(player, hasmore) {
     if (player.curPage == undefined) {
         player.curPage = 0;
     }
@@ -37,6 +37,7 @@ function loadRestTrainRemarkOf(player) {
                 var msg = {};
                 msg.type = "remark";
                 msg.remark = data.result[0];
+                msg.hasnext = player.curPage != -1 || hasmore;
                 msg.player = player.history;
                 postMessage(JSON.stringify(msg));
             }

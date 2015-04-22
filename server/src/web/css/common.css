@@ -1,44 +1,52 @@
 body {
     margin: 0;
     padding: 0;
+    width: 980px;
+    height: 643px;
+    background-color: #dcdcdc;
 }
 
 /**
 top bar
 */
 div.top_bar {
+    width: 100%;
+    height: 7%;
+
     position: relative;
 
     background-color: #474747;
 }
 
 div.top_bar.back_btn {
-    width: 143px;
-    height: 69px;
+    width: 11%;
+    height: 76%;
 
     position: relative;
+    top: 18%;
+    left: 4%;
 
     text-align: left;
-    background: url("../img/back_btn.png") no-repeat 23px 14px;
+    background: url("../img/back_btn.png") no-repeat ;
+    background-size: 90% 90%;
+    display: inline-block;
 }
 div.top_bar span.s1 {
-    font:22px/38px "微软雅黑";
+    font: 21px/30px "微软雅黑";
     color: #5c5c5c;
-    position: absolute;
-    top:13px;
-    left: 60px;
+    position: relative;
+    left: 26%;
 }
 div.top_bar span.s2 {
-    font:22px/38px "微软雅黑";
+    font: 21px/30px "微软雅黑";
     color: #5c5c5c;
-    position: absolute;
-    top:13px;
-    left: 96px;
+    position: relative;
+    left: 34%;
 }
 
 div.main_body.chart_with_players_panel {
-    min-width: 976px;
-    height: 685px;
+    width: 100%;
+    height: 97%;
     margin: 0 auto;
     padding: 7px 23px;
 
@@ -165,17 +173,17 @@ div.chart_area {
 configure players
 */
 div.main_body.config_players {
-    min-width: 976px;
-    height: 685px;
-    margin: 0 auto;
-    padding: 8px 12px;
+    width: 97.6%;
+    height: 91%;
+    margin: 0;
+    padding: 0.6% 1.2%;
 
     background-color: #dcdcdc;
 }
 
 div.players_name_list {
-    width: 345px;
-    height: 670px;
+    width: 33%;
+    height: 100%;
 
     position: relative;
 
@@ -185,24 +193,25 @@ div.players_name_list {
 }
 
 div.player_detail {
-    width: 641px;
-    height: 670px;
+    width: 65.5%;
+    height: 100%;
 
     position: relative;
-    left: 12px;
+    left: 1.5%;
 
     float: left;
     background-color: white;
 }
 
 ul.names_list {
-    width: 324px;
+    width: 90%;
+    height: 96%;
     padding: 0;
     margin: 0;
 
     position: relative;
-    top: 3px;
-    left: 10px;
+    left: 5%;
+    top: 2%;
 
     list-style: none;
     display: inline-block;
@@ -211,51 +220,52 @@ ul.names_list {
 }
 
 .names_list li {
+    width: 100%;
     height: 48px;
+
     /*border: solid 1px blue;*/
+}
+
+div.names_list.name {
+    width: 95%;
+
+    position: relative;
+    left: 2.5%;
 }
 
 .names_list li span.name {
     position: relative;
-    top: 15px;
-    left: 12px;
+    top: 3px;
 
     font-size: 16px;
 }
 
 hr.divider_of_names_list {
+    width: 100%;
+
     position: relative;
-    top: 16px;
+    top: 20%;
+
     border: 1px dashed #c1c1c1;
 }
 
-div.names_list.name {
-    width: 324px;
-
-    position: relative;
-    top: 7px;
-    left: 10px;
-
-    float: left;
-}
-
 div.add_player_btn {
-    width: 150px;
+    width: 50%;
     height: 40px;
     margin: 0;
 
     position: relative;
     top: 2px;
-    left: 90px;
+    left: 25%;
 }
 
 div.player_detail img.player_avatar {
-    width: 217px;
-    height: 263px;
+    width: 24%;
+    height: 34%;
 
     position: relative;
-    top: 26px;
-    left: 190px;
+    top: 10px;
+    left: 38%;
 
     border: 2px solid #b8b7b7;
 }

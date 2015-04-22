@@ -17,6 +17,7 @@ type Person struct {
   Weight float32                `bson:"weight" json:"weight"`
   HeartRate int                 `bson:"heartrate" json:"heartrate"`
   MaxHeartRate int              `bson:"maxheartrate" json:"maxheartrate"`
+  Avatar string                 `bson:"avatar" json:"avatar"`
 }
 
 func (p *Person) Valid() bool {
@@ -39,6 +40,8 @@ type Player struct {
   DetailInfo Person              `bson:"detailinfo" json:"detailinfo"`
   OverallRemark Remark           `bson:"overallremark" json:"overallremark"`
   History string                 `bson:"history" json:"history"`
+  Position string                `bson:"position" json:"position"`
+  DeviceID string                `bson:"deviceid" json:"deviceid"`
 }
 
 func (p *Player) Valid() bool {

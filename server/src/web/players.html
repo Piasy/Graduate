@@ -17,17 +17,17 @@
 <div class="main_body config_players">
     <div class="players_name_list">
         <ul class="names_list">
-            <li>
+            <!--<li>
                 <div class="names_list name">
                     <span style="color: #0388b5">内马尔</span>
-                    <img src="img/player_name_selected.jpg" style="position: relative; top: 3px; left: 240px;">
+                    <img src="img/player_name_selected.jpg" style="position: relative; right: 14px;float: right;">
                 </div>
                 <hr class="divider_of_names_list"/>
             </li>
             <li>
                 <div class="names_list name">
                     <span style="color: black">内马尔</span>
-                    <img src="img/player_name_not_selected.jpg" style="position: relative; top: 3px; left: 240px;">
+                    <img src="img/player_name_not_selected.jpg" style="position: relative; right: 14px;float: right;">
                 </div>
                 <hr class="divider_of_names_list"/>
             </li>
@@ -36,12 +36,12 @@
                     <img src="img/add_btn.jpg" style="position: relative; left: -85px; top: 6px;">
                     <span style="color: black;float: left;position: relative;top: 10px;left: 41px;">点击添加更多</span>
                 </div>
-            </li>
+            </li>-->
         </ul>
     </div>
 
     <div class="player_detail">
-        <img src="img/neymar.jpg" class="player_avatar">
+        <!--<img src="img/neymar.jpg" class="player_avatar">
         <table class="player_detail">
             <tr class="table_header">
                 <td class="attr">
@@ -91,18 +91,16 @@
                     <span>432452234</span>
                 </td>
             </tr>
-        </table>
+        </table>-->
     </div>
 </div>
 
 <script type="application/javascript">
     $(document).ready(function() {
+        //alert("window h: " + $(window).height() + ", window w: " + $(window).width() + ", doc h: " + $(document).height() + ", doc w: " + $(document).width() + ", screen h: " + screen.height + ", screen w: " + screen.width);
+
         $("div.top_bar.back_btn").click(function () {
             console.log("Go back clicked!");
-        });
-
-        $("div.add_player_btn").click(function () {
-            console.log("add player clicked!");
         });
 
         loadPlayers(function(players) {
@@ -110,22 +108,77 @@
 
             //clear remark data, avoid error
             localStorage.clear();
-            localStorage.setItem("players", JSON.stringify(players));
 
-            /*var worker = new Worker("js/data_loader.js");
-            worker.onmessage = function (msg) {
-                var msg = JSON.parse(msg.data);
-                if (msg.type == "error") {
-                    console.log("worker error: " + event.data);
-                    worker.terminate();
-                } else if (msg.type == "remark") {
-                    concatAndSaveTrainRemark(msg.player, msg.remark);
+            //left side list
+            var selectIndex = -1;
+            players.forEach(function (p, i, arr) {
+                var li = document.createElement('li');
+
+                var div = document.createElement('div');
+                div.setAttribute("class", "names_list name");
+                var span = document.createElement('span');
+                span.setAttribute("class", "name");
+                span.innerHTML = p.name;
+                var img = document.createElement('img');
+                img.setAttribute("style", "position: relative; float: right;");
+                if (selectIndex == i) {
+                    span.setAttribute("style", "color: #0388b5");
+                    img.setAttribute("src", "img/player_name_selected.jpg");
+                } else {
+                    span.setAttribute("style", "color: black");
+                    img.setAttribute("src", "img/player_name_not_selected.jpg");
                 }
-            };
-            var start_msg = {};
-            start_msg.type = "players";
-            start_msg.players = players;
-            worker.postMessage(JSON.stringify(start_msg));*/
+                div.appendChild(span);
+                div.appendChild(img);
+                div.onclick = function () {
+                    if (selectIndex != -1) {
+                        $("ul.names_list")[0].children[selectIndex].children[0].children[0].style.color = "black";
+                        $("ul.names_list")[0].children[selectIndex].children[0].children[1].src = "img/player_name_not_selected.jpg";
+                    }
+
+                    selectIndex = i;
+                    span.setAttribute("style", "color: #0388b5");
+                    img.setAttribute("src", "img/player_name_selected.jpg");
+                    if ($("div.player_detail img.player_avatar").length == 0) {
+                        var avatar = document.createElement("img");
+                        avatar.setAttribute("src", p.detailinfo.avatar);
+                        avatar.setAttribute("class", "player_avatar");
+                        $("div.player_detail").append(avatar);
+
+                        var table = createPlayerDetailTable(p);
+                        $("div.player_detail").append(table);
+                    } else {
+                        var avatar = $("div.player_detail img.player_avatar")[0];
+                        avatar.src = p.detailinfo.avatar;
+                        var table = $("table.player_detail")[0];
+                        changePlayerDetailTable(table, p);
+                    }
+                };
+
+                var hr = document.createElement('hr');
+                hr.setAttribute("class", "divider_of_names_list");
+
+                li.appendChild(div);
+                li.appendChild(hr);
+                $("ul.names_list").append(li);
+            });
+            var li = document.createElement('li');
+
+            var div = document.createElement('div');
+            div.setAttribute("class", "add_player_btn");
+            var img = document.createElement('img');
+            img.setAttribute("src", "img/add_btn.jpg");
+            img.setAttribute("style", "position: relative; left: -85px; top: 6px;");
+            var span = document.createElement('span');
+            span.innerHTML = "点击添加更多";
+            span.setAttribute("style", "color: black;float: left;position: relative;top: 10px;left: 41px;");
+            div.appendChild(img);
+            div.appendChild(span);
+            li.appendChild(div);
+            $("ul.names_list").append(li);
+            $("div.add_player_btn").click(function () {
+                console.log("add player clicked!");
+            });
         }, function() {
             console.log("Error happened");
         });
