@@ -17,81 +17,12 @@
 <div class="main_body config_players">
     <div class="players_name_list">
         <ul class="names_list">
-            <!--<li>
-                <div class="names_list name">
-                    <span style="color: #0388b5">内马尔</span>
-                    <img src="img/player_name_selected.jpg" style="position: relative; right: 14px;float: right;">
-                </div>
-                <hr class="divider_of_names_list"/>
-            </li>
-            <li>
-                <div class="names_list name">
-                    <span style="color: black">内马尔</span>
-                    <img src="img/player_name_not_selected.jpg" style="position: relative; right: 14px;float: right;">
-                </div>
-                <hr class="divider_of_names_list"/>
-            </li>
-            <li>
-                <div class="add_player_btn">
-                    <img src="img/add_btn.jpg" style="position: relative; left: -85px; top: 6px;">
-                    <span style="color: black;float: left;position: relative;top: 10px;left: 41px;">点击添加更多</span>
-                </div>
-            </li>-->
+
         </ul>
     </div>
 
     <div class="player_detail">
-        <!--<img src="img/neymar.jpg" class="player_avatar">
-        <table class="player_detail">
-            <tr class="table_header">
-                <td class="attr">
-                    <span>姓名</span>
-                </td>
-                <td class="value">
-                    <span>内马尔</span>
-                </td>
-            </tr>
-            <tr class="table_body">
-                <td class="attr">
-                    <span>性别</span>
-                </td>
-                <td class="value">
-                    <span>男</span>
-                </td>
-            </tr>
-            <tr class="table_body">
-                <td class="attr">
-                    <span>身高</span>
-                </td>
-                <td class="value">
-                    <span>175cm</span>
-                </td>
-            </tr>
-            <tr class="table_body">
-                <td class="attr">
-                    <span>体重</span>
-                </td>
-                <td class="value">
-                    <span>64kg</span>
-                </td>
-            </tr>
-            <tr class="table_body">
-                <td class="attr">
-                    <span>位置</span>
-                </td>
-                <td class="value">
-                    <span>前锋</span>
-                </td>
-            </tr>
-            <tr class="table_body">
-                <td class="attr">
-                    <span>设备编号</span>
-                </td>
-                <td class="value">
-                    <span>432452234</span>
-                </td>
-            </tr>
-        </table>-->
+
     </div>
 </div>
 
@@ -132,27 +63,38 @@
                 div.appendChild(img);
                 div.onclick = function () {
                     if (selectIndex != -1) {
-                        $("ul.names_list")[0].children[selectIndex].children[0].children[0].style.color = "black";
-                        $("ul.names_list")[0].children[selectIndex].children[0].children[1].src = "img/player_name_not_selected.jpg";
+                        var ul = $("ul.names_list")[0];
+                        ul.children[selectIndex].children[0].children[0].style.color = "black";
+                        ul.children[selectIndex].children[0].children[1].src = "img/player_name_not_selected.jpg";
                     }
 
                     selectIndex = i;
                     span.setAttribute("style", "color: #0388b5");
                     img.setAttribute("src", "img/player_name_selected.jpg");
-                    if ($("div.player_detail img.player_avatar").length == 0) {
-                        var avatar = document.createElement("img");
-                        avatar.setAttribute("src", p.detailinfo.avatar);
-                        avatar.setAttribute("class", "player_avatar");
-                        $("div.player_detail").append(avatar);
+                    var div = $("div.player_detail");
+                    div.html("");
 
-                        var table = createPlayerDetailTable(p);
-                        $("div.player_detail").append(table);
-                    } else {
-                        var avatar = $("div.player_detail img.player_avatar")[0];
-                        avatar.src = p.detailinfo.avatar;
-                        var table = $("table.player_detail")[0];
-                        changePlayerDetailTable(table, p);
-                    }
+                    var edit_btn = document.createElement("div");
+                    edit_btn.setAttribute("class", "edit_player_detail_btn");
+                    var edit_icon = document.createElement("img");
+                    edit_icon.setAttribute("src", "img/edit_btn.jpg");
+                    edit_btn.appendChild(edit_icon);
+                    var edit_hint = document.createElement("span");
+                    edit_hint.innerHTML = "点击编辑";
+                    edit_btn.appendChild(edit_hint);
+                    edit_btn.onclick = function () {
+                        var container = $("div.player_detail");
+                        container.html("");
+                        createEditPlayerDetailTable(container[0], p);
+                    };
+                    div.append(edit_btn);
+
+                    var avatar = document.createElement("img");
+                    avatar.setAttribute("src", p.detailinfo.avatar);
+                    avatar.setAttribute("class", "player_avatar");
+                    div.append(avatar);
+
+                    div.append(createPlayerDetailTable(p));
                 };
 
                 var hr = document.createElement('hr');
@@ -177,7 +119,9 @@
             li.appendChild(div);
             $("ul.names_list").append(li);
             $("div.add_player_btn").click(function () {
-                console.log("add player clicked!");
+                var div = $("div.player_detail");
+                div.html("");
+                createEditPlayerDetailTable(div[0], null);
             });
         }, function() {
             console.log("Error happened");

@@ -3,6 +3,8 @@ package processor
 import (
   "math"
 
+  "github.com/astaxie/beego"
+
   "models/types"
 )
 
@@ -20,9 +22,13 @@ func (processor NaiveProcessor) RawData2Record(raw *types.RawTrainRecord) *types
   //TODO time sync better
   record.HeartRate = make([]int, len(raw.GpsData))
   for gpsIndex, hrIndex := 0, 0; gpsIndex < len(raw.GpsData) && hrIndex < len(raw.HRData); gpsIndex++ {
-    for ; hrIndex < len(raw.GpsData) && raw.HRData[hrIndex].Time < raw.GpsData[gpsIndex].Time; hrIndex++ {
+    for ; hrIndex < len(raw.HRData) && raw.HRData[hrIndex].Time < raw.GpsData[gpsIndex].Time; hrIndex++ {
     }
-    record.HeartRate[gpsIndex] = raw.HRData[hrIndex].HeartRate
+    if hrIndex < len(raw.HRData) {
+      record.HeartRate[gpsIndex] = raw.HRData[hrIndex].HeartRate
+    } else {
+      record.HeartRate[gpsIndex] = raw.HRData[hrIndex - 1].HeartRate
+    }
   }
 
   record.TimeStamp = make([]int64, len(raw.GpsData))
@@ -75,15 +81,21 @@ func (processor NaiveProcessor) RawData2Record(raw *types.RawTrainRecord) *types
   for i, _ := range record.HIRun.Interval {
     if record.HIRun.Interval[i] > 5 {
       record.HIRun.Interval[startIndex] = record.HIRun.Interval[i]
+
       startIndex++
       record.HIRun.AveInterval += record.HIRun.Interval[i]
     } else {
       record.HIRun.Times--
     }
   }
-  record.HIRun.Interval = record.HIRun.Interval[: record.HIRun.Times]
+  beego.Info(record.HIRun.Times, len(record.HIRun.Interval))
   if record.HIRun.Times > 0 {
     record.HIRun.AveInterval /= float32(record.HIRun.Times)
+    if record.HIRun.Times <= len(record.HIRun.Interval) {
+      record.HIRun.Interval = record.HIRun.Interval[: record.HIRun.Times]
+    }
+  } else {
+    record.HIRun.Interval = record.HIRun.Interval[: 0]
   }
 
   //heart rate range time elapse

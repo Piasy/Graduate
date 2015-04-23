@@ -281,6 +281,61 @@ div.player_detail img.player_avatar {
     border: 2px solid #b8b7b7;
 }
 
+div.player_detail div.edit_player_detail_btn {
+    width: 110px;
+    height: 20px;
+
+    float: right;
+    position: relative;
+    top: 12px;
+    right: 5px;
+}
+
+div.player_detail div.btn_edit_finish {
+    width: 88px;
+    height: 38px;
+
+    position: relative;
+    float: right;
+    top: 24px;
+    right: 38px;
+
+    background-color: #474747;
+    text-align: center;
+}
+
+div.player_detail div.btn_edit_finish span {
+    color: #efefef;
+    font: 18px/41px "微软雅黑";
+}
+
+div.player_detail div.player_avatar.edit {
+    width: 24%;
+    height: 34%;
+
+    position: relative;
+    top: 64px;
+    left: 38%;
+
+    border: 2px solid #b8b7b7;
+}
+
+div.change_avatar_hint {
+    width: 100%;
+    height: 27px;
+
+    position: relative;
+    top: -29px;
+
+    background: url("../img/black_bg.png") repeat-x;
+    text-align: center;
+}
+
+div.change_avatar_hint span {
+    color: #efefef;
+    font: 18px/31px "微软雅黑";
+}
+
 table.player_detail {
     width: 582px;
 
@@ -322,4 +377,44 @@ table.player_detail tr.table_body {
 
 table.player_detail tr td {
     border: 1px solid #b8b7b7;
+}
+
+table.player_detail.edit {
+    width: 582px;
+
+    position: relative;
+    top: 86px;
+    left: 29px;
+}
+
+table.player_detail.edit tr td.attr {
+    width: 80px;
+
+    text-align: right;
+}
+
+table.player_detail.edit tr td.value {
+    text-align: left;
+}
+
+table.player_detail.edit tr td.attr span {
+    color: black;
+    font-weight: bold;
+}
+
+table.player_detail.edit tr td.value input {
+    width: 80%;
+
+    position: relative;
+    left: 15%;
+    font: 18px/28px "微软雅黑";
+}
+
+table.player_detail.edit tr td span {
+    color: #efefef;
+    font:18px/44px "微软雅黑";
+}
+
+table.player_detail.edit tr td {
+    border: 0;
 }

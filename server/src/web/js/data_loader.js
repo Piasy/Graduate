@@ -25,7 +25,7 @@ function loadRestTrainRemarkOf(player, hasmore) {
         player.curPage = 0;
     }
     var xmlHttp = new XMLHttpRequest();
-    var num = 4, prev = player.curPage;
+    var num = 20, prev = player.curPage;
     while (player.curPage != -1) {
         xmlHttp.open("GET", "/api/trainremark?player=" + player.history + "&page=" + player.curPage + "&num=" + num, false);
         xmlHttp.send("");

@@ -59,6 +59,298 @@ function concatAndSaveTrainRemark(player, remark) {
     }
 }
 
+function createEditPlayerDetailTable(container, player) {
+    if (player == null) {
+        var finish_btn = document.createElement("div");
+        finish_btn.setAttribute("class", "btn_edit_finish");
+        var span = document.createElement("span");
+        span.innerHTML = "完成";
+        finish_btn.appendChild(span);
+        container.appendChild(finish_btn);
+
+        var avatar_div = document.createElement("div");
+        avatar_div.setAttribute("class", "player_avatar edit");
+        var img = document.createElement("img");
+        img.setAttribute("src", "img/default_avatar.png");
+        img.setAttribute("style", "width: 100%; height: 100%;");
+        avatar_div.appendChild(img);
+        var div = document.createElement("div");
+        div.setAttribute("class", "change_avatar_hint");
+        span = document.createElement("span");
+        span.innerHTML = "点击更换头像";
+        div.appendChild(span);
+        avatar_div.appendChild(div);
+        container.appendChild(avatar_div);
+
+        var table = document.createElement("table");
+        table.setAttribute("class", "player_detail edit");
+
+
+        var tr  = document.createElement("tr");
+
+        var td  = document.createElement("td");
+        td.setAttribute("class", "attr");
+        span  = document.createElement("span");
+        span.innerHTML = "姓名";
+        td.appendChild(span);
+        tr.appendChild(td);
+
+        td  = document.createElement("td");
+        td.setAttribute("class", "value");
+        var input = document.createElement("input");
+        input.setAttribute("type", "text");
+        td.appendChild(input);
+        tr.appendChild(td);
+
+        table.appendChild(tr);
+
+
+        tr  = document.createElement("tr");
+
+        td  = document.createElement("td");
+        td.setAttribute("class", "attr");
+        span  = document.createElement("span");
+        span.innerHTML = "性别";
+        td.appendChild(span);
+        tr.appendChild(td);
+
+        td  = document.createElement("td");
+        td.setAttribute("class", "value");
+        input = document.createElement("input");
+        input.setAttribute("type", "text");
+        td.appendChild(input);
+        tr.appendChild(td);
+
+        table.appendChild(tr);
+
+
+        tr  = document.createElement("tr");
+
+        td  = document.createElement("td");
+        td.setAttribute("class", "attr");
+        span  = document.createElement("span");
+        span.innerHTML = "身高";
+        td.appendChild(span);
+        tr.appendChild(td);
+
+        td  = document.createElement("td");
+        td.setAttribute("class", "value");
+        input = document.createElement("input");
+        input.setAttribute("type", "text");
+        td.appendChild(input);
+        tr.appendChild(td);
+
+        table.appendChild(tr);
+
+
+        tr  = document.createElement("tr");
+
+        td  = document.createElement("td");
+        td.setAttribute("class", "attr");
+        span  = document.createElement("span");
+        span.innerHTML = "体重";
+        td.appendChild(span);
+        tr.appendChild(td);
+
+        td  = document.createElement("td");
+        td.setAttribute("class", "value");
+        input = document.createElement("input");
+        input.setAttribute("type", "text");
+        td.appendChild(input);
+        tr.appendChild(td);
+
+        table.appendChild(tr);
+
+
+        tr  = document.createElement("tr");
+
+        td  = document.createElement("td");
+        td.setAttribute("class", "attr");
+        span  = document.createElement("span");
+        span.innerHTML = "位置";
+        td.appendChild(span);
+        tr.appendChild(td);
+
+        td  = document.createElement("td");
+        td.setAttribute("class", "value");
+        input = document.createElement("input");
+        input.setAttribute("type", "text");
+        td.appendChild(input);
+        tr.appendChild(td);
+
+        table.appendChild(tr);
+
+
+        tr  = document.createElement("tr");
+
+        td  = document.createElement("td");
+        td.setAttribute("class", "attr");
+        span  = document.createElement("span");
+        span.innerHTML = "设备编号";
+        td.appendChild(span);
+        tr.appendChild(td);
+
+        td  = document.createElement("td");
+        td.setAttribute("class", "value");
+        input = document.createElement("input");
+        input.setAttribute("type", "text");
+        td.appendChild(input);
+        tr.appendChild(td);
+
+        table.appendChild(tr);
+        container.appendChild(table);
+    } else {
+        var finish_btn = document.createElement("div");
+        finish_btn.setAttribute("class", "btn_edit_finish");
+        var span = document.createElement("span");
+        span.innerHTML = "完成";
+        finish_btn.appendChild(span);
+        container.appendChild(finish_btn);
+
+        var avatar_div = document.createElement("div");
+        avatar_div.setAttribute("class", "player_avatar edit");
+        var img = document.createElement("img");
+        img.setAttribute("src", player.detailinfo.avatar);
+        img.setAttribute("style", "width: 100%; height: 100%;");
+        avatar_div.appendChild(img);
+        var div = document.createElement("div");
+        div.setAttribute("class", "change_avatar_hint");
+        span = document.createElement("span");
+        span.innerHTML = "点击更换头像";
+        div.appendChild(span);
+        avatar_div.appendChild(div);
+        container.appendChild(avatar_div);
+
+        var table = document.createElement("table");
+        table.setAttribute("class", "player_detail edit");
+
+
+        var tr  = document.createElement("tr");
+
+        var td  = document.createElement("td");
+        td.setAttribute("class", "attr");
+        span  = document.createElement("span");
+        span.innerHTML = "姓名";
+        td.appendChild(span);
+        tr.appendChild(td);
+
+        td  = document.createElement("td");
+        td.setAttribute("class", "value");
+        var input = document.createElement("input");
+        input.setAttribute("type", "text");
+        input.setAttribute("value", player.name);
+        td.appendChild(input);
+        tr.appendChild(td);
+
+        table.appendChild(tr);
+
+
+        tr  = document.createElement("tr");
+
+        td  = document.createElement("td");
+        td.setAttribute("class", "attr");
+        span  = document.createElement("span");
+        span.innerHTML = "性别";
+        td.appendChild(span);
+        tr.appendChild(td);
+
+        td  = document.createElement("td");
+        td.setAttribute("class", "value");
+        input = document.createElement("input");
+        input.setAttribute("type", "text");
+        if (player.detailinfo.gender == 0) {
+            input.setAttribute("value", "男");
+        } else if (player.detailinfo.gender == 1) {
+            input.setAttribute("value", "女");
+        }
+        td.appendChild(input);
+        tr.appendChild(td);
+
+        table.appendChild(tr);
+
+
+        tr  = document.createElement("tr");
+
+        td  = document.createElement("td");
+        td.setAttribute("class", "attr");
+        span  = document.createElement("span");
+        span.innerHTML = "身高";
+        td.appendChild(span);
+        tr.appendChild(td);
+
+        td  = document.createElement("td");
+        td.setAttribute("class", "value");
+        input = document.createElement("input");
+        input.setAttribute("type", "text");
+        input.setAttribute("value", player.detailinfo.height + "cm");
+        td.appendChild(input);
+        tr.appendChild(td);
+
+        table.appendChild(tr);
+
+
+        tr  = document.createElement("tr");
+
+        td  = document.createElement("td");
+        td.setAttribute("class", "attr");
+        span  = document.createElement("span");
+        span.innerHTML = "体重";
+        td.appendChild(span);
+        tr.appendChild(td);
+
+        td  = document.createElement("td");
+        td.setAttribute("class", "value");
+        input = document.createElement("input");
+        input.setAttribute("type", "text");
+        input.setAttribute("value", player.detailinfo.weight + "kg");
+        td.appendChild(input);
+        tr.appendChild(td);
+
+        table.appendChild(tr);
+
+
+        tr  = document.createElement("tr");
+
+        td  = document.createElement("td");
+        td.setAttribute("class", "attr");
+        span  = document.createElement("span");
+        span.innerHTML = "位置";
+        td.appendChild(span);
+        tr.appendChild(td);
+
+        td  = document.createElement("td");
+        td.setAttribute("class", "value");
+        input = document.createElement("input");
+        input.setAttribute("type", "text");
+        input.setAttribute("value", player.position);
+        td.appendChild(input);
+        tr.appendChild(td);
+
+        table.appendChild(tr);
+
+
+        tr  = document.createElement("tr");
+
+        td  = document.createElement("td");
+        td.setAttribute("class", "attr");
+        span  = document.createElement("span");
+        span.innerHTML = "设备编号";
+        td.appendChild(span);
+        tr.appendChild(td);
+
+        td  = document.createElement("td");
+        td.setAttribute("class", "value");
+        input = document.createElement("input");
+        input.setAttribute("type", "text");
+        input.setAttribute("value", player.deviceid);
+        td.appendChild(input);
+        tr.appendChild(td);
+
+        table.appendChild(tr);
+        container.appendChild(table);
+    }
+}
+
 function createPlayerDetailTable(player) {
     var table = document.createElement("table");
     table.setAttribute("class", "player_detail");
@@ -191,19 +483,6 @@ function createPlayerDetailTable(player) {
     return table;
 }
 
-function changePlayerDetailTable(table, player) {
-    table.children[0].cells[1].children[0].innerHTML = player.name;
-    if (player.detailinfo.gender == 0) {
-        table.children[1].cells[1].children[0].innerHTML = "男";
-    } else if (player.detailinfo.gender == 1) {
-        table.children[1].cells[1].children[0].innerHTML = "女";
-    }
-    table.children[2].cells[1].children[0].innerHTML = player.detailinfo.height + "cm";
-    table.children[3].cells[1].children[0].innerHTML = player.detailinfo.weight + "kg";
-    table.children[4].cells[1].children[0].innerHTML = player.position;
-    table.children[5].cells[1].children[0].innerHTML = player.deviceid;
-}
-
 function createPlayersPanelItem(player) {
     var li = document.createElement("li");
     var div1 = document.createElement("div");
@@ -216,11 +495,12 @@ function createPlayersPanelItem(player) {
     var span = document.createElement("span");
     span.innerHTML = player.name;
     div2.appendChild(span);
-    if (player.selected) {
-        var img2 = document.createElement("img");
-        img2.setAttribute("src", "img/player_selected.png");
-        img2.setAttribute("class", "player_avatar player_selected");
-        div2.appendChild(img2);
+    var img2 = document.createElement("img");
+    img2.setAttribute("src", "img/player_selected.png");
+    img2.setAttribute("class", "player_avatar player_selected");
+    div2.appendChild(img2);
+    if (!player.selected) {
+        img2.style.display = "none";
     }
     div1.appendChild(div2);
     li.appendChild(div1);
