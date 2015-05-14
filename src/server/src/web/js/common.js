@@ -594,7 +594,9 @@ function createHistorySpeedChart(players) {
 }
 
 function updateHistorySpeedChartFirstTime(series, players) {
+    var ret = {};
     players.forEach(function (p, i, arr) {
+        ret[p.history] = 0;
         if (p.selected) {
             series[i].show();
         } else {
@@ -602,24 +604,76 @@ function updateHistorySpeedChartFirstTime(series, players) {
         }
         var remark = JSON.parse(localStorage.getItem(p.history));
         if (remark != null && remark.speed != null && remark.timestamp != null && remark.timestamp.length >= remark.speed.length) {
-            remark.speed.forEach(function (s, j, arr) {
-                series[i].addPoint([remark.timestamp[j], s], true, false);
-            });
+            var step = 1;
+            if (remark.speed.length > 30) {
+                step = Math.floor(remark.speed.length / 30);
+            }
+            var n = 30;
+            if (remark.speed.length < n) {
+                n = remark.speed.length;
+            }
+            for (var j = 0; j < n; j++) {
+                series[i].addPoint([remark.timestamp[j * step], remark.speed[j * step]], true, false);
+            }
+            ret[p.history] = remark.speed.length;
         }
     });
+    return ret;
 }
 
-function updateHistorySpeedChart(seria, player, remark) {
+function updateHistorySpeedChart(series, player, remark, totalNumber) {
     if (player.selected) {
-        seria.show();
+        series.show();
     } else {
-        seria.hide();
+        series.hide();
     }
     if (remark != null && remark.speed != null && remark.timestamp != null && remark.timestamp.length >= remark.speed.length) {
-        remark.speed.forEach(function (s, j, arr) {
-            seria.addPoint([remark.timestamp[j], s], true, false);
+        var points = series.points;
+        var xs = new Array(points.length), ys = new Array(points.length);
+        points.forEach(function (p, i, ps) {
+            xs[i] = p.x;
+            ys[i] = p.y;
         });
+        var step = 1;
+        if (remark.speed.length + totalNumber > 30) {
+            step = Math.floor((remark.speed.length + totalNumber) / 30);
+        }
+        var n = 30;
+        if (remark.speed.length + totalNumber < n) {
+            n = remark.speed.length + totalNumber;
+        }
+
+        if (n < 30) {
+            remark.speed.forEach(function (s, i, arr) {
+                series.addPoint([remark.timestamp[i], s], true, false);
+            });
+        } else {
+            var stepBefore = 1;
+            if (totalNumber > 30) {
+                stepBefore = Math.floor(totalNumber / 30);
+            }
+            series.setData([]);
+            var i = 0;
+            for (var j = 0; j < n; j++) {
+                if (i * stepBefore < totalNumber) {
+                    while (i * stepBefore < totalNumber && i * stepBefore < j * step) {
+                        i++;
+                    }
+                    if (i * stepBefore < totalNumber && i < xs.length) {
+                        series.addPoint([xs[i], ys[i]], true, false);
+                    } else if (totalNumber + remark.speed.length - j * step >= 0 && totalNumber + remark.speed.length - j * step < remark.speed.length) {
+                        series.addPoint([remark.timestamp[totalNumber + remark.speed.length - j * step], remark.speed[totalNumber + remark.speed.length - j * step]], true, false);
+                    }
+                } else if (totalNumber + remark.speed.length - j * step >= 0 && totalNumber + remark.speed.length - j * step < remark.speed.length) {
+                    series.addPoint([remark.timestamp[totalNumber + remark.speed.length - j * step], remark.speed[totalNumber + remark.speed.length - j * step]], true, false);
+                }
+            }
+        }
+
+        return remark.speed.length;
     }
+
+    return 0;
 }
 
 function updatePlayersPanel(players, playerShowIndex, playerShowLen, series) {

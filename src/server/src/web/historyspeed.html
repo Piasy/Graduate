@@ -22,49 +22,6 @@
         <div class="players_panel before_btn_line"></div>
 
         <ul class="players_list">
-            <!--<li>
-                <div>
-                    <img src="img/neymar.jpg" class="player_avatar">
-                    <div class="player_name">
-                        <span>内马尔</span>
-                        <img src="img/player_selected.png" class="player_avatar player_selected">
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <img src="img/neymar.jpg" class="player_avatar">
-                    <div class="player_name">
-                        <span>内马尔</span>
-                        <img src="img/player_selected.png" class="player_avatar player_selected">
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <img src="img/neymar.jpg" class="player_avatar">
-                    <div class="player_name">
-                        <span>内马尔</span>
-                        <img src="img/player_selected.png" class="player_avatar player_selected">
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <img src="img/neymar.jpg" class="player_avatar">
-                    <div class="player_name">
-                        <span>内马尔</span>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <img src="img/neymar.jpg" class="player_avatar">
-                    <div class="player_name">
-                        <span>内马尔</span>
-                    </div>
-                </div>
-            </li>-->
         </ul>
 
         <div class="players_panel after_btn_line"></div>
@@ -104,6 +61,7 @@
         var worker = new Worker("js/data_loader.js");
         var hasnext = false;
         var firstUpdate = true;
+        var totalNumber = {};
         worker.onmessage = function (msg) {
             var msg = JSON.parse(msg.data);
             if (msg.type == "error") {
@@ -113,7 +71,7 @@
                 concatAndSaveTrainRemark(msg.player, msg.remark);
                 if (hasnext && !msg.hasnext) {
                     if (firstUpdate) {
-                        updateHistorySpeedChartFirstTime(series, players);
+                        totalNumber = updateHistorySpeedChartFirstTime(series, players);
                         firstUpdate = false;
                     }
                 }
@@ -121,7 +79,7 @@
                 if (!firstUpdate) {
                     for (var i = 0; i < players.length; i++) {
                         if (players[i].history == msg.player) {
-                            updateHistorySpeedChart(series[i], players[i], msg.remark);
+                            totalNumber[msg.player] += updateHistorySpeedChart(series[i], players[i], msg.remark, totalNumber[msg.player]);
                             break;
                         }
                     }
