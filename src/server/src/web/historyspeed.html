@@ -87,8 +87,8 @@
             }
         };
 
-        loadPlayers(function(p) {
-            players = p;
+        loadPlayers(function(ps) {
+            players = ps;
             players.forEach(function (p, i, arr) {
                 p.selected = true;
             });
@@ -98,7 +98,7 @@
 
             var start_msg = {};
             start_msg.type = "players";
-            start_msg.players = p;
+            start_msg.players = ps;
             worker.postMessage(JSON.stringify(start_msg));
         }, function() {
             console.log("Error happened");
