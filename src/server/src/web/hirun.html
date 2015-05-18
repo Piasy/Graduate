@@ -7,7 +7,7 @@
     <script type="application/javascript" src="js/jquery-2.1.1.min.js"></script>
     <script type="application/javascript" src="js/highcharts.js"></script>
     <script type="application/javascript" src="js/common.js"></script>
-    <script type="application/javascript" src="js/totaldistance.js"></script>
+    <script type="application/javascript" src="js/hirun.js"></script>
 </head>
 <body>
 <div class="top_bar">
@@ -71,7 +71,7 @@
                 concatAndSaveTrainRemark(msg.player, msg.remark);
                 if (hasnext && !msg.hasnext) {
                     if (firstUpdate) {
-                        updateTotalDistanceChartFirstTime(series, players);
+                        updateHiRunChartFirstTime(series, players);
                         firstUpdate = false;
                     }
                 }
@@ -79,7 +79,7 @@
                 if (!firstUpdate) {
                     for (var i = 0; i < players.length; i++) {
                         if (players[i].history == msg.player) {
-                            updateTotalDistanceChart(series[0], i, msg.remark);
+                            updateHiRunChart(series, i, msg.remark);
                             break;
                         }
                     }
@@ -92,7 +92,7 @@
             players.forEach(function (p, i, arr) {
                 p.selected = true;
             });
-            series = createTotalDistanceChart(players);
+            series = createHiRunChart(players);
 
             updatePlayersPanel(players, playerShowIndex, playerShowLen, series);
 
