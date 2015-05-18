@@ -33,7 +33,7 @@ function createHiRunChart(players) {
             }
         },
         title: {
-            text: '跑动总距离'
+            text: '高强度跑次数、间隔时间'
         },
         xAxis: [{
             categories: player_names
