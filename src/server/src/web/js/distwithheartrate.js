@@ -48,8 +48,8 @@ function createDistWithHRChart(players) {
         tooltip: {
             formatter: function() {
                 return '<b>'+ this.x +'</b><br/>'+
-                    this.series.name +': '+ this.y +'<br/>'+
-                    '总距离：'+ this.point.stackTotal;
+                    this.series.name +': '+ this.y.toFixed(2) +'<br/>'+
+                    '总距离：'+ this.point.stackTotal.toFixed(2);
             }
         },
         plotOptions: {

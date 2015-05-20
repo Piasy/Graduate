@@ -418,3 +418,46 @@ table.player_detail.edit tr td span {
 table.player_detail.edit tr td {
     border: 0;
 }
+
+div.main_body.chart_with_players_panel table.real_time_players {
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+    position: relative;
+
+    padding: 0;
+    margin-bottom: 0.6%;
+
+    display: block;
+
+    background-color: #ffffff;
+}
+
+table.real_time_players tr td div.player_avatar {
+    width: 128px;
+    height: 160px;
+    margin-left: 42px;
+    margin-top: 20px;
+}
+
+table.real_time_players tr td div.player_avatar img {
+    width: 100%;
+    height: 100%;
+}
+
+table.real_time_players tr td div.player_avatar div.player_name {
+    width: 128px;
+    height: 30px;
+
+    position: relative;
+    top: -29px;
+    left: 0;
+
+    background: url("../img/black_bg.png") repeat-x;
+}
+
+table.real_time_players tr td p {
+    margin-left: 42px;
+    margin-top: 7px;
+}
+

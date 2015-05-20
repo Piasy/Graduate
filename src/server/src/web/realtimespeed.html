@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>历史速度</title>
+    <link type="text/css" href="css/common.css" rel="stylesheet"/>
+    <script type="application/javascript" src="js/jquery-2.1.1.min.js"></script>
+    <script type="application/javascript" src="js/highcharts.js"></script>
+    <script type="application/javascript" src="js/common.js"></script>
+    <script type="application/javascript" src="js/realtimespeed.js"></script>
+</head>
+<body>
+<div class="top_bar">
+    <div class="top_bar back_btn">
+        <span class="s1">返</span>
+        <span class="s2">回</span>
+    </div>
+</div>
+
+<div class="main_body chart_with_players_panel">
+    <table class="real_time_players">
+    </table>
+</div>
+
+<script type="application/javascript">
+    $(document).ready(function() {
+        localStorage.clear();
+        $("div.top_bar.back_btn").click(function () {
+            console.log("Go back clicked!");
+        });
+
+        var players = [];
+
+        //start data loader web worker
+        var worker = new Worker("js/data_loader.js");
+        var hasnext = false;
+        var firstUpdate = true;
+        worker.onmessage = function (msg) {
+            var msg = JSON.parse(msg.data);
+            if (msg.type == "error") {
+                console.log("worker error: " + event.data);
+                worker.terminate();
+            } else if (msg.type == "remark") {
+                concatAndSaveTrainRemark(msg.player, msg.remark);
+                if (hasnext && !msg.hasnext) {
+                    if (firstUpdate) {
+                        updateRealTimeSpeedTable(players)
+                        firstUpdate = false;
+                    }
+                }
+                hasnext = msg.hasnext;
+                if (!firstUpdate) {
+                    for (var i = 0; i < players.length; i++) {
+                        if (players[i].history == msg.player) {
+                            updateRealTimeSpeedTable(players)
+                            break;
+                        }
+                    }
+                }
+            }
+        };
+
+        loadPlayers(function(ps) {
+            players = ps;
+
+            createRealTimeSpeedTable(players);
+
+            var start_msg = {};
+            start_msg.type = "players";
+            start_msg.players = ps;
+            worker.postMessage(JSON.stringify(start_msg));
+        }, function() {
+            console.log("Error happened");
+        });
+    });
+</script>
+</body>
+</html>

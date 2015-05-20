@@ -524,3 +524,27 @@ function updatePlayersPanel(players, playerShowIndex, playerShowLen, series) {
         $("ul.players_list").append(li);
     }
 }
+
+function createRealTimeTableItem(player) {
+    var td = document.createElement("td");
+    var div1 = document.createElement("div");
+    div1.setAttribute("class", "player_avatar");
+
+    var img = document.createElement("img");
+    img.setAttribute("src", player.detailinfo.avatar);
+    div1.appendChild(img);
+
+    var div2 = document.createElement("div");
+    div2.setAttribute("class", "player_name");
+    var span = document.createElement("span");
+    span.innerHTML = player.name;
+    div2.appendChild(span);
+    div1.appendChild(div2);
+    td.appendChild(div1);
+
+    var p = document.createElement("p");
+    p.innerHTML = "实时速度：0 m/s";
+    td.appendChild(p);
+
+    return td;
+}
