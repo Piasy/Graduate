@@ -7,7 +7,7 @@
     <script type="application/javascript" src="js/jquery-2.1.1.min.js"></script>
     <script type="application/javascript" src="js/highcharts.js"></script>
     <script type="application/javascript" src="js/common.js"></script>
-    <script type="application/javascript" src="js/realtimespeed.js"></script>
+    <script type="application/javascript" src="js/realtimehr.js"></script>
 </head>
 <body>
 <div class="top_bar">
@@ -44,7 +44,7 @@
                 concatAndSaveTrainRemark(msg.player, msg.remark);
                 if (hasnext && !msg.hasnext) {
                     if (firstUpdate) {
-                        updateRealTimeSpeedTable(players);
+                        updateRealTimeHRTable(players);
                         firstUpdate = false;
                     }
                 }
@@ -52,7 +52,7 @@
                 if (!firstUpdate) {
                     for (var i = 0; i < players.length; i++) {
                         if (players[i].history == msg.player) {
-                            updateRealTimeSpeedTable(players);
+                            updateRealTimeHRTable(players);
                             break;
                         }
                     }
@@ -63,7 +63,7 @@
         loadPlayers(function(ps) {
             players = ps;
 
-            createRealTimeSpeedTable(players);
+            createRealTimeHRTable(players);
 
             var start_msg = {};
             start_msg.type = "players";
