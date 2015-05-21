@@ -461,3 +461,59 @@ table.real_time_players tr td p {
     margin-top: 7px;
 }
 
+div.main_body.chart_with_players_panel table.compare_players_table {
+    width: 90%;
+    left: 5%;
+    top: 5%;
+    bottom: 5%;
+    height: auto;
+    position: relative;
+
+    padding: 0;
+    margin-bottom: 0.6%;
+
+    display: block;
+    border: 2px solid #a0a0a0;
+
+    background-color: #ffffff;
+}
+
+div.main_body.chart_with_players_panel div.table_area {
+    width: 100%;
+    min-height: 78%;
+    height: auto;
+
+    position: relative;
+    top: 1%;
+
+    padding-top: 1%;
+    padding-bottom: 1%;
+
+    background-color: #ffffff;
+}
+
+div.main_body.chart_with_players_panel table.compare_players_table tr.table_header {
+    width: 100%;
+    height: 69px;
+
+    background: url("../img/black_bg.png") repeat;
+}
+
+div.main_body.chart_with_players_panel table.compare_players_table tr td {
+    width: 12.5%;
+    height: 69px;
+
+    text-align: center;
+}
+
+div.main_body.chart_with_players_panel table.compare_players_table tr.table_header td span {
+    color: white;
+}
+
+div.main_body.chart_with_players_panel table.compare_players_table tr.table_value td.odd {
+    background-color: #c3c3c3;
+}
+
+div.main_body.chart_with_players_panel table.compare_players_table tr.table_value td.even {
+    background-color: #ececec;
+}

@@ -21,15 +21,27 @@ func (processor NaiveProcessor) RawData2Record(raw *types.RawTrainRecord) *types
 
   //TODO time sync better
   record.HeartRate = make([]int, len(raw.GpsData))
+  record.MaxHeartRate = 0
+  totalHR := 0
   for gpsIndex, hrIndex := 0, 0; gpsIndex < len(raw.GpsData) && hrIndex < len(raw.HRData); gpsIndex++ {
     for ; hrIndex < len(raw.HRData) && raw.HRData[hrIndex].Time < raw.GpsData[gpsIndex].Time; hrIndex++ {
     }
     if hrIndex < len(raw.HRData) {
       record.HeartRate[gpsIndex] = raw.HRData[hrIndex].HeartRate
+      if record.HeartRate[gpsIndex] > record.MaxHeartRate {
+        record.MaxHeartRate = record.HeartRate[gpsIndex]
+      }
+      totalHR += record.HeartRate[gpsIndex]
     } else {
       record.HeartRate[gpsIndex] = raw.HRData[hrIndex - 1].HeartRate
+      if record.HeartRate[gpsIndex] > record.MaxHeartRate {
+        record.MaxHeartRate = record.HeartRate[gpsIndex]
+      }
+      totalHR += record.HeartRate[gpsIndex]
     }
   }
+  record.AveHeartRate = totalHR / len(record.HeartRate)
+
 
   record.TimeStamp = make([]int64, len(raw.GpsData))
   record.Speed = make([]float64, len(raw.GpsData))
@@ -37,6 +49,7 @@ func (processor NaiveProcessor) RawData2Record(raw *types.RawTrainRecord) *types
     record.Speed[i] = raw.GpsData[i].Speed
     record.TimeStamp[i] = raw.GpsData[i].Time
   }
+  record.TrainTime = record.TimeStamp[len(record.TimeStamp) - 1] - record.TimeStamp[0]
 
   record.Distance = make([]float64, len(raw.GpsData))
   record.Distance[0] = 0

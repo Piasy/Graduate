@@ -2,12 +2,12 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>历史速度</title>
+    <title>不同队员数据对比</title>
     <link type="text/css" href="css/common.css" rel="stylesheet"/>
     <script type="application/javascript" src="js/jquery-2.1.1.min.js"></script>
     <script type="application/javascript" src="js/highcharts.js"></script>
     <script type="application/javascript" src="js/common.js"></script>
-    <script type="application/javascript" src="js/realtimehr.js"></script>
+    <script type="application/javascript" src="js/compareplayers.js"></script>
 </head>
 <body>
 <div class="top_bar">
@@ -18,7 +18,31 @@
 </div>
 
 <div class="main_body chart_with_players_panel">
-    <table class="real_time_players"></table>
+    <div class="players_panel">
+        <img src="img/before_btn.jpg" class="players_panel before_btn">
+        <div class="players_panel before_btn_line"></div>
+
+        <ul class="players_list">
+        </ul>
+
+        <div class="players_panel after_btn_line"></div>
+        <img src="img/after_btn.jpg" class="players_panel after_btn">
+    </div>
+
+    <div class="table_area">
+        <table class="compare_players_table">
+            <tr class="table_header">
+                <td><span>姓名</span></td>
+                <td><span>总时间(min)</span></td>
+                <td><span>总距离(m)</span></td>
+                <td><span>冲刺跑次数</span></td>
+                <td><span>冲刺跑间隔时间(min)</span></td>
+                <td><span>最大心率</span></td>
+                <td><span>平均心率</span></td>
+                <td><span>大于80%最大心率持续时间(min)</span></td>
+            </tr>
+        </table>
+    </div>
 </div>
 
 <script type="application/javascript">
@@ -29,6 +53,21 @@
         });
 
         var players = [];
+        var series = [];
+        var playerShowIndex = 0, playerShowLen = 6;
+        $("img.players_panel.before_btn").click(function () {
+            if (playerShowIndex > 0) {
+                playerShowIndex--;
+                updatePlayersPanel(players, playerShowIndex, playerShowLen, series);
+            }
+        });
+
+        $("img.players_panel.after_btn").click(function () {
+            if (playerShowIndex + playerShowLen < players.length) {
+                playerShowIndex++;
+                updatePlayersPanel(players, playerShowIndex, playerShowLen, series);
+            }
+        });
 
         //start data loader web worker
         var worker = new Worker("js/data_loader.js");
@@ -43,7 +82,7 @@
                 concatAndSaveTrainRemark(msg.player, msg.remark);
                 if (hasnext && !msg.hasnext) {
                     if (firstUpdate) {
-                        updateRealTimeHRTable(players);
+                        updateComparePlayersTable(players);
                         firstUpdate = false;
                     }
                 }
@@ -51,7 +90,7 @@
                 if (!firstUpdate) {
                     for (var i = 0; i < players.length; i++) {
                         if (players[i].history == msg.player) {
-                            updateRealTimeHRTable(players);
+                            updateComparePlayersTable(players);
                             break;
                         }
                     }
@@ -61,8 +100,12 @@
 
         loadPlayers(function(ps) {
             players = ps;
+            players.forEach(function (p, i, arr) {
+                p.selected = true;
+            });
+            updateComparePlayersTable(players);
 
-            createRealTimeHRTable(players);
+            updatePlayersPanel(players, playerShowIndex, playerShowLen, series);
 
             var start_msg = {};
             start_msg.type = "players";

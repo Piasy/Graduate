@@ -91,6 +91,10 @@ type TrainRecord struct {
   HeartRateElapse []float32       `bson:"hrelapse" json:"hrelapse"`
   HRWithSpeed []int               `bson:"hrwithspeed" json:"hrwithspeed"`
 
+  TrainTime int64                 `bsob:"traintime" json:"traintime"`
+  MaxHeartRate int                `bsob:"maxheartrate" json:"maxheartrate"`
+  AveHeartRate int                `bsob:"aveheartrate" json:"aveheartrate"`
+
   //private
   hrWithSpeedCount []int
 

@@ -212,6 +212,13 @@ func AppendRawTrainData(coll string, data *types.RawTrainRecord) {
     tmp.DistWithHR[i] += processed.DistWithHR[i]
   }
 
+  tmp.TrainTime += processed.TrainTime
+  if processed.MaxHeartRate > tmp.MaxHeartRate {
+    tmp.MaxHeartRate = processed.MaxHeartRate
+  }
+  tmp.AveHeartRate = (tmp.AveHeartRate * len(tmp.HeartRate) +
+      processed.AveHeartRate * len(processed.HeartRate)) /
+      (len(tmp.HeartRate) + len(processed.HeartRate))
   tmp.HeartRate = append(tmp.HeartRate, processed.HeartRate...)
   tmp.CurHeartRate = tmp.HeartRate[len(tmp.HeartRate) - 1]
   if tmp.HeartRateElapse == nil {
