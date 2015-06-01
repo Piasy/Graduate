@@ -84,15 +84,15 @@ success:
 func (this *PlayersController) Post() {
 	var player types.Player
 	json.Unmarshal(this.Ctx.Input.RequestBody, &player)
-	if !player.Valid() {
-		beego.Warn("Add/Update players error, invalid data: ", player)
+	/*if !player.Valid() {
+		beego.Warn("Add/Update players error, invalid data: ", player, string(this.Ctx.Input.RequestBody))
 		this.Data["json"] = errors.Issue("Player info incomplete",
 			errors.E_TYPE_SERVICE + errors.E_MODULE_PLAYER + errors.E_DETAIL_INCOMPLETE_DATA,
 			this.Ctx.Request.URL.String())
 		this.ServeJson()
 		return
-	}
-
+	}*/
+	beego.Info("data & player ", string(this.Ctx.Input.RequestBody), player)
 	var err error
 	if player.ObjId != "" {
 		err = models.UpdatePlayer(&player)

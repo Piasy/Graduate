@@ -93,9 +93,9 @@ function updateDistWithSpeedChartFirstTime(series, players) {
          }*/
         var remark = JSON.parse(localStorage.getItem(p.history));
         if (remark != null && remark.distwithspeed != null && remark.distwithspeed.length == 3) {
-            data1.push(remark.distwithspeed[0]);
-            data2.push(remark.distwithspeed[1]);
-            data3.push(remark.distwithspeed[2]);
+            data1.push(Number(remark.distwithspeed[0].toFixed(2)));
+            data2.push(Number(remark.distwithspeed[1].toFixed(2)));
+            data3.push(Number(remark.distwithspeed[2].toFixed(2)));
         }
     });
     series[0].setData(data1);
@@ -125,11 +125,19 @@ function updateDistWithSpeedChart(series, index, remark) {
         ys2.push(p.y);
     });
     if (remark != null && remark.distwithspeed != null && remark.distwithspeed.length == 3 && ys0.length > index && ys1.length > index && ys2.length > index) {
-        ys0[index] = remark.distwithspeed[0];
-        ys1[index] = remark.distwithspeed[1];
-        ys2[index] = remark.distwithspeed[2];
-        series[0].setData(ys0);
-        series[1].setData(ys1);
-        series[2].setData(ys2);
+        if (ys0[index] < Number(remark.distwithspeed[0].toFixed(2))) {
+            ys0[index] = Number(remark.distwithspeed[0].toFixed(2));
+            series[0].setData(ys0);
+        }
+
+        if (ys1[index] < Number(remark.distwithspeed[1].toFixed(2))) {
+            ys1[index] = Number(remark.distwithspeed[1].toFixed(2));
+            series[1].setData(ys1);
+        }
+
+        if (ys2[index] < Number(remark.distwithspeed[2].toFixed(2))) {
+            ys2[index] = Number(remark.distwithspeed[2].toFixed(2));
+            series[2].setData(ys2);
+        }
     }
 }

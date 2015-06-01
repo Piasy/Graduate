@@ -69,7 +69,17 @@ func randNextGps(last *GPSData, rander *rand.Rand) *GPSData {
   last.Time += 500 + int64(rander.Float32() * 1000)
   last.Latitude += (rander.Float64() * 2 - 1) * 0.0001
   last.Longitude += (rander.Float64() * 2 - 1) * 0.0001
-  last.Speed += (rander.Float64() * 2 - 1) * 2
+
+  if last.Speed < 1 {
+    last.Speed += (rander.Float64() * 2 - 0.5) * 1
+  } else if last.Speed > 8 {
+    last.Speed += (rander.Float64() * 2 - 1.5) * 1
+  } else {
+    last.Speed += (rander.Float64() * 2 - 1) * 2
+  }
+  if last.Speed <= 0 {
+    last.Speed = rander.Float64() * 2
+  }
   return last
 }
 
@@ -83,7 +93,17 @@ func randNextGyro(last *GYROData, rander *rand.Rand) *GYROData {
 
 func randNextHR(last *HeartRateData, rander *rand.Rand) *HeartRateData {
   last.Time += 500 + int64(rander.Float32() * 1000)
-  last.HeartRate += int((rander.Float32() * 2 - 1) * 10)
+
+  if last.HeartRate < 80 {
+    last.HeartRate += int((rander.Float32() * 2 - 0.5) * 10)
+  } else if last.HeartRate < 160 {
+    last.HeartRate += int((rander.Float32() * 2 - 1.5) * 10)
+  } else {
+    last.HeartRate += int((rander.Float32() * 2 - 1) * 10)
+  }
+  if last.HeartRate < 80 {
+    last.HeartRate = 86
+  }
   return last
 }
 
@@ -137,21 +157,17 @@ func emulate(player string, ch chan int) {
 }
 
 func main() {
-  // players := []string {"b564ab4a431ce4448969106d60e0c4e0ea85e76a",
-  //                      "d25db944c93f7757264be315b43d64b0dd3ef3c5",
-  //                      "18f6718c7a50cb45e4ce7989f48fd4c2641255f9",
-  //                      "de33647785c3788a882e7006af395f5e9e1b9f84",
-  //                      "64e61495e028e93faf6134b10d4bdf3a1ce77755",
-  //                      "afc45b5c7b4cf463b6dbcf4378c31366aad69ed9",
-  //                      "5a7f3fbe5a921ce6ebb936ca455016c306ddf060",
-  //                      "7cd84e8b75e476261f418f64c5d3da2fb48ce242",
-  //                      "ff1a83c49d65548d76ae0e9a2ccfc9848c699270",
-  //                      "b8d893136c4b54463bd470318a342cefc8947704"}
+  players := []string {"5d8ed68fddce8c32b02320ada8228665ce4428f7",
+                       "d1be7e74be76448dd8c5fa73312c4eb296bd8dc8",
+                       "e4a083bacd1189bbd5c5e314ff8798b75defa0a2",
+                       "717361c3112fb4c42df9c19224f7194c081badad",
+                       "ff43f8a3ae6da763f584cabfc074f4ea97762e86",
+                       "8ac0f797496de3b899a573ed980c12e03c442a35",
+                       "c50146a72e3da2c71284e80bd3c7bff8f05232cf",
+                       "450b02102d4688b6af588f83c30865adb02f79c4",
+                       "3efabe8182c60af579f1bf15768cde7a32ddbdd1",
+                       "79ba55689f33e37e8838fe795e6473916c8f5260"}
 
-
-  players := []string {"b564ab4a431ce4448969106d60e0c4e0ea85e76a",
-                       "d25db944c93f7757264be315b43d64b0dd3ef3c5",
-                       "18f6718c7a50cb45e4ce7989f48fd4c2641255f9"}
   ch := make(chan int)
   for _, p := range players {
     go emulate(p, ch)

@@ -67,6 +67,27 @@ function createEditPlayerDetailTable(container, player) {
         span.innerHTML = "完成";
         finish_btn.appendChild(span);
         container.appendChild(finish_btn);
+        span.onclick = function () {
+            var person = {};
+            person.name = $("#input_name")[0].value;
+            if ($("#input_gender")[0].value == "男") {
+                person.gender = 0;
+            } else if ($("#input_gender")[0].value == "女") {
+                person.gender = 1;
+            }
+            person.height = Number($("#input_height")[0].value);
+            person.weight = Number($("#input_weight")[0].value);
+            var player = {};
+            player.name = person.name;
+            player.detailinfo = person;
+            player.position = $("#input_position")[0].value;
+            player.deviceid = $("#input_device")[0].value;
+            $.post("/api/player", JSON.stringify(player), function(data, status) {
+                if (status == "success") {
+                    console.log("add success");
+                }
+            });
+        };
 
         var avatar_div = document.createElement("div");
         avatar_div.setAttribute("class", "player_avatar edit");
@@ -99,6 +120,7 @@ function createEditPlayerDetailTable(container, player) {
         td.setAttribute("class", "value");
         var input = document.createElement("input");
         input.setAttribute("type", "text");
+        input.setAttribute("id", "input_name");
         td.appendChild(input);
         tr.appendChild(td);
 
@@ -118,6 +140,7 @@ function createEditPlayerDetailTable(container, player) {
         td.setAttribute("class", "value");
         input = document.createElement("input");
         input.setAttribute("type", "text");
+        input.setAttribute("id", "input_gender");
         td.appendChild(input);
         tr.appendChild(td);
 
@@ -137,6 +160,7 @@ function createEditPlayerDetailTable(container, player) {
         td.setAttribute("class", "value");
         input = document.createElement("input");
         input.setAttribute("type", "text");
+        input.setAttribute("id", "input_height");
         td.appendChild(input);
         tr.appendChild(td);
 
@@ -156,6 +180,7 @@ function createEditPlayerDetailTable(container, player) {
         td.setAttribute("class", "value");
         input = document.createElement("input");
         input.setAttribute("type", "text");
+        input.setAttribute("id", "input_weight");
         td.appendChild(input);
         tr.appendChild(td);
 
@@ -175,6 +200,7 @@ function createEditPlayerDetailTable(container, player) {
         td.setAttribute("class", "value");
         input = document.createElement("input");
         input.setAttribute("type", "text");
+        input.setAttribute("id", "input_position");
         td.appendChild(input);
         tr.appendChild(td);
 
@@ -194,6 +220,7 @@ function createEditPlayerDetailTable(container, player) {
         td.setAttribute("class", "value");
         input = document.createElement("input");
         input.setAttribute("type", "text");
+        input.setAttribute("id", "input_device");
         td.appendChild(input);
         tr.appendChild(td);
 
@@ -239,6 +266,7 @@ function createEditPlayerDetailTable(container, player) {
         var input = document.createElement("input");
         input.setAttribute("type", "text");
         input.setAttribute("value", player.name);
+        input.setAttribute("id", "input_name");
         td.appendChild(input);
         tr.appendChild(td);
 
@@ -258,6 +286,7 @@ function createEditPlayerDetailTable(container, player) {
         td.setAttribute("class", "value");
         input = document.createElement("input");
         input.setAttribute("type", "text");
+        input.setAttribute("id", "input_gender");
         if (player.detailinfo.gender == 0) {
             input.setAttribute("value", "男");
         } else if (player.detailinfo.gender == 1) {
@@ -282,6 +311,7 @@ function createEditPlayerDetailTable(container, player) {
         td.setAttribute("class", "value");
         input = document.createElement("input");
         input.setAttribute("type", "text");
+        input.setAttribute("id", "input_height");
         input.setAttribute("value", player.detailinfo.height + "cm");
         td.appendChild(input);
         tr.appendChild(td);
@@ -302,6 +332,7 @@ function createEditPlayerDetailTable(container, player) {
         td.setAttribute("class", "value");
         input = document.createElement("input");
         input.setAttribute("type", "text");
+        input.setAttribute("id", "input_weight");
         input.setAttribute("value", player.detailinfo.weight + "kg");
         td.appendChild(input);
         tr.appendChild(td);
@@ -322,6 +353,7 @@ function createEditPlayerDetailTable(container, player) {
         td.setAttribute("class", "value");
         input = document.createElement("input");
         input.setAttribute("type", "text");
+        input.setAttribute("id", "input_position");
         input.setAttribute("value", player.position);
         td.appendChild(input);
         tr.appendChild(td);
@@ -342,6 +374,7 @@ function createEditPlayerDetailTable(container, player) {
         td.setAttribute("class", "value");
         input = document.createElement("input");
         input.setAttribute("type", "text");
+        input.setAttribute("id", "input_device");
         input.setAttribute("value", player.deviceid);
         td.appendChild(input);
         tr.appendChild(td);

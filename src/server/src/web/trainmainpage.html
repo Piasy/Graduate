@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>训练监控</title>
+    <link type="text/css" href="css/common.css" rel="stylesheet"/>
+    <script type="application/javascript" src="js/jquery-2.1.1.min.js"></script>
+    <script type="application/javascript" src="js/highcharts.js"></script>
+    <script type="application/javascript" src="js/common.js"></script>
+    <script type="application/javascript" src="js/hirun.js"></script>
+</head>
+<body>
+<div class="top_bar">
+    <div class="top_bar back_btn">
+        <span class="s1">返</span>
+        <span class="s2">回</span>
+    </div>
+</div>
+
+<div class="main_body chart_with_players_panel">
+    <a href="realtimespeed.html">实时速度</a> <br/><br/>
+    <a href="historyspeed.html">历史速度</a> <br/><br/>
+    <a href="realtimehr.html">实时心率</a> <br/><br/>
+    <a href="historyheartrate.html">历时心率</a> <br/><br/>
+    <a href="totaldistance.html">跑动总距离</a> <br/><br/>
+    <a href="distwithspeed.html">不同速度下跑动距离</a> <br/><br/>
+    <a href="distwithheartrate.html">不同心率下跑动距离</a> <br/><br/>
+    <a href="hrwithspeed.html">不同速度下心率</a> <br/><br/>
+    <a href="hrelapse.html">不同心率持续时间比例</a> <br/><br/>
+    <a href="hirun.html">高强度跑次数、间隔时间</a> <br/><br/>
+    <a href="compareplayers.html">不同队员数据对比</a> <br/><br/>
+</div>
+
+<script type="application/javascript">
+    $(document).ready(function() {
+        localStorage.clear();
+        $("div.top_bar.back_btn").click(function () {
+            window.location.href = "welcome.html";
+        });
+    });
+</script>
+</body>
+</html>

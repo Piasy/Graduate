@@ -93,7 +93,7 @@ function updateTotalDistanceChart(series, index, remark) {
     points.forEach(function (p, i, arr) {
         ys.push(p.y);
     });
-    if (remark != null && remark.curdistance != undefined && ys.length > index) {
+    if (remark != null && remark.curdistance != undefined && ys.length > index && ys[index] < remark.curdistance) {
         ys[index] = remark.curdistance;
         series.setData(ys);
     }

@@ -31,7 +31,7 @@
         //alert("window h: " + $(window).height() + ", window w: " + $(window).width() + ", doc h: " + $(document).height() + ", doc w: " + $(document).width() + ", screen h: " + screen.height + ", screen w: " + screen.width);
 
         $("div.top_bar.back_btn").click(function () {
-            console.log("Go back clicked!");
+            window.location.href = "welcome.html";
         });
 
         loadPlayers(function(players) {
