@@ -2,25 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0aec219e-f067-499a-b3d0-f81cd8d52499" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/img/welcome_bg.png" afterPath="$PROJECT_DIR$/img/welcome_bg.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/common.js" afterPath="$PROJECT_DIR$/js/common.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compareplayers.html" afterPath="$PROJECT_DIR$/compareplayers.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distwithheartrate.html" afterPath="$PROJECT_DIR$/distwithheartrate.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/distwithheartrate.js" afterPath="$PROJECT_DIR$/js/distwithheartrate.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distwithspeed.html" afterPath="$PROJECT_DIR$/distwithspeed.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/distwithspeed.js" afterPath="$PROJECT_DIR$/js/distwithspeed.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hirun.html" afterPath="$PROJECT_DIR$/hirun.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/historyheartrate.html" afterPath="$PROJECT_DIR$/historyheartrate.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/historyspeed.html" afterPath="$PROJECT_DIR$/historyspeed.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hrelapse.html" afterPath="$PROJECT_DIR$/hrelapse.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hrwithspeed.html" afterPath="$PROJECT_DIR$/hrwithspeed.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../testClient/playerEmulator.go" afterPath="$PROJECT_DIR$/../../../testClient/playerEmulator.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../controllers/players.go" afterPath="$PROJECT_DIR$/../controllers/players.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/players.html" afterPath="$PROJECT_DIR$/players.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/realtimehr.html" afterPath="$PROJECT_DIR$/realtimehr.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/realtimespeed.html" afterPath="$PROJECT_DIR$/realtimespeed.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/totaldistance.html" afterPath="$PROJECT_DIR$/totaldistance.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/totaldistance.js" afterPath="$PROJECT_DIR$/js/totaldistance.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../UI-design/config_player.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../UI-design/start_train.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../UI-design/welcome_bg.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../UI-design/新建文件夹/1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../UI-design/新建文件夹/2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../UI-design/新建文件夹/3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../UI-design/新建文件夹/bu1-hover.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../UI-design/新建文件夹/bu1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../UI-design/新建文件夹/bu2-hover.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../UI-design/新建文件夹/bu2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../UI-design/新建文件夹/grass.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../UI-design/新建文件夹/table-hd.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../UI-design/首页-标注.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../UI-design/首页-标注.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/img/welcome_bg.png" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/img/config_player.png" afterPath="$PROJECT_DIR$/img/config_player.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/img/start_train.png" afterPath="$PROJECT_DIR$/img/start_train.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/common.css" afterPath="$PROJECT_DIR$/css/common.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trainmainpage.html" afterPath="$PROJECT_DIR$/trainmainpage.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/welcome.html" afterPath="$PROJECT_DIR$/welcome.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -47,8 +47,28 @@
       <file leaf-file-name="trainmainpage.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/trainmainpage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7427101">
-              <caret line="30" column="57" selection-start-line="30" selection-start-column="57" selection-end-line="30" selection-end-column="57" />
+            <state vertical-scroll-proportion="0.6159639">
+              <caret line="114" column="50" selection-start-line="114" selection-start-column="50" selection-end-line="114" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="heatmap.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/heatmap.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.5">
+              <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="common.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/common.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="546" column="21" selection-start-line="546" selection-start-column="21" selection-end-line="546" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -83,7 +103,6 @@
         <option value="$PROJECT_DIR$/js/hrelapse.js" />
         <option value="$PROJECT_DIR$/js/realtimespeed.js" />
         <option value="$PROJECT_DIR$/js/realtimehr.js" />
-        <option value="$PROJECT_DIR$/css/common.css" />
         <option value="$PROJECT_DIR$/js/compareplayers.js" />
         <option value="$PROJECT_DIR$/js/common.js" />
         <option value="$PROJECT_DIR$/js/totaldistance.js" />
@@ -102,6 +121,8 @@
         <option value="$PROJECT_DIR$/totaldistance.html" />
         <option value="$PROJECT_DIR$/welcome.html" />
         <option value="$PROJECT_DIR$/players.html" />
+        <option value="$PROJECT_DIR$/css/common.css" />
+        <option value="$PROJECT_DIR$/heatmap.html" />
         <option value="$PROJECT_DIR$/trainmainpage.html" />
       </list>
     </option>
@@ -122,8 +143,8 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1280" />
-    <option name="height" value="727" />
+    <option name="width" value="1440" />
+    <option name="height" value="808" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -150,8 +171,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -170,23 +191,9 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -209,8 +216,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/img" />
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/img" />
       <recent name="$PROJECT_DIR$/js" />
     </key>
   </component>
@@ -588,14 +595,16 @@
       <workItem from="1432124717322" duration="5790000" />
       <workItem from="1432166920104" duration="4417000" />
       <workItem from="1433159791265" duration="5881000" />
+      <workItem from="1433731915865" duration="1132000" />
+      <workItem from="1433770223502" duration="4458000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97727000" />
+    <option name="totallyTimeSpent" value="103317000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="727" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="808" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -603,8 +612,7 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -614,7 +622,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24959612" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24892704" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -622,6 +630,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -648,16 +657,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="484" column="0" selection-start-line="484" selection-start-column="0" selection-end-line="484" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/data_loader.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -834,7 +833,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.062603">
           <caret line="43" column="31" selection-start-line="43" selection-start-column="31" selection-end-line="43" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -863,7 +861,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6919275">
           <caret line="28" column="151" selection-start-line="28" selection-start-column="151" selection-end-line="28" selection-end-column="151" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -871,7 +868,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="22" column="30" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -879,17 +875,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="114" column="7" selection-start-line="92" selection-start-column="4" selection-end-line="114" selection-end-column="7" />
-          <folding>
-            <element signature="n#!!doc;n#createHistorySpeedChart#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/common.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="487" column="0" selection-start-line="487" selection-start-column="0" selection-end-line="487" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -897,7 +882,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1598023">
           <caret line="72" column="26" selection-start-line="72" selection-start-column="26" selection-end-line="72" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -905,7 +889,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.17133443">
           <caret line="29" column="46" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -923,7 +906,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33278418">
           <caret line="34" column="42" selection-start-line="34" selection-start-column="42" selection-end-line="34" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -931,7 +913,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.9505766">
           <caret line="143" column="0" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -939,9 +920,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.752883">
           <caret line="138" column="54" selection-start-line="138" selection-start-column="54" selection-end-line="138" selection-end-column="54" />
-          <folding>
-            <element signature="n#!!doc;n#createDistWithSpeedChart#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1045,17 +1023,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.28301886">
           <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#a#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#a#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="546" column="21" selection-start-line="546" selection-start-column="21" selection-end-line="546" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/heatmap.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.5">
+          <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/trainmainpage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7427101">
-          <caret line="30" column="57" selection-start-line="30" selection-start-column="57" selection-end-line="30" selection-end-column="57" />
+        <state vertical-scroll-proportion="0.6159639">
+          <caret line="114" column="50" selection-start-line="114" selection-start-column="50" selection-end-line="114" selection-end-column="50" />
           <folding />
         </state>
       </provider>

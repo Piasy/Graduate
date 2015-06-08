@@ -517,3 +517,32 @@ div.main_body.chart_with_players_panel table.compare_players_table tr.table_valu
 div.main_body.chart_with_players_panel table.compare_players_table tr.table_value td.even {
     background-color: #ececec;
 }
+
+div.main_body table.train_main_remarks_table {
+    width: 95%;
+    height: auto;
+    position: relative;
+    left: 2.5%;
+    right: 2.5%;
+    margin-bottom: 35px;
+}
+
+div.main_body table.train_main_remarks_table td img {
+    width: 300px;
+    height: 141px;
+    position: relative;
+    box-shadow: 2px 0 5px #888888;
+    border-radius: 10px;
+}
+
+div.main_body table.train_main_remarks_table td a {
+    display: block;
+    margin-bottom: 5px;
+}
+
+div.main_body table.train_main_remarks_table td div {
+    text-align: center;
+    width: 300px;
+    height: 163px;
+    margin-top: 18px;
+}

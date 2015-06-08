@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>热力图</title>
+    <link type="text/css" href="css/common.css" rel="stylesheet"/>
+    <script type="application/javascript" src="js/jquery-2.1.1.min.js"></script>
+    <script type="application/javascript" src="js/highcharts.js"></script>
+    <script type="application/javascript" src="js/common.js"></script>
+    <script type="application/javascript" src="js/historyspeed.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Gwz5ZTkwymONObEoBeQazOjn"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/library/Heatmap/2.0/src/Heatmap_min.js"></script>
+</head>
+<body>
+<div class="top_bar">
+    <div class="top_bar back_btn">
+        <span class="s1">返</span>
+        <span class="s2">回</span>
+    </div>
+</div>
+
+<div class="main_body chart_with_players_panel">
+    <div class="players_panel">
+        <img src="img/before_btn.jpg" class="players_panel before_btn">
+        <div class="players_panel before_btn_line"></div>
+
+        <ul class="players_list">
+        </ul>
+
+        <div class="players_panel after_btn_line"></div>
+        <img src="img/after_btn.jpg" class="players_panel after_btn">
+    </div>
+
+    <div class="chart_area">
+        <div id="chart_container"></div>
+    </div>
+</div>
+
+<script type="application/javascript">
+    $(document).ready(function() {
+        localStorage.clear();
+        $("div.top_bar.back_btn").click(function () {
+            window.location.href = "trainmainpage.html";
+        });
+
+        var players = [];
+        var series = [];
+        var playerShowIndex = 0, playerShowLen = 6;
+        $("img.players_panel.before_btn").click(function () {
+            if (playerShowIndex > 0) {
+                playerShowIndex--;
+                updatePlayersPanel(players, playerShowIndex, playerShowLen, series);
+            }
+        });
+
+        $("img.players_panel.after_btn").click(function () {
+            if (playerShowIndex + playerShowLen < players.length) {
+                playerShowIndex++;
+                updatePlayersPanel(players, playerShowIndex, playerShowLen, series);
+            }
+        });
+
+        loadPlayers(function(ps) {
+            players = ps;
+            players.forEach(function (p, i, arr) {
+                p.selected = true;
+            });
+
+            updatePlayersPanel(players, playerShowIndex, playerShowLen, series);
+
+            var start_msg = {};
+            start_msg.type = "players";
+            start_msg.players = ps;
+        }, function() {
+            console.log("Error happened");
+        });
+
+        var map = new BMap.Map("chart_container");          // 创建地图实例
+
+        var point = new BMap.Point(116.336128, 40.015634);
+        map.centerAndZoom(point, 19);             // 初始化地图，设置中心点坐标和地图级别
+        map.enableScrollWheelZoom(); // 允许滚轮缩放
+
+        var points =[
+            {"lng":116.336127,"lat":40.015537,"count":1},
+            {"lng":116.336129,"lat":40.015610,"count":1},
+            {"lng":116.336073,"lat":40.015706,"count":1},
+            {"lng":116.336108,"lat":40.015667,"count":1},
+            {"lng":116.336068,"lat":40.015677,"count":1},
+            {"lng":116.336116,"lat":40.015622,"count":1},
+            {"lng":116.336031,"lat":40.015622,"count":1},
+            {"lng":116.336126,"lat":40.015654,"count":1},
+            {"lng":116.336040,"lat":40.015686,"count":1},
+            {"lng":116.336103,"lat":40.015693,"count":1},
+            {"lng":116.336202,"lat":40.015684,"count":1},
+            {"lng":116.336295,"lat":40.015704,"count":1},
+            {"lng":116.336385,"lat":40.015659,"count":1},
+            {"lng":116.336369,"lat":40.015682,"count":1},
+            {"lng":116.336447,"lat":40.015620,"count":1},
+            {"lng":116.336467,"lat":40.015530,"count":1},
+            {"lng":116.336406,"lat":40.015579,"count":1},
+            {"lng":116.336431,"lat":40.015480,"count":1},
+            {"lng":116.336493,"lat":40.015461,"count":1},
+            {"lng":116.336400,"lat":40.015467,"count":1},
+            {"lng":116.336182,"lat":40.015694,"count":1},
+            {"lng":116.336170,"lat":40.015629,"count":1},
+            {"lng":116.336226,"lat":40.015580,"count":1},
+            {"lng":116.336199,"lat":40.015642,"count":1},
+            {"lng":116.336136,"lat":40.015631,"count":1},
+            {"lng":116.336059,"lat":40.015593,"count":1},
+            {"lng":116.336021,"lat":40.015590,"count":1},
+            {"lng":116.336046,"lat":40.015677,"count":1},
+            {"lng":116.335952,"lat":40.015587,"count":1},
+            {"lng":116.335943,"lat":40.015536,"count":1},
+            {"lng":116.336201,"lat":40.015638,"count":1},
+            {"lng":116.336202,"lat":40.015653,"count":1},
+            {"lng":116.336173,"lat":40.015657,"count":1},
+            {"lng":116.336169,"lat":40.015741,"count":1},
+            {"lng":116.336230,"lat":40.015841,"count":1},
+            {"lng":116.336133,"lat":40.015867,"count":1},
+            {"lng":116.336220,"lat":40.015943,"count":1},
+            {"lng":116.336318,"lat":40.015882,"count":1},
+            {"lng":116.336348,"lat":40.015796,"count":1},
+            {"lng":116.336296,"lat":40.015861,"count":1},
+            {"lng":116.336161,"lat":40.015538,"count":1},
+            {"lng":116.336185,"lat":40.015550,"count":1},
+            {"lng":116.336098,"lat":40.015595,"count":1},
+            {"lng":116.336147,"lat":40.015510,"count":1},
+            {"lng":116.336153,"lat":40.015604,"count":1},
+            {"lng":116.336135,"lat":40.015692,"count":1},
+            {"lng":116.336183,"lat":40.015667,"count":1},
+            {"lng":116.336190,"lat":40.015742,"count":1},
+            {"lng":116.336123,"lat":40.015657,"count":1},
+            {"lng":116.336043,"lat":40.015570,"count":1}];
+        var heatmapOverlay = new BMapLib.HeatmapOverlay({"radius":20});
+        map.addOverlay(heatmapOverlay);
+        heatmapOverlay.setDataSet({data:points,max:10});
+        heatmapOverlay.show();
+    });
+</script>
+</body>
+</html>

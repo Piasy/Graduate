@@ -8,6 +8,7 @@ import (
   "encoding/json"
   "io/ioutil"
   "fmt"
+  "strconv"
 
   "gopkg.in/mgo.v2/bson"
 )
@@ -80,6 +81,8 @@ func randNextGps(last *GPSData, rander *rand.Rand) *GPSData {
   if last.Speed <= 0 {
     last.Speed = rander.Float64() * 2
   }
+  fmt.Println("{\"lng\":" + strconv.FormatFloat(last.Longitude, 'f', 6, 64) +
+      ",\"lat\":" + strconv.FormatFloat(last.Latitude, 'f', 6, 64) + ",\"count\":1},");
   return last
 }
 
@@ -108,7 +111,7 @@ func randNextHR(last *HeartRateData, rander *rand.Rand) *HeartRateData {
 }
 
 func emulate(player string, ch chan int) {
-  lastGps := GPSData{40.00797556, 116.32371427, 30, 96.9000015258789, 5.2744019031524658, 3, 1427774768000}
+  lastGps := GPSData{40.015634, 116.336128, 30, 96.9000015258789, 5.2744019031524658, 3, 1427774768000}
   lastAcc := ACCData{1.4322, 2.322, 9.6372, 1427774768000}
   lastGyro := GYROData{1, 2, 3, 1427774768000}
   lastHR := HeartRateData{88, 1427774768000}
