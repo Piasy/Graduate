@@ -6,6 +6,13 @@ body {
     background-color: #dcdcdc;
 }
 
+img.welcome_bg {
+    margin: 0;
+    padding: 0;
+    width: 980px;
+    height: 643px;
+}
+
 /**
 top bar
 */

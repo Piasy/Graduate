@@ -65,25 +65,19 @@ function createHRElapseChart(players) {
 
 function updateHRElapseChartFirstTime(series, players) {
     var data = [];
-    players.forEach(function (p, i, arr) {
-        /*if (p.selected) {
-         series[i].show();
-         } else {
-         series[i].hide();
-         }*/
-        var remark = JSON.parse(localStorage.getItem(p.history));
-        if (remark != null && remark.hrelapse != null && remark.hrelapse.length == 8) {
-            var sum = 0;
+    var p = players[0];
+    var remark = JSON.parse(localStorage.getItem(p.history));
+    if (remark != null && remark.hrelapse != null && remark.hrelapse.length == 8) {
+        var sum = 0;
+        remark.hrelapse.forEach(function (elapse, j, arr) {
+            sum += elapse;
+        });
+        if (sum > 0) {
             remark.hrelapse.forEach(function (elapse, j, arr) {
-                sum += elapse;
+                data.push([NAMES[j], elapse / sum]);
             });
-            if (sum > 0) {
-                remark.hrelapse.forEach(function (elapse, j, arr) {
-                    data.push([NAMES[j], elapse / sum]);
-                });
-            }
         }
-    });
+    }
     series[0].setData(data);
 }
 
