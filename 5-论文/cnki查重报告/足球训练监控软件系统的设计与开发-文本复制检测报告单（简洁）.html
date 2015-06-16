@@ -1,0 +1,2769 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0082)http://tsinghua.check.cnki.net/user/Report.aspx?LeftFile=41512044&t=p#41512044_000 -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head id="Head1"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>
+	足球训练监控软件系统的设计与开发-文本复制检测报告单（简洁）
+</title>
+
+    <script type="text/javascript" src="./足球训练监控软件系统的设计与开发-文本复制检测报告单（简洁）_files/jQuery.js"></script>
+
+    <style type="text/css">
+        a
+        {
+            color: #035d03;
+        }
+        a, a:visited
+        {
+            color: #035d03;
+        }
+        a:hover
+        {
+            color: #800613;
+        }
+        .n_main
+        {
+            width: 640px;
+            min-height: 600px;
+            background-color: #FFF;
+            background-repeat: repeat-y;
+            height: auto !important;
+            margin: 0px auto 0 auto;
+        }
+        *
+        {
+            text-align: left;
+        }
+        html, body
+        {
+            text-align: left;
+            font-size: 12px;
+            color: #292929;
+            background: url(images/n_bg.gif) repeat;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        @media print
+        {
+            .n_print
+            {
+                display: none;
+            }
+        }
+        .n_table_prints
+        {
+            font-weight: bold;
+            font-size: 12px;
+            color: #2e2f2e;
+        }
+        .n_table_prints:hover
+        {
+            color: #760605;
+        }
+        .n_title
+        {
+            width: 640px;
+            margin: 12px auto;
+        }
+        .n_logo_left
+        {
+            text-align: left;
+            padding-left: 20px;
+        }
+        .n_logo_left img
+        {
+            border: none;
+        }
+        .n_logo_right img
+        {
+            border: none;
+        }
+        .n_bfb
+        {
+            font-weight: bold;
+        }
+        .n_logo_right
+        {
+            text-align: right;
+            padding-right: 20px;
+        }
+        .n_title_left
+        {
+            float: left;
+            width: 190px;
+            height: 46px;
+            background: url(images/jie_amlc.gif) no-repeat;
+            margin-left: 10px;
+            display: inline;
+        }
+        .n_title_right
+        {
+            float: right;
+            width: 185px;
+            height: 62px;
+            background: url(images/jie_zw.gif) no-repeat;
+            margin-right: 10px;
+            display: inline;
+        }
+        .n_bodytop
+        {
+            width: 640px;
+            margin: 0px auto;
+        }
+        .n_clear
+        {
+            clear: both;
+        }
+        .n_bt
+        {
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+            overflow: hidden;
+            font-size: 24px;
+            font-weight: bold;
+            border-bottom: solid 1px #035d03;
+            margin-bottom: 1px;
+        }
+        .n_jie
+        {
+            font-size: 12px;
+            font-weight: normal;
+        }
+        .n_no
+        {
+            height: 30px;
+            background: #f4f9ef;
+            width: 640px;
+            margin: 0px auto;
+            line-height: 30px;
+            color: #750606;
+            text-align: left;
+            font-size: 12px;
+        }
+        .n_bgd_k1
+        {
+            width: 640px;
+            height: auto;
+            padding-top: 10px;
+            font-size: 12px;
+        }
+        .n_yes
+        {
+            color: #dcaf29;
+        }
+        .n_table_a
+        {
+            color: #000;
+            font-size: 12px;
+            border: 0;
+        }
+        .n_table_a_cos
+        {
+            background-color: #f4f9ef;
+            height: 26px;
+        }
+        .n_table_a_cosa
+        {
+            background-color: #f4f9ef;
+            height: 20px;
+        }
+        .n_text_green
+        {
+            color: #1a5f02;
+            text-align: right;
+            line-height: 26px;
+            font-weight: bold;
+        }
+        .n_text_block_b
+        {
+            line-height: 20px;
+            padding-left: 8px;
+            color: #7a7a7a;
+        }
+        .n_text_block_bm
+        {
+            line-height: 20px;
+            font-size: 12px;
+            text-align: left;
+        }
+        .n_text_block_a
+        {
+            text-align: left;
+            line-height: 26px;
+        }
+        .n_bgd_k2
+        {
+            font-size: 12px;
+        }
+        .n_table_b
+        {
+            width: 640px;
+            border-top: 2px #035d03 solid;
+        }
+        .n_text_Gm
+        {
+            color: #035d03;
+        }
+        .n_text_Gm a
+        {
+            color: #035d03;
+        }
+        .n_text_Gm a:hover
+        {
+            color: #7bab7c;
+        }
+        .s_new_hui
+        {
+            color: #666;
+        }
+        .n_text_red_a
+        {
+            color: #860505;
+            line-height: 26px;
+            font-size: 12px;
+            font-weight: bold;
+            text-align: left;
+            padding-left: 10px;
+        }
+        .n_text_red_a_zb
+        {
+            color: #860505;
+            line-height: 26px;
+            font-size: 12px;
+            font-weight: bold;
+            text-align: left;
+            text-align: right;
+        }
+        .n_text_Gs
+        {
+            color: #860505;
+            border-top: 1px #035d03 dotted;
+        }
+        .n_table_b_cos
+        {
+            background: #f3f9ef;
+        }
+        .n_red_bold
+        {
+            color: #000;
+            font-weight: bold;
+        }
+        .n_text_block_b6
+        {
+            color: #7e7c7c;
+            font-weight: bold;
+            text-align: left;
+        }
+        .n_table_b1
+        {
+            background: #f3f9ef;
+        }
+        .n_table_a1
+        {
+            background: #f3f9ef;
+            line-height: 20px;
+            border-bottom: 1px #035d03 dotted;
+        }
+        .n_table_a2
+        {
+            background: #f3f9ef;
+            line-height: 20px;
+        }
+        .n_table_a3
+        {
+            background: #f3f9ef;
+            line-height: 25px;
+            border-bottom: 1px #035d03 solid;
+            border-top: 1px #035d03 solid;
+        }
+        .n_table_a3_l
+        {
+            text-align: right;
+        }
+        .n_table_a3_r
+        {
+            text-align: left;
+            font-weight: bold;
+        }
+        .n_table_a3_ra
+        {
+            color: #292929;
+        }
+        .n_table_a3_ra:hover
+        {
+            color: #750606;
+        }
+        .n_text_block_bs
+        {
+            text-align: left;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .n_text_block_bss
+        {
+            text-align: left;
+            color: #666;
+        }
+        .n_text_block_bsm
+        {
+            font-weight: bold;
+        }
+        .n_text_GT
+        {
+            border-bottom: 1px #035d03 dotted;
+            font-weight: bold;
+            padding-left: 6px;
+            color: #860505;
+        }
+        .n_text_GTs
+        {
+            font-weight: bold;
+            padding-left: 10px;
+        }
+        .n_qubr_fzb
+        {
+            border-bottom: 1px #1a5f02 solid;
+        }
+        .n_table_a_cosa
+        {
+            border-bottom: 1px #1a5f02 solid;
+        }
+        .n_biao
+        {
+            text-align: right;
+        }
+        .n_bgd_biao
+        {
+            width: 640px;
+        }
+        .n_text_block_a2 a
+        {
+            color: #292929;
+        }
+        .n_text_block_a2 a:hover
+        {
+            color: #860505;
+        }
+        .n_jcjg_a
+        {
+            width: 48px;
+            height: 17px;
+            background-image: url(images/pmlc12_icon1.gif);
+            background-repeat: no-repeat;
+            text-align: left;
+            line-height: 17px;
+            padding-left: 10px;
+            color: #333;
+        }
+        .n_jcjg_ap
+        {
+            width: 48px;
+            height: 17px;
+            background-image: url(images/n_re.gif);
+            background-repeat: no-repeat;
+            text-align: left;
+            line-height: 17px;
+            padding-left: 10px;
+            color: #333;
+        }
+        .n_jcjg_am
+        {
+            width: 48px;
+            height: 17px;
+            background-image: url(images/n_ye.gif);
+            background-repeat: no-repeat;
+            text-align: left;
+            line-height: 17px;
+            color: #333;
+        }
+        .n_jcjg_al
+        {
+            width: 48px;
+            height: 17px;
+            background-image: url(images/n_jh.gif);
+            background-repeat: no-repeat;
+            text-align: left;
+            line-height: 17px;
+            padding-left: 10px;
+            color: #333;
+        }
+        .n_k3
+        {
+            background: #f7f7f7;
+            overflow: hidden;
+        }
+        .n_pic
+        {
+            width: 602px;
+            height: 15px;
+            margin: 5px auto 10px auto;
+        }
+        .n_table_zs
+        {
+            margin: 0px auto;
+        }
+        .n_bodymid
+        {
+            width: 640px;
+            margin: 0px auto;
+            font-size: 12px;
+            overflow: hidden;
+        }
+        .n_bodymid_bf
+        {
+            margin-top: 5px;
+        }
+        .n_table_jiebf
+        {
+            background: #f3f9ef;
+            border-top: 2px #035d03 solid;
+        }
+        .n_table_jiebfs
+        {
+            background: #f3f9ef;
+            border-top: 1px #035d03 solid;
+            border-bottom: 1px #035d03 solid;
+        }
+        .n_table_jiebf_zzs
+        {
+            padding-left: 40px;
+        }
+        .n_table_jiebf_fzb
+        {
+            font-weight: bold;
+            text-align: right;
+            color: #760605;
+            height: 25px;
+            line-height: 25px;
+        }
+        .n_jcjg_as
+        {
+            float: left;
+            width: 48px;
+            height: 17px;
+            background-image: url(images/pmlc12_icon1.gif);
+            background-repeat: no-repeat;
+            text-align: center;
+            line-height: 17px;
+            color: #333;
+        }
+        .n_xu
+        {
+            width: 640px;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #CCCCCC;
+        }
+        .n_xu_a
+        {
+            width: 20px;
+            height: 20px;
+            background-color: #fcfaf1;
+            text-align: center;
+            border-bottom: 1px #ccc solid;
+            border-right: 1px #ccc solid;
+        }
+        .n_text_back_a
+        {
+            font-size: 12px;
+            text-align: center;
+            color: #333;
+            padding-left: 2px;
+            line-height: 20px;
+        }
+        .n_text_G2
+        {
+            color: #333;
+            font-size: 12px;
+            text-align: left;
+            padding-left: 8px;
+            line-height: 20px;
+        }
+        .n_text_G2 a
+        {
+            color: #2e2f2e;
+        }
+        .n_text_G2 a:hover
+        {
+            color: #800613;
+        }
+        .n_xu_a
+        {
+            width: 20px;
+            height: 20px;
+            background-color: #fcfaf1;
+            text-align: center;
+            border-right-width: 1px;
+            border-bottom-width: 1px;
+            border-right-style: solid;
+            border-bottom-style: solid;
+            border-right-color: #CCCCCC;
+            border-bottom-color: #CCCCCC;
+        }
+        .n_text_red_d
+        {
+            color: #8b0411;
+            font-size: 12px;
+            text-align: center;
+        }
+        .n_xu_d
+        {
+            width: 100px;
+            height: 20px;
+            text-align: center;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #CCCCCC;
+            border-bottom: 1px #ccc dotted;
+        }
+        .n_xu_da
+        {
+            width: 100px;
+            height: 20px;
+            text-align: center;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #CCCCCC;
+            color: #7a7a7a;
+        }
+        .n_bodylast
+        {
+            width: 640px;
+            margin: 5px auto;
+            height: 30px;
+            background-color: #f3f9ef;
+        }
+        .n_bodyfooter
+        {
+            color: #666;
+            border-top: 2px #1b5e01 solid;
+            height: auto;
+            width: 640px;
+            margin: 5px auto;
+            font-size: 12px;
+            line-height: 20px;
+        }
+        .n_footer_sm
+        {
+            float: left;
+            font-weight: bold;
+        }
+        .n_footer_sms
+        {
+            float: left;
+        }
+        .n_footer_smr
+        {
+            float: right;
+        }
+        .n_footer_smr:hover
+        {
+            color: #800811;
+        }
+        .n_bodymid_ywnr
+        {
+            border-top: 1px #1b5e01 solid;
+            height: auto;
+            margin-top: 5px;
+        }
+        .n_table_ywtop
+        {
+            background: #ddf0ce;
+        }
+        .n_ywnr
+        {
+            height: 26px;
+            line-height: 26px;
+            font-weight: bold;
+            padding-left: 22px;
+        }
+        .n_ywnr_content
+        {
+            line-height: 180%;
+            height: auto;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin-top: 5px;
+        }
+        .n_ywnr_content p
+        {
+            text-indent: 2em;
+            margin: 0px auto;
+        }
+        .n_ywnr_content p.n_new_hui
+        {
+            color: #666;
+        }
+        .n_ywnr_content p img
+        {
+            width: 550px;
+            height: 250px;
+        }
+        .n_new_red
+        {
+            color: red;
+        }
+        .n_new_ye
+        {
+            color: #e28a05;
+        }
+        .n_red
+        {
+        }
+        .red_font
+        {
+            color: #d90808;
+        }
+        .n_ymnr_bz
+        {
+            border-top: 1px #1b5e01 solid;
+            height: auto;
+        }
+        .n_ymnr_top
+        {
+            height: 26px;
+            background: #ddf0ce;
+            line-height: 26px;
+            font-weight: bold;
+            text-indent: 15px;
+        }
+        .n_ymnr_top_s
+        {
+            width: 620px;
+            margin: 5px auto;
+            background: #f7f7f7;
+        }
+        .n_table_bz_gd
+        {
+            background: #f7f7f7;
+            padding: 5px;
+            line-height: 150%;
+            color: #8b0411;
+        }
+        .n_table_bz_mark
+        {
+            background: #f7f7f7;
+            line-height: 25px;
+            font-weight: bold;
+            text-indent: 18px;
+        }
+        .n_jz
+        {
+            border-top: 1px #1b5e01 solid;
+            height: auto;
+        }
+        .n_jz_nr
+        {
+            background: #ddf0ce;
+            font-weight: bold;
+            padding-left: 10px;
+        }
+        .n_jz_nrs
+        {
+            padding-left: 10px;
+            line-height: 180%;
+        }
+        .n_xzgf_bg
+        {
+            margin: 5px auto 5px 0px;
+        }
+        .n_xzgf_bgs
+        {
+            margin: 5px auto;
+        }
+        .content01
+        {
+            background: #ffffff;
+            line-height: 20px;
+            font-weight: bold;
+        }
+        .content02
+        {
+            text-align: center;
+            background: #ffffff;
+            line-height: 20px;
+        }
+        .content05
+        {
+            text-align: left;
+            background: #ffffff;
+            line-height: 20px;
+        }
+        .content03
+        {
+            background: #ffffff;
+            line-height: 20px;
+        }
+        .n_ywnr_pic
+        {
+            width: 482px;
+            margin: auto;
+        }
+        .n_table_bz_gds
+        {
+            padding-left: 10px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        .n_ye
+        {
+            color: #aeb81b;
+        }
+        .n_sm
+        {
+            color: #000;
+            font-weight: bold;
+        }
+        .n_sm_tables
+        {
+            background: #f7f7f7;
+            line-height: 30px;
+        }
+        .n_dz
+        {
+            color: #2e2f2e;
+        }
+        .n_dz:hover
+        {
+            color: #79100d;
+            font-size: 12px;
+        }
+        .n_bgd_biao_b, .n_bgd_biao_bs
+        {
+            overflow: hidden;
+            background: #ddf0ce;
+            border-bottom: 1px #999 solid;
+            line-height: 26px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .n_bgd_biao_bs
+        {
+            border-left: 1px #999 solid;
+        }
+        .n_qwdz_ywnr
+        {
+            border-top: 1px #999 solid;
+            margin-top: 5px;
+        }
+        .n_text_red_ax
+        {
+            color: #860505;
+            line-height: 26px;
+            font-size: 12px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .n_table_xu_a
+        {
+            width: 20px;
+            background: #fdfaf3;
+            font-weight: bold;
+            text-align: center;
+            border-bottom: 1px #999 solid;
+        }
+        .n_qwdz_k
+        {
+            background: #f3f9ef;
+            border-bottom: 1px #999 solid;
+        }
+        .n_bgd_biao_KU
+        {
+            overflow: hidden;
+            border-left: 1px #999 solid;
+            border-bottom: 1px #999 solid;
+        }
+        .n_bgd_biao_c
+        {
+            background: #fef4f5;
+            line-height: 150%;
+            padding: 5px;
+            margin: 5px;
+        }
+        .n_text_Gr
+        {
+            border-bottom: 1px #1d5e02 dotted;
+        }
+        .n_bgd_biao_KUa
+        {
+            margin: 6px;
+            margin-top: 0px;
+            line-height: 18px;
+        }
+        .n_bgd_biao_KUas
+        {
+            line-height: 180%;
+            text-align: center;
+        }
+        .n_bgd_biao_KUas a
+        {
+            color: #2e2f2e;
+        }
+        .n_bgd_biao_KUas a:hover
+        {
+            color: #7b100a;
+        }
+        .n_bgd_biao_KUm
+        {
+            font-weight: bold;
+            text-align: center;
+            background: #ddf0ce;
+            line-height: 26px;
+        }
+        .n_bgd_biao_KUr
+        {
+            height: auto;
+            min-height: 30px;
+            border-bottom: 1px #999 solid;
+            border-left: 1px #999 solid;
+        }
+        .n_bgd_biao_KUu
+        {
+            border-bottom: 1px #999 solid;
+        }
+        .n_qwdz_bz
+        {
+            line-height: 180%;
+            color: #d90808;
+        }
+        .n_qwdz_bz a
+        {
+            color: #2e2f2e;
+        }
+        .n_qwdz_bz a:hover
+        {
+            color: #7b100a;
+        }
+        .n_qwdz_xxdz
+        {
+            font-size: 12px;
+        }
+        .n_jcxxjg
+        {
+            font-weight: bold;
+            line-height: 25px;
+        }
+        .n_bgxxjc
+        {
+            background: #f3f9ef;
+            line-height: 30px;
+            border-top: 2px #1d5e02 solid;
+        }
+        .n_bz
+        {
+            font-weight: bold;
+        }
+        .n_bgxxjcs
+        {
+            text-align: center;
+            padding: 5px;
+        }
+        .n_bgxxjcm
+        {
+            background: #fef4f5;
+            line-height: 18px;
+        }
+        .n_pic_dz
+        {
+            text-align: right;
+        }
+        .n_bf_bt
+        {
+            text-align: center;
+            font-weight: bold;
+        }
+        .n_table_bz_gdh
+        {
+            color: #2d2d2c;
+            height: 20px;
+            line-height: 20px;
+            text-indent: 18px;
+            font-weight: bold;
+            border-bottom: 1px #1b5e01 dotted;
+        }
+        .n_table_pqbt
+        {
+            font-weight: bold;
+            text-align: center;
+        }
+        .n_new_czb
+        {
+            text-align: center;
+        }
+        .n_new_czb_red
+        {
+            text-align: center;
+            color: #ff0000;
+        }
+        .n_new_bgl
+        {
+            font-weight: bold;
+            text-align: right;
+            line-height: 22px;
+        }
+        .n_text_block_b6 a
+        {
+            color: #666;
+        }
+        .n_text_block_b6 a:hover
+        {
+            color: #860505;
+        }
+        .n_new_pqgdims
+        {
+            background: #f3f9ef;
+            font-weight: bold;
+            padding-left: 10px;
+            border-top: 2px #1a5f02 solid;
+            line-height: 25px;
+        }
+        .n_new_pqgdimx
+        {
+            width: 620px;
+            margin: 5px auto;
+            background: #f7f7f7;
+        }
+        .n_new_pqgdimxNew
+        {
+            width: 620px;
+            margin: 5px auto;
+            padding-left: 20px;
+        }
+        .n_new_bg_lb table
+        {
+            text-align: left;
+        }
+        .n_new_bgx
+        {
+            border-bottom: 1px #1d5e02 dotted;
+        }
+        .n_new_bgx img
+        {
+            float: left;
+        }
+        .n_new_pqgd_lie
+        {
+            text-align: right;
+        }
+        .n_sms a
+        {
+            color: #666;
+        }
+        .n_sms a:hover
+        {
+            color: #90050b;
+        }
+        .n_qwdz_ywnr
+        {
+            border-top: 1px #999 solid;
+            margin-top: 5px;
+        }
+        .qw_bgd_biao
+        {
+            width: 640px;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        .qw_bgd_biao_b
+        {
+            height: 25px;
+            text-align: center;
+            border-top: 1px solid #999;
+            border-right: 1px solid #999;
+            border-bottom: 1px solid #999;
+            line-height: 25px;
+            background-color: #DDF0CE;
+            color: #000;
+        }
+        .qw_bgd_biao_bs
+        {
+            height: 25px;
+            text-align: center;
+            border-top: 1px solid #999;
+            border-left: 1px solid #999;
+            border-bottom: 1px solid #999;
+            line-height: 25px;
+            background-color: #DDF0CE;
+            color: #000;
+        }
+        .qw_bgd_biao_KU
+        {
+            border-right: 1px solid #999;
+            border-bottom: 1px solid #999;
+            padding-left: 5px;
+            padding-right: 5px;
+            vertical-align: top;
+            text-align: left;
+        }
+        .qw_bgd_biao_KUa
+        {
+            width: 280px;
+            padding: 5px;
+            vertical-align: top;
+            text-align: left;
+        }
+        .qw_text_red_b
+        {
+            color: #d90808;
+            line-height: 20px;
+            font-size: 12px;
+            text-align: left;
+        }
+        .qw_bgd_biao_c
+        {
+            line-height: 18px;
+            background-color: #FDF4F2;
+            text-align: left;
+            margin-top: 5px;
+            color: #000;
+        }
+        .qw_table_xu_a
+        {
+            background-color: #fcfaf1;
+            text-align: center;
+            border-right: 1px dashed #999;
+            border-top: 1px solid #999;
+            border-left: 1px solid #999;
+            border-bottom: 1px solid #999;
+        }
+        .qw_table_xu_b
+        {
+            width: 18px;
+            background-color: #DDF0CE;
+            text-align: center;
+            border-top: 1px solid #999;
+            border-left: 1px solid #999;
+            border-bottom: 1px solid #999;
+        }
+        .qw_text_red_ax
+        {
+            color: #860505;
+            line-height: 26px;
+            font-size: 12px;
+            font-weight: bold;
+            text-align: center;
+            padding-left: 10px;
+        }
+        .table_check_rsR table
+        {
+            border: solid 1px #cccccc;
+            border-collapse: collapse;
+            word-break: break-all;
+            word-wrap: break-word;
+        }
+        .table_check_rsR table td, th
+        {
+            border: solid 1px #cccccc;
+            padding: 0px;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+        .t_text_red_a
+        {
+            color: #920e0a;
+        }
+        .Font_Color_Red
+        {
+            text-decoration: underline;
+        }
+        .Font_Color_Green
+        {
+            text-decoration: underline;
+            font-style: oblique;
+        }
+        .Font_Color_Red
+        {
+            color: Red;
+        }
+        .Font_Color_Green
+        {
+            color: #e28a05;
+        }
+        .Font_Color_Grey
+        {
+            color: #666666;
+        }
+        .item_title
+        {
+            border-top: 2px #035d03 solid;
+            font-size: 14px;
+            font-weight: bold;
+            padding-left: 10px;
+            line-height: 24px;
+            background-color: #f4f9ef;
+        }
+        .n_text_green_normal
+        {
+            color: #1a5f02;
+            line-height: 26px;
+        }
+        a.maxlink
+        {
+            color: #860505;
+        }
+        a.maxlink:visited
+        {
+            color: #860505;
+        }
+    </style>
+</head>
+<body>
+    <form name="form1" method="post" action="http://tsinghua.check.cnki.net/user/Report.aspx?LeftFile=41512044&t=p" id="form1">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTg3ODQ0MjYxOWRkVRXsIyH91YLYMPoiEuMWFZ6KAr4=">
+</div>
+
+    <div id="report_all_bak" class="n_main" style="background-image:url(images/pmlc_sy.gif);">
+        <div class="n_title">
+            <div class="n_print">
+                <table width="640" cellpadding="0" cellspacing="0" border="0">
+                    <tbody><tr>
+                        <td width="700">
+                        </td>
+                        <td width="25">
+                            <img src="./足球训练监控软件系统的设计与开发-文本复制检测报告单（简洁）_files/n_btn_print.gif" alt="">
+                        </td>
+                        <td width="60">
+                            <a href="javascript:print();" class="n_table_prints">打印</a>
+                        </td>
+                        <td width="25" id="save1">
+                            <img src="./足球训练监控软件系统的设计与开发-文本复制检测报告单（简洁）_files/n_btn_save.gif" alt="">
+                        </td>
+                        <td width="60" id="save2">
+                            
+                            
+                            <a href="http://pmlc.cnki.net/report_download_stu/DownloadReport.aspx?reportType=1&user=thjsj060&userServerID=1&fileID=41512044&isJunior=0&check=ab74e07fa0d0a772083dd87f4caa9c17" id="downReport" class="n_table_prints" target="_blank">保存</a>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </div>
+            <table width="640" cellpadding="0" cellspacing="0" border="0">
+                <tbody><tr>
+                    <td class="n_logo_left">
+                        <a href="http://check.cnki.net/" target="_blank">
+                            <img src="./足球训练监控软件系统的设计与开发-文本复制检测报告单（简洁）_files/jie_amlc.gif" alt=""></a>
+                    </td>
+                    <td class="n_logo_right">
+                        <a href="http://check.cnki.net/" target="_blank">
+                            <img src="./足球训练监控软件系统的设计与开发-文本复制检测报告单（简洁）_files/jie_zw.gif" alt=""></a>
+                    </td>
+                </tr>
+            </tbody></table>
+        </div>
+        <div class="n_bodytop">
+            <div class="n_bt">
+                文本复制检测报告单<span class="n_jie">(<span id="Label_Report_Type_Name">简洁</span>)</span></div>
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" class="n_table_a" style="border-top: solid 2px #035d03;">
+                <tbody><tr class="n_table_a_cos">
+                    <td colspan="2">
+                        <table width="640" cellpadding="0" cellspacing="0" border="0">
+                            <tbody><tr>
+                                <td width="420" class="n_text_red_a">
+                                    №:<span id="Label_ReportID">ADBD2015R_20150613215900415120442829</span>
+                                    
+                                </td>
+                                <td width="60" class="t_text_red_a">
+                                    检测时间：
+                                </td>
+                                <td>
+                                    <span id="Label_Apply_Time">2015-06-13 21:59:00</span>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 100px;" class="n_text_green">
+                        检测文献：
+                    </td>
+                    <td class="n_text_block_a" style="width: 539px;">
+                        <span id="Label_Title">足球训练监控软件系统的设计与开发</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="n_text_green" style="width: 100px;">
+                        作者：
+                    </td>
+                    <td class="n_text_block_a">
+                        <span id="Label_Author">许建林</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="n_text_green" style="vertical-align: top; width: 100px;">
+                        检测范围：
+                    </td>
+                    <td class="n_text_block_bm">
+                        <span id="Label_Check_Range">中国学术期刊网络出版总库<br>中国博士学位论文全文数据库/中国优秀硕士学位论文全文数据库<br>中国重要会议论文全文数据库<br>中国重要报纸全文数据库<br>中国专利全文数据库<br>大学生论文联合比对库<br>互联网资源<br>英文数据库(涵盖期刊、博硕、会议的英文数据以及德国Springer、英国Taylor&amp;Francis 期刊数据库等)<br>港澳台学术文献库<br>优先出版文献库<br>互联网文档资源<br>图书资源<br>个人比对库</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="n_text_green" style="width: 100px;">
+                        时间范围：
+                    </td>
+                    <td class="n_text_block_a">
+                        <span id="Label_Time_Range">1900-01-01至2015-06-13</span>
+                    </td>
+                </tr>
+                <tr id="tr_teacher">
+	<td class="n_text_green" style="width: 100px;">
+                        指导教师：
+                    </td>
+	<td class="n_text_block_a">
+                        <span id="Label_Teacher">许斌</span>
+                    </td>
+</tr>
+
+                
+                
+                
+            </tbody></table>
+            <div class="item_title">
+                检测结果</div>
+            <div class="n_bgd_k2">
+                <table id="p1" cellpadding="0" cellspacing="0" border="0" width="640" class="n_table_b">
+	<tbody><tr class="n_table_b_cos">
+		<td class="n_text_red_a" width="95">
+                            总文字复制比：
+                        </td>
+		<td width="95">
+                            <span id="Label_AllCopy"><div class="per_y" title="文字复制比">3.6%</div></span>
+                        </td>
+		<td class="n_text_red_a" width="105">
+                            跨语言检测结果：
+                        </td>
+		<td style="text-align: left;">
+                            <span id="Label_CE"><div class="per_g" title="文字复制比">0%</div></span>
+                        </td>
+	</tr>
+</tbody></table>
+
+                <table id="Table2" cellpadding="0" cellspacing="0" border="0" width="640">
+	<tbody><tr class="n_table_b_cos">
+		<td width="26" height="25">
+                            <img src="./足球训练监控软件系统的设计与开发-文本复制检测报告单（简洁）_files/jie_yins.gif" style="border: none" alt="">
+                        </td>
+		<td width="184" class="n_text_block_b6">
+                            去除引用文献复制比：<span class="n_red_bold"><span id="Label_Quote">3.6%</span></span>
+                        </td>
+		<td width="27">
+                            <img src="./足球训练监控软件系统的设计与开发-文本复制检测报告单（简洁）_files/jie_bens.gif" style="border: none" alt="">
+                        </td>
+		<td class="n_text_block_b6">
+                            去除本人已发表文献复制比：<span class="n_red_bold"><span id="Label_SameAuthor">3.6%</span></span>
+                        </td>
+	</tr>
+</tbody></table>
+
+                <table id="Table3" cellpadding="0" cellspacing="0" border="0" width="640">
+	<tbody><tr class="n_table_b_cos">
+		<td width="26">
+                            <img src="./足球训练监控软件系统的设计与开发-文本复制检测报告单（简洁）_files/jie_dans.gif" style="border: none" alt="">
+                        </td>
+		<td class="n_text_block_b6" colspan="3">
+                            单篇最大文字复制比：<span class="n_red_bold"><span id="Label_Single_Max_Similar">0.7%</span></span><a id="HyperLink_MaxCopy" class="maxlink" target="_blank"></a>
+                        </td>
+	</tr>
+</tbody></table>
+
+                
+                <table cellpadding="0" cellspacing="0" border="0" class="n_table_a1" width="640">
+                    <tbody><tr class="n_qubr_fzb">
+                        <td width="52" class="n_text_Gm" height="25">
+                            &nbsp;
+                        </td>
+                        <td class="n_text_Gm" width="158">
+                            重复字数：<span class="n_text_block_bss">&nbsp;&nbsp;&nbsp;&nbsp;[&nbsp;<span id="Label_All_CopyWords">1009</span>
+                                &nbsp;]</span>
+                        </td>
+                        <td width="176" class="n_text_Gm">
+                            总字数：<span class="n_text_block_bss">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&nbsp;<span id="Label_All_Words">28291</span>&nbsp;]</span>
+                        </td>
+                        <td width="133" class="n_text_Gm">
+                            <span id="Label1">单篇最大重复字数：</span>
+                        </td>
+                        <td class="n_text_Gm" width="110">
+                            <span class="n_text_block_bss">[&nbsp;<span id="Label_Single_Max_Length">211</span>&nbsp;]</span>
+                        </td>
+                    </tr>
+                    <tr class="n_qubr_fzb">
+                        <td width="52" class="n_text_Gm" height="25">
+                            &nbsp;
+                        </td>
+                        <td class="n_text_Gm" width="158">
+                            总段落数：<span class="n_text_block_bss">&nbsp;&nbsp;&nbsp;&nbsp;[&nbsp;<span id="Label_All_Section">6</span>
+                                &nbsp;]</span>
+                        </td>
+                        <td width="176" class="n_text_Gm">
+                            前部重合字数：<span class="n_text_block_bss">[&nbsp;<span id="lb_qcf">380</span>&nbsp;]</span>
+                        </td>
+                        <td width="133" class="n_text_Gm">
+                            <span id="Label2">疑似段落最大重合字数：</span>
+                        </td>
+                        <td width="110" class="n_text_Gm">
+                            <span class="n_text_block_bss">[&nbsp;<span id="lb_yszdcf">370</span>&nbsp;]</span>
+                        </td>
+                    </tr>
+                    <tr class="n_qubr_fzb">
+                        <td width="52" class="n_text_Gm" height="25">
+                            &nbsp;
+                        </td>
+                        <td class="n_text_Gm" width="158">
+                            疑似段落数：<span class="n_text_block_bss">[&nbsp;<span id="lb_yszj">4</span>
+                                &nbsp;]</span>
+                        </td>
+                        <td width="176" class="n_text_Gm">
+                            后部重合字数：<span class="n_text_block_bss">[&nbsp;<span id="lb_hcf">629</span>&nbsp;]</span>
+                        </td>
+                        <td width="243" class="n_text_Gm" colspan="2">
+                            <div id="danpian">
+                                疑似段落最小重合字数：&nbsp;<span class="n_text_block_bss">[&nbsp;<span id="lb_yszxcf">74</span>&nbsp;]</span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody></table>
+                <table cellpadding="0" cellspacing="0" border="0" class="n_table_a2" width="640">
+                    <tbody><tr class="n_qubr_fzb">
+                        <td width="101" class="n_text_red_a_zb" height="25">
+                            指&nbsp;&nbsp;&nbsp;&nbsp;标：
+                        </td>
+                        <td width="20">
+                            <img id="Image_Standard5" src="./足球训练监控软件系统的设计与开发-文本复制检测报告单（简洁）_files/wu.gif" style="border-width:0px;">
+                        </td>
+                        <td class="n_text_Gm" width="80">
+                            剽窃观点
+                        </td>
+                        <td width="20">
+                            <img id="Image_Standard4" src="./足球训练监控软件系统的设计与开发-文本复制检测报告单（简洁）_files/you.gif" style="border-width:0px;">
+                        </td>
+                        <td class="n_text_Gm " width="80">
+                            剽窃文字表述
+                        </td>
+                        <td width="20">
+                            <img id="Image_Standard3" src="./足球训练监控软件系统的设计与开发-文本复制检测报告单（简洁）_files/wu.gif" style="border-width:0px;">
+                        </td>
+                        <td class="n_text_Gm " width="80">
+                            自我剽窃
+                        </td>
+                        <td width="20">
+                        </td>
+                        <td class="n_text_Gm ">
+                        </td>
+                    </tr>
+                    <tr class="n_qubr_fzb">
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            <img id="Image_Standard6" src="./足球训练监控软件系统的设计与开发-文本复制检测报告单（简洁）_files/wu.gif" style="border-width:0px;">
+                        </td>
+                        <td class="n_text_Gm">
+                            一稿多投
+                        </td>
+                        <td>
+                            <img id="Image_Standard7" src="./足球训练监控软件系统的设计与开发-文本复制检测报告单（简洁）_files/wu.gif" style="border-width:0px;">
+                        </td>
+                        <td class="n_text_Gm">
+                            过度引用
+                        </td>
+                        <td>
+                            <img id="Image_Standard1" src="./足球训练监控软件系统的设计与开发-文本复制检测报告单（简洁）_files/wu.gif" style="border-width:0px;">
+                        </td>
+                        <td class="n_text_Gm ">
+                            整体剽窃
+                        </td>
+                        <td width="20">
+                            <img id="Image_Standard2" src="./足球训练监控软件系统的设计与开发-文本复制检测报告单（简洁）_files/wu.gif" style="border-width:0px;">
+                        </td>
+                        <td class="n_text_Gm">
+                            重复发表
+                        </td>
+                    </tr>
+                </tbody></table>
+                <table cellpadding="0" cellspacing="0" border="0" class="n_table_a3" width="640">
+                    <tbody><tr>
+                        <td width="101" class="n_table_a3_l">
+                            表格：
+                        </td>
+                        <td width="73" class="n_table_a3_r">
+                            <span id="Label_Table_Number">0</span>
+                        </td>
+                        <td width="90" class="n_table_a3_l">
+                            脚注与尾注：
+                        </td>
+                        <td width="237" class="n_table_a3_r">
+                            <span id="Label_Note_Number">0</span>
+                        </td>
+                        <td width="117" class="n_table_a3_l">
+                            &nbsp;
+                        </td>
+                        <td width="22" class="n_table_a3_r">
+                            &nbsp;
+                        </td>
+                    </tr>
+                </tbody></table>
+                <table cellpadding="0" cellspacing="0" border="0" class="n_table_a">
+                    
+                            <tbody><tr>
+                                <td height="25" width="20">
+                                    &nbsp;
+                                </td>
+                                <td style="text-align: left; width: 58px;">
+                                    <div class="per_y">4%</div>
+                                </td>
+                                <td width="50" align="left">
+                                    (74)
+                                </td>
+                                <td class="n_text_block_a2">
+                                    <a href="./足球训练监控软件系统的设计与开发-文本复制检测报告单（简洁）_files/足球训练监控软件系统的设计与开发-文本复制检测报告单（简洁）.html">
+                                        中英文摘要等</a> （总1843字）
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td height="25" width="20">
+                                    &nbsp;
+                                </td>
+                                <td style="text-align: left; width: 58px;">
+                                    <div class="per_y">7.6%</div>
+                                </td>
+                                <td width="50" align="left">
+                                    (338)
+                                </td>
+                                <td class="n_text_block_a2">
+                                    <a href="http://tsinghua.check.cnki.net/user/Report.aspx?LeftFile=41512044&t=p#41512044_001">
+                                        第1章引言</a> （总4427字）
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td height="25" width="20">
+                                    &nbsp;
+                                </td>
+                                <td style="text-align: left; width: 58px;">
+                                    <div class="per_g">0%</div>
+                                </td>
+                                <td width="50" align="left">
+                                    (0)
+                                </td>
+                                <td class="n_text_block_a2">
+                                    <a href="http://tsinghua.check.cnki.net/user/Report.aspx?LeftFile=41512044&t=p#41512044_002">
+                                        第2章相关工作</a> （总2188字）
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td height="25" width="20">
+                                    &nbsp;
+                                </td>
+                                <td style="text-align: left; width: 58px;">
+                                    <div class="per_g">0%</div>
+                                </td>
+                                <td width="50" align="left">
+                                    (0)
+                                </td>
+                                <td class="n_text_block_a2">
+                                    <a href="http://tsinghua.check.cnki.net/user/Report.aspx?LeftFile=41512044&t=p#41512044_003">
+                                        第3章功能需求与设计</a> （总3540字）
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td height="25" width="20">
+                                    &nbsp;
+                                </td>
+                                <td style="text-align: left; width: 58px;">
+                                    <div class="per_y">3.8%</div>
+                                </td>
+                                <td width="50" align="left">
+                                    (227)
+                                </td>
+                                <td class="n_text_block_a2">
+                                    <a href="http://tsinghua.check.cnki.net/user/Report.aspx?LeftFile=41512044&t=p#41512044_004">
+                                        第4章系统、实验与分析</a> （总5962字）
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td height="25" width="20">
+                                    &nbsp;
+                                </td>
+                                <td style="text-align: left; width: 58px;">
+                                    <div class="per_y">3.6%</div>
+                                </td>
+                                <td width="50" align="left">
+                                    (370)
+                                </td>
+                                <td class="n_text_block_a2">
+                                    <a href="http://tsinghua.check.cnki.net/user/Report.aspx?LeftFile=41512044&t=p#41512044_005">
+                                        第5章总结与展望</a> （总10331字）
+                                </td>
+                            </tr>
+                        
+                </tbody></table>
+                
+            </div>
+            
+        </div>
+        <!--------------------------------------------以上为公共部分------------------------------------------->
+        <div class="n_bodymid">
+            
+                    <div class="n_bodymid_bf">
+                        <table cellpadding="0" cellspacing="0" border="0" width="640" class="n_table_jiebf">
+                            <tbody><tr>
+                                <td width="25" height="30" class="n_bf_bt">
+                                    1.
+                                </td>
+                                <td class="n_text_block_bs" width="499">
+                                    <a name="41512044_000"></a>
+                                    中英文摘要等
+                                </td>
+                                <td width="116" class="n_table_jiebf_zzs">
+                                    总字数：<span class="n_text_block_bs">1843</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <table cellpadding="0" cellspacing="0" border="0" width="640" class="n_table_jiebfs">
+                                        <tbody><tr>
+                                            <td width="90" style="text-indent: 1em;">
+                                                相似文献列表
+                                            </td>
+                                            <td class="n_table_jiebf_fzb" width="150">
+                                                文字复制比：
+                                            </td>
+                                            <td width="100">
+                                                <div class="n_jcjg_am">
+                                                    4%(74)</div>
+                                            </td>
+                                            <td class="n_table_jiebf_fzb" style="text-align: left;">
+                                                剽窃观点（0）
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                        
+                                <div class="n_xu">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="n_table_a">
+                                        <tbody><tr>
+                                            <td width="20" class="n_xu_a n_text_back_a">
+                                                1
+                                            </td>
+                                            <td width="500" class="n_text_G2">
+                                                2006011631
+                                            </td>
+                                            <td width="100" class="n_xu_d n_text_red_d">
+                                                4.0%（74）
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            <td class="n_text_block_b">
+                                                程涛
+                                                - 《大学生论文联合比对库》-
+                                                
+                                            </td>
+                                            <td width="100" class="n_xu_da">
+                                                是否引证：<span class="n_text_yz">否</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                            
+                    </div>
+                    
+                    <div class="n_qwdz_ywnr">
+                        <table border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse;
+                            table-layout: fixed;" id="table_item_list" class="n_bgd_biao">
+                            
+                        </table>
+                        <table border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse;
+                            table-layout: fixed;" id="table1" class="n_bgd_biao">
+                            
+                        </table>
+                    </div>
+                    
+                    
+                    
+                
+                    <div class="n_bodymid_bf">
+                        <table cellpadding="0" cellspacing="0" border="0" width="640" class="n_table_jiebf">
+                            <tbody><tr>
+                                <td width="25" height="30" class="n_bf_bt">
+                                    2.
+                                </td>
+                                <td class="n_text_block_bs" width="499">
+                                    <a name="41512044_001"></a>
+                                    第1章引言
+                                </td>
+                                <td width="116" class="n_table_jiebf_zzs">
+                                    总字数：<span class="n_text_block_bs">4427</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <table cellpadding="0" cellspacing="0" border="0" width="640" class="n_table_jiebfs">
+                                        <tbody><tr>
+                                            <td width="90" style="text-indent: 1em;">
+                                                相似文献列表
+                                            </td>
+                                            <td class="n_table_jiebf_fzb" width="150">
+                                                文字复制比：
+                                            </td>
+                                            <td width="100">
+                                                <div class="n_jcjg_am">
+                                                    7.6%(338)</div>
+                                            </td>
+                                            <td class="n_table_jiebf_fzb" style="text-align: left;">
+                                                剽窃观点（0）
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                        
+                                <div class="n_xu">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="n_table_a">
+                                        <tbody><tr>
+                                            <td width="20" class="n_xu_a n_text_back_a">
+                                                1
+                                            </td>
+                                            <td width="500" class="n_text_G2">
+                                                <a href="http://www.cnki.net/kcms/detail/detail.aspx?filename=HLKX200829176&dbname=cjfdtotal&dbcode=cjfd&v=MDEzODJIQWRyRzRIdG5PcG81Q1lvUU9DWDlLdkJSbDcwa09RQXZyM1dBMkZyQ1VSTCtmWWVkcEZ5M25VNzNQTFM=" target="_blank">如何培养和激发乒乓球运动员的运动动机</a>
+                                            </td>
+                                            <td width="100" class="n_xu_d n_text_red_d">
+                                                3.8%（167）
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            <td class="n_text_block_b">
+                                                江炬;徐洪平;
+                                                - 《黑龙江科技信息》-
+                                                2008-10-15
+                                            </td>
+                                            <td width="100" class="n_xu_da">
+                                                是否引证：<span class="n_text_yz">否</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                            
+                                <div class="n_xu">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="n_table_a">
+                                        <tbody><tr>
+                                            <td width="20" class="n_xu_a n_text_back_a">
+                                                2
+                                            </td>
+                                            <td width="500" class="n_text_G2">
+                                                黎燕燕论文-百度文库
+                                            </td>
+                                            <td width="100" class="n_xu_d n_text_red_d">
+                                                3.4%（151）
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            <td class="n_text_block_b">
+                                                
+                                                - 《互联网文档资源（<a href="http://wenku.baidu.com/view/ac74ed828762caaedc33d404.html" target="_blank">http://wenku.baidu.c</a>）》-
+                                                2012
+                                            </td>
+                                            <td width="100" class="n_xu_da">
+                                                是否引证：<span class="n_text_yz">否</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                            
+                                <div class="n_xu">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="n_table_a">
+                                        <tbody><tr>
+                                            <td width="20" class="n_xu_a n_text_back_a">
+                                                3
+                                            </td>
+                                            <td width="500" class="n_text_G2">
+                                                <a href="http://www.cnki.net/kcms/detail/detail.aspx?filename=HRTY200905025&dbname=cjfdtotal&dbcode=cjfd&v=MTMyNTBkcEZ5M25VNzNQTFQvZmQ3RzRIdGpNcW85SFlZUU9DWDlLdkJSbDcwa09RQXZyM1dBMkZyQ1VSTCtmWWU=" target="_blank">Ⅱ型糖尿病(NIDDM)运动疗法的训练学原则</a>
+                                            </td>
+                                            <td width="100" class="n_xu_d n_text_red_d">
+                                                3.3%（147）
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            <td class="n_text_block_b">
+                                                陈德明;
+                                                - 《哈尔滨体育学院学报》-
+                                                2009-10-25
+                                            </td>
+                                            <td width="100" class="n_xu_da">
+                                                是否引证：<span class="n_text_yz">否</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                            
+                                <div class="n_xu">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="n_table_a">
+                                        <tbody><tr>
+                                            <td width="20" class="n_xu_a n_text_back_a">
+                                                4
+                                            </td>
+                                            <td width="500" class="n_text_G2">
+                                                <a href="http://www.cnki.net/kcms/detail/detail.aspx?filename=2007225839.nh&dbname=cdmdtotal&dbcode=cmfd&v=MTI2NDRSTCtmWWVkcEZ5M25VNzNQVjEyN0diRzZHOW5QcHBFYlBJUU9DWDlLdkJSbDcwa09RQXZyM1dBMkZyQ1U=" target="_blank">我国部分U-17年龄组男子足球队冬训期训练安排研究</a>
+                                            </td>
+                                            <td width="100" class="n_xu_d n_text_red_d">
+                                                3.2%（142）
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            <td class="n_text_block_b">
+                                                张志刚(导师：黄竹杭)
+                                                - 《北京体育大学硕士论文》-
+                                                2006-05-01
+                                            </td>
+                                            <td width="100" class="n_xu_da">
+                                                是否引证：<span class="n_text_yz">否</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                            
+                                <div class="n_xu">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="n_table_a">
+                                        <tbody><tr>
+                                            <td width="20" class="n_xu_a n_text_back_a">
+                                                5
+                                            </td>
+                                            <td width="500" class="n_text_G2">
+                                                <a href="http://www.cnki.net/kcms/detail/detail.aspx?filename=LHZY200803013&dbname=cjfdtotal&dbcode=cjfd&v=MDg4NTJRQXZyM1dBMkZyQ1VSTCtmWWVkcEZ5M25VNzNQS1NYUmQ3RzRIdG5Nckk5RVo0UU9DWDlLdkJSbDcwa08=" target="_blank">对快速力量类田径运动员力量训练的思考</a>
+                                            </td>
+                                            <td width="100" class="n_xu_d n_text_red_d">
+                                                2.9%（127）
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            <td class="n_text_block_b">
+                                                郭臣军;韩涛;张欣;
+                                                - 《石家庄理工职业学院学术研究》-
+                                                2008-09-26
+                                            </td>
+                                            <td width="100" class="n_xu_da">
+                                                是否引证：<span class="n_text_yz">否</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                            
+                                <div class="n_xu">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="n_table_a">
+                                        <tbody><tr>
+                                            <td width="20" class="n_xu_a n_text_back_a">
+                                                6
+                                            </td>
+                                            <td width="500" class="n_text_G2">
+                                                <a href="http://www.cnki.net/kcms/detail/detail.aspx?filename=ZXDB200814233&dbname=cjfdtotal&dbcode=cjfd&v=MTc0NTc3M1BQelhQYkxHNEh0bk5xNDFHWjRRT0NYOUt2QlJsNzBrT1FBdnIzV0EyRnJDVVJMK2ZZZWRwRnkzblU=" target="_blank">对短跑运动员力量训练负荷安排的研究</a>
+                                            </td>
+                                            <td width="100" class="n_xu_d n_text_red_d">
+                                                2.7%（121）
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            <td class="n_text_block_b">
+                                                欧广健;
+                                                - 《科技创新导报》-
+                                                2008-05-11
+                                            </td>
+                                            <td width="100" class="n_xu_da">
+                                                是否引证：<span class="n_text_yz">否</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                            
+                                <div class="n_xu">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="n_table_a">
+                                        <tbody><tr>
+                                            <td width="20" class="n_xu_a n_text_back_a">
+                                                7
+                                            </td>
+                                            <td width="500" class="n_text_G2">
+                                                <a href="http://www.cnki.net/kcms/detail/detail.aspx?filename=SZJY200401042&dbname=cjfdtotal&dbcode=cjfd&v=MDk2MDFqZkJkN0c0SHRYTXJvOUJab1FPQ1g5S3ZCUmw3MGtPUUF2cjNXQTJGckNVUkwrZlllZHBGeTNuVTczUE4=" target="_blank">浅析青少年足球训练的运动负荷</a>
+                                            </td>
+                                            <td width="100" class="n_xu_d n_text_red_d">
+                                                2.6%（115）
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            <td class="n_text_block_b">
+                                                牛洪林,吕永涛
+                                                - 《徐州教育学院学报》-
+                                                2004-03-30
+                                            </td>
+                                            <td width="100" class="n_xu_da">
+                                                是否引证：<span class="n_text_yz">否</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                            
+                                <div class="n_xu">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="n_table_a">
+                                        <tbody><tr>
+                                            <td width="20" class="n_xu_a n_text_back_a">
+                                                8
+                                            </td>
+                                            <td width="500" class="n_text_G2">
+                                                <a href="http://www.cnki.net/kcms/detail/detail.aspx?filename=2009109115.nh&dbname=cdmdtotal&dbcode=cmfd&v=MzIyNjhZZWRwRnkzblU3M1BWMTI3RjdLNEY5RE5xcEViUElRT0NYOUt2QlJsNzBrT1FBdnIzV0EyRnJDVVJMK2Y=" target="_blank">刘翔成功对我国竞技田径运动发展的启示</a>
+                                            </td>
+                                            <td width="100" class="n_xu_d n_text_red_d">
+                                                1.9%（85）
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            <td class="n_text_block_b">
+                                                房永华(导师：李鸿江)
+                                                - 《首都体育学院硕士论文》-
+                                                2009-06-01
+                                            </td>
+                                            <td width="100" class="n_xu_da">
+                                                是否引证：<span class="n_text_yz">否</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                            
+                                <div class="n_xu">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="n_table_a">
+                                        <tbody><tr>
+                                            <td width="20" class="n_xu_a n_text_back_a">
+                                                9
+                                            </td>
+                                            <td width="500" class="n_text_G2">
+                                                <a href="http://www.cnki.net/kcms/detail/detail.aspx?filename=LJTB200804002&dbname=cjfdtotal&dbcode=cjfd&v=MjEwMzNBdnIzV0EyRnJDVVJMK2ZZZWRwRnkzblU3M1BLU2ZmYkxHNEh0bk1xNDlGWm9RT0NYOUt2QlJsNzBrT1E=" target="_blank">运动素质、训练活动和竞技能力发展中的基本关系、递进要求与总体趋势</a>
+                                            </td>
+                                            <td width="100" class="n_xu_d n_text_red_d">
+                                                1.9%（83）
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            <td class="n_text_block_b">
+                                                邓运龙;
+                                                - 《南京体育学院学报(社会科学版)》-
+                                                2008-08-15
+                                            </td>
+                                            <td width="100" class="n_xu_da">
+                                                是否引证：<span class="n_text_yz">否</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                            
+                                <div class="n_xu">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="n_table_a">
+                                        <tbody><tr>
+                                            <td width="20" class="n_xu_a n_text_back_a">
+                                                10
+                                            </td>
+                                            <td width="500" class="n_text_G2">
+                                                <a href="http://www.cnki.net/kcms/detail/detail.aspx?filename=1012431425.nh&dbname=cdmdtotal&dbcode=cmfd&v=MDA3NzN5M25VNzNQVkYyNkhMZTdIOVhPcXBFYlBJUU9DWDlLdkJSbDcwa09RQXZyM1dBMkZyQ1VSTCtmWWVkcEY=" target="_blank">对我国足球职业联赛技术统计现状及发展对策研究</a>
+                                            </td>
+                                            <td width="100" class="n_xu_d n_text_red_d">
+                                                1.7%（76）
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            <td class="n_text_block_b">
+                                                戴域丞(导师：王松岩)
+                                                - 《武汉体育学院硕士论文》-
+                                                2012-05-01
+                                            </td>
+                                            <td width="100" class="n_xu_da">
+                                                是否引证：<span class="n_text_yz">否</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                            
+                                <div class="n_xu">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="n_table_a">
+                                        <tbody><tr>
+                                            <td width="20" class="n_xu_a n_text_back_a">
+                                                11
+                                            </td>
+                                            <td width="500" class="n_text_G2">
+                                                <a href="http://www.cnki.net/kcms/detail/detail.aspx?filename=LJTB200703004&dbname=cjfdtotal&dbcode=cjfd&v=MjE4OTQzblU3M1BLU2ZmYkxHNEh0Yk1ySTlGWUlRT0NYOUt2QlJsNzBrT1FBdnIzV0EyRnJDVVJMK2ZZZWRwRnk=" target="_blank">追求运动训练本质的思维途径与精神基础</a>
+                                            </td>
+                                            <td width="100" class="n_xu_d n_text_red_d">
+                                                1.6%（69）
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            <td class="n_text_block_b">
+                                                邓运龙;
+                                                - 《南京体育学院学报(社会科学版)》-
+                                                2007-06-15
+                                            </td>
+                                            <td width="100" class="n_xu_da">
+                                                是否引证：<span class="n_text_yz">否</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                            
+                                <div class="n_xu">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="n_table_a">
+                                        <tbody><tr>
+                                            <td width="20" class="n_xu_a n_text_back_a">
+                                                12
+                                            </td>
+                                            <td width="500" class="n_text_G2">
+                                                <a href="http://www.cnki.net/kcms/detail/detail.aspx?filename=TYYK201003001&dbname=cjfdtotal&dbcode=cjfd&v=MTA0MTkyRnJDVVJMK2ZZZWRwRnkzblU3M1BNVFRTWmJHNEg5SE1ySTlGWllRT0NYOUt2QlJsNzBrT1FBdnIzV0E=" target="_blank">运动训练理论的基本构成及价值所系</a>
+                                            </td>
+                                            <td width="100" class="n_xu_d n_text_red_d">
+                                                1.6%（69）
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            <td class="n_text_block_b">
+                                                张洪潭;
+                                                - 《体育与科学》-
+                                                2010-05-25
+                                            </td>
+                                            <td width="100" class="n_xu_da">
+                                                是否引证：<span class="n_text_yz">否</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                            
+                                <div class="n_xu">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="n_table_a">
+                                        <tbody><tr>
+                                            <td width="20" class="n_xu_a n_text_back_a">
+                                                13
+                                            </td>
+                                            <td width="500" class="n_text_G2">
+                                                <a href="http://www.cnki.net/kcms/detail/detail.aspx?filename=2008043425.nh&dbname=cdmdtotal&dbcode=cmfd&v=MDg1MjZPOEhkWE9xcEViUElRT0NYOUt2QlJsNzBrT1FBdnIzV0EyRnJDVVJMK2ZZZWRwRnkzblU3M1BWMTI3RnI=" target="_blank">不同运动负荷对重度广泛性焦虑症作用的比较分析</a>
+                                            </td>
+                                            <td width="100" class="n_xu_d n_text_red_d">
+                                                1.6%（69）
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            <td class="n_text_block_b">
+                                                苏德炎(导师：颜成春)
+                                                - 《福建师范大学硕士论文》-
+                                                2007-06-22
+                                            </td>
+                                            <td width="100" class="n_xu_da">
+                                                是否引证：<span class="n_text_yz">否</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                            
+                                <div class="n_xu">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="n_table_a">
+                                        <tbody><tr>
+                                            <td width="20" class="n_xu_a n_text_back_a">
+                                                14
+                                            </td>
+                                            <td width="500" class="n_text_G2">
+                                                <a href="http://www.cnki.net/kcms/detail/detail.aspx?filename=1011239695.nh&dbname=cdmdtotal&dbcode=cmfd&v=MTA4ODNLdkJSbDcwa09RQXZyM1dBMkZyQ1VSTCtmWWVkcEZ5M25VNzNQVkYyNkg3RzdGOWZGcXBFYlBJUU9DWDk=" target="_blank">两种力量训练方法对腹背肌群肌力变化影响的研究</a>
+                                            </td>
+                                            <td width="100" class="n_xu_d n_text_red_d">
+                                                1.6%（69）
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            <td class="n_text_block_b">
+                                                扆铮(导师：尹军)
+                                                - 《首都体育学院硕士论文》-
+                                                2011-05-01
+                                            </td>
+                                            <td width="100" class="n_xu_da">
+                                                是否引证：<span class="n_text_yz">否</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                            
+                                <div class="n_xu">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="n_table_a">
+                                        <tbody><tr>
+                                            <td width="20" class="n_xu_a n_text_back_a">
+                                                15
+                                            </td>
+                                            <td width="500" class="n_text_G2">
+                                                <a href="http://www.cnki.net/kcms/detail/detail.aspx?filename=1013179325.nh&dbname=cdmdtotal&dbcode=cmfd&v=MDY1MzN5M25VNzNQVkYyNkhiSy9GOUxPcXBFYlBJUU9DWDlLdkJSbDcwa09RQXZyM1dBMkZyQ1VSTCtmWWVkcEY=" target="_blank">山东省优秀竞走运动员训练与比赛运动学技术特征的对比研究</a>
+                                            </td>
+                                            <td width="100" class="n_xu_d n_text_red_d">
+                                                1.6%（69）
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            <td class="n_text_block_b">
+                                                谭田田(导师：毛德伟)
+                                                - 《山东体育学院硕士论文》-
+                                                2012-03-31
+                                            </td>
+                                            <td width="100" class="n_xu_da">
+                                                是否引证：<span class="n_text_yz">否</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                            
+                                <div class="n_xu">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="n_table_a">
+                                        <tbody><tr>
+                                            <td width="20" class="n_xu_a n_text_back_a">
+                                                16
+                                            </td>
+                                            <td width="500" class="n_text_G2">
+                                                <a href="http://www.cnki.net/kcms/detail/detail.aspx?filename=GZTK200802015&dbname=cjfdtotal&dbcode=cjfd&v=MTY3ODJDVVJMK2ZZZWRwRnkzblU3M1BJamZmWmJHNEh0bk1yWTlFWVlRT0NYOUt2QlJsNzBrT1FBdnIzV0EyRnI=" target="_blank">适宜负荷原则在中长跑运动训练中的应用</a>
+                                            </td>
+                                            <td width="100" class="n_xu_d n_text_red_d">
+                                                1.6%（69）
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            <td class="n_text_block_b">
+                                                刘占锋;
+                                                - 《贵州体育科技》-
+                                                2008-06-15
+                                            </td>
+                                            <td width="100" class="n_xu_da">
+                                                是否引证：<span class="n_text_yz">否</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                            
+                                <div class="n_xu">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="n_table_a">
+                                        <tbody><tr>
+                                            <td width="20" class="n_xu_a n_text_back_a">
+                                                17
+                                            </td>
+                                            <td width="500" class="n_text_G2">
+                                                <a href="http://www.cnki.net/kcms/detail/detail.aspx?filename=STKJ200903000&dbname=cjfdtotal&dbcode=cjfd&v=Mjc1MTJRQXZyM1dBMkZyQ1VSTCtmWWVkcEZ5M25VNzNQTmpuQVpMRzRIdGpNckk5RlpJUU9DWDlLdkJSbDcwa08=" target="_blank">运动训练过程中大、小周期划2分新探</a>
+                                            </td>
+                                            <td width="100" class="n_xu_d n_text_red_d">
+                                                1.6%（69）
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            <td class="n_text_block_b">
+                                                刘金生;王艳;
+                                                - 《山东体育科技》-
+                                                2009-09-25
+                                            </td>
+                                            <td width="100" class="n_xu_da">
+                                                是否引证：<span class="n_text_yz">否</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                            
+                                <div class="n_xu">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="n_table_a">
+                                        <tbody><tr>
+                                            <td width="20" class="n_xu_a n_text_back_a">
+                                                18
+                                            </td>
+                                            <td width="500" class="n_text_G2">
+                                                <a href="http://www.cnki.net/kcms/detail/detail.aspx?filename=2009127157.nh&dbname=cdmdtotal&dbcode=cmfd&v=MTc0MzYzV0EyRnJDVVJMK2ZZZWRwRnkzblU3M1BWMTI3RjdLNkdkREpxSkViUElRT0NYOUt2QlJsNzBrT1FBdnI=" target="_blank">国家竞走队男子20公里部分队员06年准备期训练负荷特点分析</a>
+                                            </td>
+                                            <td width="100" class="n_xu_d n_text_red_d">
+                                                1.3%（58）
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            <td class="n_text_block_b">
+                                                周振华(导师：沈信生)
+                                                - 《北京体育大学硕士论文》-
+                                                2007-06-12
+                                            </td>
+                                            <td width="100" class="n_xu_da">
+                                                是否引证：<span class="n_text_yz">否</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                            
+                                <div class="n_xu">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="n_table_a">
+                                        <tbody><tr>
+                                            <td width="20" class="n_xu_a n_text_back_a">
+                                                19
+                                            </td>
+                                            <td width="500" class="n_text_G2">
+                                                <a href="http://www.cnki.net/kcms/detail/detail.aspx?filename=JFTY200801015&dbname=cjfdtotal&dbcode=cjfd&v=MTY4MjVCUmw3MGtPUUF2cjNXQTJGckNVUkwrZlllZHBGeTNuVTczUEx5dmZkN0c0SHRuTXJvOUVZWVFPQ1g5S3Y=" target="_blank">运动负荷的整体性与累积效应</a>
+                                            </td>
+                                            <td width="100" class="n_xu_d n_text_red_d">
+                                                1.2%（54）
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            <td class="n_text_block_b">
+                                                邓运龙;
+                                                - 《军事体育进修学院学报》-
+                                                2008-01-25
+                                            </td>
+                                            <td width="100" class="n_xu_da">
+                                                是否引证：<span class="n_text_yz">否</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                            
+                                <div class="n_xu">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="n_table_a">
+                                        <tbody><tr>
+                                            <td width="20" class="n_xu_a n_text_back_a">
+                                                20
+                                            </td>
+                                            <td width="500" class="n_text_G2">
+                                                运动训练学-百度文库
+                                            </td>
+                                            <td width="100" class="n_xu_d n_text_red_d">
+                                                1.2%（54）
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            <td class="n_text_block_b">
+                                                
+                                                - 《互联网文档资源（<a href="http://wenku.baidu.com/view/9e909d1bc5da50e2524d7fc9.html" target="_blank">http://wenku.baidu.c</a>）》-
+                                                2012
+                                            </td>
+                                            <td width="100" class="n_xu_da">
+                                                是否引证：<span class="n_text_yz">否</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                            
+                                <div class="n_xu">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="n_table_a">
+                                        <tbody><tr>
+                                            <td width="20" class="n_xu_a n_text_back_a">
+                                                21
+                                            </td>
+                                            <td width="500" class="n_text_G2">
+                                                <a href="http://www.cnki.net/kcms/detail/detail.aspx?filename=LJTB200704006&dbname=cjfdtotal&dbcode=cjfd&v=MjEwNTJGeTNuVTczUEtTZmZiTEc0SHRiTXE0OUZZb1FPQ1g5S3ZCUmw3MGtPUUF2cjNXQTJGckNVUkwrZlllZHA=" target="_blank">训练设计中计划制定的思想与艺术</a>
+                                            </td>
+                                            <td width="100" class="n_xu_d n_text_red_d">
+                                                1.2%（54）
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            <td class="n_text_block_b">
+                                                邓运龙;
+                                                - 《南京体育学院学报(社会科学版)》-
+                                                2007-08-15
+                                            </td>
+                                            <td width="100" class="n_xu_da">
+                                                是否引证：<span class="n_text_yz">否</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                            
+                                <div class="n_xu">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="n_table_a">
+                                        <tbody><tr>
+                                            <td width="20" class="n_xu_a n_text_back_a">
+                                                22
+                                            </td>
+                                            <td width="500" class="n_text_G2">
+                                                <a href="http://www.cnki.net/kcms/detail/detail.aspx?filename=ATKJ200301007&dbname=cjfdtotal&dbcode=cjfd&v=MjU4MTJybzlGWTRRT0NYOUt2QlJsNzBrT1FBdnIzV0EyRnJDVVJMK2ZZZWRwRnkzblU3M1BKRG5BWkxHNEh0TE0=" target="_blank">对提高运动训练科学化水平的思考</a>
+                                            </td>
+                                            <td width="100" class="n_xu_d n_text_red_d">
+                                                1.1%（50）
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            <td class="n_text_block_b">
+                                                官立勇
+                                                - 《安徽体育科技》-
+                                                2003-03-25
+                                            </td>
+                                            <td width="100" class="n_xu_da">
+                                                是否引证：<span class="n_text_yz">否</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                            
+                                <div class="n_xu">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="n_table_a">
+                                        <tbody><tr>
+                                            <td width="20" class="n_xu_a n_text_back_a">
+                                                23
+                                            </td>
+                                            <td width="500" class="n_text_G2">
+                                                潘涛_2010010844_基于眼动数据的用户在线购物行为分析
+                                            </td>
+                                            <td width="100" class="n_xu_d n_text_red_d">
+                                                0.7%（29）
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            <td class="n_text_block_b">
+                                                潘涛
+                                                - 《大学生论文联合比对库》-
+                                                2014-06-18
+                                            </td>
+                                            <td width="100" class="n_xu_da">
+                                                是否引证：<span class="n_text_yz">否</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                            
+                    </div>
+                    
+                    <div class="n_qwdz_ywnr">
+                        <table border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse;
+                            table-layout: fixed;" id="table_item_list" class="n_bgd_biao">
+                            
+                        </table>
+                        <table border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse;
+                            table-layout: fixed;" id="table1" class="n_bgd_biao">
+                            
+                        </table>
+                    </div>
+                    
+                    
+                    
+                
+                    <div class="n_bodymid_bf">
+                        <table cellpadding="0" cellspacing="0" border="0" width="640" class="n_table_jiebf">
+                            <tbody><tr>
+                                <td width="25" height="30" class="n_bf_bt">
+                                    3.
+                                </td>
+                                <td class="n_text_block_bs" width="499">
+                                    <a name="41512044_002"></a>
+                                    第2章相关工作
+                                </td>
+                                <td width="116" class="n_table_jiebf_zzs">
+                                    总字数：<span class="n_text_block_bs">2188</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <table cellpadding="0" cellspacing="0" border="0" width="640" class="n_table_jiebfs">
+                                        <tbody><tr>
+                                            <td width="90" style="text-indent: 1em;">
+                                                相似文献列表
+                                            </td>
+                                            <td class="n_table_jiebf_fzb" width="150">
+                                                文字复制比：
+                                            </td>
+                                            <td width="100">
+                                                <div class="n_jcjg_am">
+                                                    0%(0)</div>
+                                            </td>
+                                            <td class="n_table_jiebf_fzb" style="text-align: left;">
+                                                剽窃观点（0）
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                        
+                    </div>
+                    
+                    <div class="n_qwdz_ywnr">
+                        <table border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse;
+                            table-layout: fixed;" id="table_item_list" class="n_bgd_biao">
+                            
+                        </table>
+                        <table border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse;
+                            table-layout: fixed;" id="table1" class="n_bgd_biao">
+                            
+                        </table>
+                    </div>
+                    
+                    
+                    
+                
+                    <div class="n_bodymid_bf">
+                        <table cellpadding="0" cellspacing="0" border="0" width="640" class="n_table_jiebf">
+                            <tbody><tr>
+                                <td width="25" height="30" class="n_bf_bt">
+                                    4.
+                                </td>
+                                <td class="n_text_block_bs" width="499">
+                                    <a name="41512044_003"></a>
+                                    第3章功能需求与设计
+                                </td>
+                                <td width="116" class="n_table_jiebf_zzs">
+                                    总字数：<span class="n_text_block_bs">3540</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <table cellpadding="0" cellspacing="0" border="0" width="640" class="n_table_jiebfs">
+                                        <tbody><tr>
+                                            <td width="90" style="text-indent: 1em;">
+                                                相似文献列表
+                                            </td>
+                                            <td class="n_table_jiebf_fzb" width="150">
+                                                文字复制比：
+                                            </td>
+                                            <td width="100">
+                                                <div class="n_jcjg_am">
+                                                    0%(0)</div>
+                                            </td>
+                                            <td class="n_table_jiebf_fzb" style="text-align: left;">
+                                                剽窃观点（0）
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                        
+                    </div>
+                    
+                    <div class="n_qwdz_ywnr">
+                        <table border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse;
+                            table-layout: fixed;" id="table_item_list" class="n_bgd_biao">
+                            
+                        </table>
+                        <table border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse;
+                            table-layout: fixed;" id="table1" class="n_bgd_biao">
+                            
+                        </table>
+                    </div>
+                    
+                    
+                    
+                
+                    <div class="n_bodymid_bf">
+                        <table cellpadding="0" cellspacing="0" border="0" width="640" class="n_table_jiebf">
+                            <tbody><tr>
+                                <td width="25" height="30" class="n_bf_bt">
+                                    5.
+                                </td>
+                                <td class="n_text_block_bs" width="499">
+                                    <a name="41512044_004"></a>
+                                    第4章系统、实验与分析
+                                </td>
+                                <td width="116" class="n_table_jiebf_zzs">
+                                    总字数：<span class="n_text_block_bs">5962</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <table cellpadding="0" cellspacing="0" border="0" width="640" class="n_table_jiebfs">
+                                        <tbody><tr>
+                                            <td width="90" style="text-indent: 1em;">
+                                                相似文献列表
+                                            </td>
+                                            <td class="n_table_jiebf_fzb" width="150">
+                                                文字复制比：
+                                            </td>
+                                            <td width="100">
+                                                <div class="n_jcjg_am">
+                                                    3.8%(227)</div>
+                                            </td>
+                                            <td class="n_table_jiebf_fzb" style="text-align: left;">
+                                                剽窃观点（0）
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                        
+                                <div class="n_xu">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="n_table_a">
+                                        <tbody><tr>
+                                            <td width="20" class="n_xu_a n_text_back_a">
+                                                1
+                                            </td>
+                                            <td width="500" class="n_text_G2">
+                                                3_张三_图像缩放算法理论及实现
+                                            </td>
+                                            <td width="100" class="n_xu_d n_text_red_d">
+                                                2.0%（121）
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            <td class="n_text_block_b">
+                                                张三
+                                                - 《大学生论文联合比对库》-
+                                                2014-05-30
+                                            </td>
+                                            <td width="100" class="n_xu_da">
+                                                是否引证：<span class="n_text_yz">否</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                            
+                                <div class="n_xu">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="n_table_a">
+                                        <tbody><tr>
+                                            <td width="20" class="n_xu_a n_text_back_a">
+                                                2
+                                            </td>
+                                            <td width="500" class="n_text_G2">
+                                                <a href="http://www.cnki.net/kcms/detail/detail.aspx?filename=1015500732.nh&dbname=cdmdtotal&dbcode=cmfd&v=MDAwMjR2QlJsNzBrT1FBdnIzV0EyRnJDVVJMK2ZZZWRwRnkzblU3M1BWRjI2RzdhNEh0YlByWkViUElRT0NYOUs=" target="_blank">在线预约挂号系统设计与实现</a>
+                                            </td>
+                                            <td width="100" class="n_xu_d n_text_red_d">
+                                                1.8%（106）
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            <td class="n_text_block_b">
+                                                刘博(导师：薛健;蒲卫)
+                                                - 《中国科学院大学（工程管理与信息技术学院）硕士论文》-
+                                                2014-04-01
+                                            </td>
+                                            <td width="100" class="n_xu_da">
+                                                是否引证：<span class="n_text_yz">否</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                            
+                                <div class="n_xu">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="n_table_a">
+                                        <tbody><tr>
+                                            <td width="20" class="n_xu_a n_text_back_a">
+                                                3
+                                            </td>
+                                            <td width="500" class="n_text_G2">
+                                                <a href="http://www.cnki.net/kcms/detail/detail.aspx?filename=1014445377.nh&dbname=cdmdtotal&dbcode=cmfd&v=MDU4NDVCUmw3MGtPUUF2cjNXQTJGckNVUkwrZlllZHBGeTNuVTczUFZGMjZHcmU4RzlMTHFKRWJQSVFPQ1g5S3Y=" target="_blank">基于SharePoint的企业任务管理系统的设计与实现</a>
+                                            </td>
+                                            <td width="100" class="n_xu_d n_text_red_d">
+                                                1.7%（103）
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            <td class="n_text_block_b">
+                                                姚旭佳(导师：朱东来)
+                                                - 《复旦大学硕士论文》-
+                                                2013-03-30
+                                            </td>
+                                            <td width="100" class="n_xu_da">
+                                                是否引证：<span class="n_text_yz">否</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                            
+                                <div class="n_xu">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="n_table_a">
+                                        <tbody><tr>
+                                            <td width="20" class="n_xu_a n_text_back_a">
+                                                4
+                                            </td>
+                                            <td width="500" class="n_text_G2">
+                                                <a href="http://www.cnki.net/kcms/detail/detail.aspx?filename=1013178034.nh&dbname=cdmdtotal&dbcode=cmfd&v=MTMyOTYzV0EyRnJDVVJMK2ZZZWRwRnkzblU3M1BWRjI2SGJLL0Z0SFBxNUViUElRT0NYOUt2QlJsNzBrT1FBdnI=" target="_blank">移动医学影像可视化系统</a>
+                                            </td>
+                                            <td width="100" class="n_xu_d n_text_red_d">
+                                                0.9%（52）
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            <td class="n_text_block_b">
+                                                徐星(导师：陈为)
+                                                - 《浙江大学硕士论文》-
+                                                2013-01-10
+                                            </td>
+                                            <td width="100" class="n_xu_da">
+                                                是否引证：<span class="n_text_yz">否</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                            
+                                <div class="n_xu">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="n_table_a">
+                                        <tbody><tr>
+                                            <td width="20" class="n_xu_a n_text_back_a">
+                                                5
+                                            </td>
+                                            <td width="500" class="n_text_G2">
+                                                <a href="http://www.cnki.net/kcms/detail/detail.aspx?filename=1013305586.nh&dbname=cdmdtotal&dbcode=cmfd&v=MTAyMDIyNkhiQzRHOVRFcVpFYlBJUU9DWDlLdkJSbDcwa09RQXZyM1dBMkZyQ1VSTCtmWWVkcEZ5M25VNzNQVkY=" target="_blank">社交网络平台的设计与实现</a>
+                                            </td>
+                                            <td width="100" class="n_xu_d n_text_red_d">
+                                                0.8%（48）
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            <td class="n_text_block_b">
+                                                杨森(导师：丁振国)
+                                                - 《西安电子科技大学硕士论文》-
+                                                2013-01-01
+                                            </td>
+                                            <td width="100" class="n_xu_da">
+                                                是否引证：<span class="n_text_yz">否</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                            
+                    </div>
+                    
+                    <div class="n_qwdz_ywnr">
+                        <table border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse;
+                            table-layout: fixed;" id="table_item_list" class="n_bgd_biao">
+                            
+                        </table>
+                        <table border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse;
+                            table-layout: fixed;" id="table1" class="n_bgd_biao">
+                            
+                        </table>
+                    </div>
+                    
+                    
+                    
+                
+                    <div class="n_bodymid_bf">
+                        <table cellpadding="0" cellspacing="0" border="0" width="640" class="n_table_jiebf">
+                            <tbody><tr>
+                                <td width="25" height="30" class="n_bf_bt">
+                                    6.
+                                </td>
+                                <td class="n_text_block_bs" width="499">
+                                    <a name="41512044_005"></a>
+                                    第5章总结与展望
+                                </td>
+                                <td width="116" class="n_table_jiebf_zzs">
+                                    总字数：<span class="n_text_block_bs">10331</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <table cellpadding="0" cellspacing="0" border="0" width="640" class="n_table_jiebfs">
+                                        <tbody><tr>
+                                            <td width="90" style="text-indent: 1em;">
+                                                相似文献列表
+                                            </td>
+                                            <td class="n_table_jiebf_fzb" width="150">
+                                                文字复制比：
+                                            </td>
+                                            <td width="100">
+                                                <div class="n_jcjg_am">
+                                                    3.6%(370)</div>
+                                            </td>
+                                            <td class="n_table_jiebf_fzb" style="text-align: left;">
+                                                剽窃观点（0）
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                        
+                                <div class="n_xu">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="n_table_a">
+                                        <tbody><tr>
+                                            <td width="20" class="n_xu_a n_text_back_a">
+                                                1
+                                            </td>
+                                            <td width="500" class="n_text_G2">
+                                                潘涛_2010010844_基于眼动数据的用户在线购物行为分析
+                                            </td>
+                                            <td width="100" class="n_xu_d n_text_red_d">
+                                                1.8%（182）
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            <td class="n_text_block_b">
+                                                潘涛
+                                                - 《大学生论文联合比对库》-
+                                                2014-06-18
+                                            </td>
+                                            <td width="100" class="n_xu_da">
+                                                是否引证：<span class="n_text_yz">否</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                            
+                                <div class="n_xu">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="n_table_a">
+                                        <tbody><tr>
+                                            <td width="20" class="n_xu_a n_text_back_a">
+                                                2
+                                            </td>
+                                            <td width="500" class="n_text_G2">
+                                                20102047_姚思航_移动终端安全监控系统
+                                            </td>
+                                            <td width="100" class="n_xu_d n_text_red_d">
+                                                1.8%（181）
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            <td class="n_text_block_b">
+                                                姚思航
+                                                - 《大学生论文联合比对库》-
+                                                2014-07-04
+                                            </td>
+                                            <td width="100" class="n_xu_da">
+                                                是否引证：<span class="n_text_yz">否</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                            
+                    </div>
+                    
+                    <div class="n_qwdz_ywnr">
+                        <table border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse;
+                            table-layout: fixed;" id="table_item_list" class="n_bgd_biao">
+                            
+                        </table>
+                        <table border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse;
+                            table-layout: fixed;" id="table1" class="n_bgd_biao">
+                            
+                        </table>
+                    </div>
+                    
+                    
+                    
+                
+        </div>
+        <!-----------------------------------以上为第五部分------------------------------------------------>
+        
+        <!------------------------------------以下为说明部分----------------------------------------------->
+        <div class="n_bodyfooter">
+            <div id="isjianjieN">
+	
+                    </div><table cellpadding="0" cellspacing="0" border="0" width="640" class="n_sm_table">
+                <tbody><tr>
+                    <td width="43" class="n_sm">
+                        说明：
+                    </td>
+                    <td colspan="5" class="n_sms">
+                        1.指标是由系统根据《学术论文不端行为的界定标准》自动生成的
+                    </td>
+                </tr>
+                
+                <tr>
+                        <td width="43" class="n_sm">
+                        </td>
+                        <td colspan="5" class="n_sms">
+                            2.本报告单仅对您所选择比对资源范围内检测结果负责
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="43" class="n_sm">
+                        </td>
+                        <td width="176" class="n_sms">
+                            3.Email：<a href="mailto:amlc@cnki.net" target="_blank">amlc@cnki.net</a>
+                        </td>
+                        <td width="25" class="n_sms">
+                            <img src="./足球训练监控软件系统的设计与开发-文本复制检测报告单（简洁）_files/sina.gif">
+                        </td>
+                        <td width="213" class="n_sms">
+                            <a href="http://e.weibo.com/u/3194559873" target="_blank">http://e.weibo.com/u/3194559873</a>
+                        </td>
+                        <td width="25" class="n_sms">
+                            <img src="./足球训练监控软件系统的设计与开发-文本复制检测报告单（简洁）_files/tx.gif">
+                        </td>
+                        <td width="158" class="n_sms">
+                            <a href="http://t.qq.com/CNKI_kycx" target="_blank">http://t.qq.com/CNKI_kycx</a>
+                        </td>
+                    </tr>
+                
+
+            </tbody></table>
+            <table cellpadding="0" cellspacing="0" border="0" width="640" class="n_sm_tables">
+                <tbody><tr>
+                    <td width="40">
+                    </td>
+                    <td width="20">
+                        <img src="./足球训练监控软件系统的设计与开发-文本复制检测报告单（简洁）_files/n_btn_print.gif" title="打印" class="n_print">
+                    </td>
+                    <td width="40">
+                        <a href="javascript:print();" class="n_table_prints n_print">打印</a>
+                    </td>
+                    <td width="20" id="save3">
+                        <img src="./足球训练监控软件系统的设计与开发-文本复制检测报告单（简洁）_files/n_btn_save.gif" title="保存" class="n_print">
+                    </td>
+                    <td width="40" id="save4">
+                        <a href="http://pmlc.cnki.net/report_download_stu/DownloadReport.aspx?reportType=1&user=thjsj060&userServerID=1&fileID=41512044&isJunior=0&check=ab74e07fa0d0a772083dd87f4caa9c17" id="downReport1" class="n_table_prints  n_print" target="_blank">保存</a>
+                    </td>
+                    <td width="340">
+                    </td>
+                    <td>
+                        <a href="http://check.cnki.net/" target="_blank" class="n_dz">http://check.cnki.net/</a>
+                    </td>
+                </tr>
+            </tbody></table>
+        </div>
+    </div>
+    
+    </form>
+
+
+<script id="hiddenlpsubmitdiv" style="display: none;"></script><script>try{for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){ var lastpass_f = document.forms[lastpass_iter]; if(typeof(lastpass_f.lpsubmitorig2)=="undefined"){ lastpass_f.lpsubmitorig2 = lastpass_f.submit; if (typeof(lastpass_f.lpsubmitorig2)=='object'){ continue;}lastpass_f.submit = function(){ var form=this; var customEvent = document.createEvent("Event"); customEvent.initEvent("lpCustomEvent", true, true); var d = document.getElementById("hiddenlpsubmitdiv"); if (d) {for(var i = 0; i < document.forms.length; i++){ if(document.forms[i]==form){ if (typeof(d.innerText) != 'undefined') { d.innerText=i.toString(); } else { d.textContent=i.toString(); } } } d.dispatchEvent(customEvent); }form.lpsubmitorig2(); } } }}catch(e){}</script></body></html>
