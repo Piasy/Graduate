@@ -58,14 +58,18 @@
         $("img.players_panel.before_btn").click(function () {
             if (playerShowIndex > 0) {
                 playerShowIndex--;
-                updatePlayersPanel(players, playerShowIndex, playerShowLen, series);
+                updatePlayersPanel(players, playerShowIndex, playerShowLen, series, function (ss, ps, i) {
+                    updateComparePlayersTable(ps);
+                }, true);
             }
         });
 
         $("img.players_panel.after_btn").click(function () {
             if (playerShowIndex + playerShowLen < players.length) {
                 playerShowIndex++;
-                updatePlayersPanel(players, playerShowIndex, playerShowLen, series);
+                updatePlayersPanel(players, playerShowIndex, playerShowLen, series, function (ss, ps, i) {
+                    updateComparePlayersTable(ps);
+                }, true);
             }
         });
 
@@ -105,7 +109,9 @@
             });
             updateComparePlayersTable(players);
 
-            updatePlayersPanel(players, playerShowIndex, playerShowLen, series);
+            updatePlayersPanel(players, playerShowIndex, playerShowLen, series, function (ss, ps, i) {
+                updateComparePlayersTable(ps);
+            }, true);
 
             var start_msg = {};
             start_msg.type = "players";

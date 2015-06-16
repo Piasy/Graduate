@@ -44,17 +44,34 @@
         var players = [];
         var series = [];
         var playerShowIndex = 0, playerShowLen = 6;
+        var selectIndex = 0;
         $("img.players_panel.before_btn").click(function () {
             if (playerShowIndex > 0) {
                 playerShowIndex--;
-                updatePlayersPanel(players, playerShowIndex, playerShowLen, series);
+                updatePlayersPanel(players, playerShowIndex, playerShowLen, series, function (ss, ps, i) {
+                    selectIndex = i;
+                    players.forEach(function (p, i, arr) {
+                        p.selected = false;
+                    });
+                    players[selectIndex].selected = true;
+                    updatePlayersPanelOnly(players, playerShowIndex, playerShowLen);
+                    updateHRElapseChartFirstTime(series, players, selectIndex);
+                }, true);
             }
         });
 
         $("img.players_panel.after_btn").click(function () {
             if (playerShowIndex + playerShowLen < players.length) {
                 playerShowIndex++;
-                updatePlayersPanel(players, playerShowIndex, playerShowLen, series);
+                updatePlayersPanel(players, playerShowIndex, playerShowLen, series, function (ss, ps, i) {
+                    selectIndex = i;
+                    players.forEach(function (p, i, arr) {
+                        p.selected = false;
+                    });
+                    players[selectIndex].selected = true;
+                    updatePlayersPanelOnly(players, playerShowIndex, playerShowLen);
+                    updateHRElapseChartFirstTime(series, players, selectIndex);
+                }, true);
             }
         });
 
@@ -71,13 +88,13 @@
                 concatAndSaveTrainRemark(msg.player, msg.remark);
                 if (hasnext && !msg.hasnext) {
                     if (firstUpdate) {
-                        updateHRElapseChartFirstTime(series, players);
+                        updateHRElapseChartFirstTime(series, players, selectIndex);
                         firstUpdate = false;
                     }
                 }
                 hasnext = msg.hasnext;
                 if (!firstUpdate) {
-                    updateHRElapseChartFirstTime(series, players);
+                    updateHRElapseChartFirstTime(series, players, selectIndex);
                 }
             }
         };
@@ -85,11 +102,20 @@
         loadPlayers(function(ps) {
             players = ps;
             players.forEach(function (p, i, arr) {
-                p.selected = true;
+                p.selected = false;
             });
+            players[selectIndex].selected = true;
             series = createHRElapseChart(players);
 
-            updatePlayersPanel(players, playerShowIndex, playerShowLen, series);
+            updatePlayersPanel(players, playerShowIndex, playerShowLen, series, function (ss, ps, i) {
+                selectIndex = i;
+                players.forEach(function (p, i, arr) {
+                    p.selected = false;
+                });
+                players[selectIndex].selected = true;
+                updatePlayersPanelOnly(players, playerShowIndex, playerShowLen);
+                updateHRElapseChartFirstTime(series, players, selectIndex);
+            }, true);
 
             var start_msg = {};
             start_msg.type = "players";

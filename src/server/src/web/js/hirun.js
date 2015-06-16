@@ -88,15 +88,13 @@ function updateHiRunChartFirstTime(series, players) {
     var data1 = [];
     var data2 = [];
     players.forEach(function (p, i, arr) {
-        /*if (p.selected) {
-         series[i].show();
-         } else {
-         series[i].hide();
-         }*/
         var remark = JSON.parse(localStorage.getItem(p.history));
         if (remark != null && remark.times != undefined && remark.aveinterval != undefined) {
             data1.push(remark.times);
             data2.push(remark.aveinterval);
+        } else {
+            data1.push(0);
+            data2.push(0);
         }
     });
     series[0].setData(data1);
@@ -104,11 +102,6 @@ function updateHiRunChartFirstTime(series, players) {
 }
 
 function updateHiRunChart(series, index, remark) {
-    /*if (player.selected) {
-     series.show();
-     } else {
-     series.hide();
-     }*/
     var points0 = series[0].points;
     var points1 = series[1].points;
     var ys0 = [];

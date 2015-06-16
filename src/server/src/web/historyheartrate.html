@@ -47,14 +47,18 @@
         $("img.players_panel.before_btn").click(function () {
             if (playerShowIndex > 0) {
                 playerShowIndex--;
-                updatePlayersPanel(players, playerShowIndex, playerShowLen, series);
+                updatePlayersPanel(players, playerShowIndex, playerShowLen, series, function (ss, ps, i) {
+                    updateHistoryHeartRateChart(ss[i], ps[i], null);
+                }, true);
             }
         });
 
         $("img.players_panel.after_btn").click(function () {
             if (playerShowIndex + playerShowLen < players.length) {
                 playerShowIndex++;
-                updatePlayersPanel(players, playerShowIndex, playerShowLen, series);
+                updatePlayersPanel(players, playerShowIndex, playerShowLen, series, function (ss, ps, i) {
+                    updateHistoryHeartRateChart(ss[i], ps[i], null);
+                }, true);
             }
         });
 
@@ -95,7 +99,9 @@
             });
             series = createHistoryHeartRateChart(players);
 
-            updatePlayersPanel(players, playerShowIndex, playerShowLen, series);
+            updatePlayersPanel(players, playerShowIndex, playerShowLen, series, function (ss, ps, i) {
+                updateHistoryHeartRateChart(ss[i], ps[i], null);
+            }, true);
 
             var start_msg = {};
             start_msg.type = "players";

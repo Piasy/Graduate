@@ -69,11 +69,6 @@ function createTotalDistanceChart(players) {
 function updateTotalDistanceChartFirstTime(series, players) {
     var data = [];
     players.forEach(function (p, i, arr) {
-        /*if (p.selected) {
-         series[i].show();
-         } else {
-         series[i].hide();
-         }*/
         var remark = JSON.parse(localStorage.getItem(p.history));
         if (remark != null && remark.curdistance != undefined) {
             data.push(remark.curdistance);
@@ -83,11 +78,6 @@ function updateTotalDistanceChartFirstTime(series, players) {
 }
 
 function updateTotalDistanceChart(series, index, remark) {
-    /*if (player.selected) {
-     series.show();
-     } else {
-     series.hide();
-     }*/
     var points = series.points;
     var ys = [];
     points.forEach(function (p, i, arr) {

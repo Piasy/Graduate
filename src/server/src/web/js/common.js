@@ -540,21 +540,33 @@ function createPlayersPanelItem(player) {
     return li;
 }
 
-function updatePlayersPanel(players, playerShowIndex, playerShowLen, series) {
+function updatePlayersPanel(players, playerShowIndex, playerShowLen, series, chartOp, updateOnClick) {
     $("ul.players_list").html("");
     for(var i = playerShowIndex; i - playerShowIndex < playerShowLen && i < players.length; i++) {
         var li = createPlayersPanelItem(players[i]);
         li.realIndex = i;
-        li.onclick = function () {
-            if (players[this.realIndex].selected) {
-                this.children[0].children[1].children[1].style.display = "none";
-            } else {
-                this.children[0].children[1].children[1].style.display = "";
-            }
-            players[this.realIndex].selected = !players[this.realIndex].selected;
-            updateHistorySpeedChart(series[this.realIndex], players[this.realIndex], null);
-        };
+        if (updateOnClick) {
+            li.onclick = function () {
+                if (players[this.realIndex].selected) {
+                    this.children[0].children[1].children[1].style.display = "none";
+                } else {
+                    this.children[0].children[1].children[1].style.display = "";
+                }
+                players[this.realIndex].selected = !players[this.realIndex].selected;
+                chartOp(series, players, this.realIndex);
+            };
+        }
         $("ul.players_list").append(li);
+    }
+}
+
+function updatePlayersPanelOnly(players, playerShowIndex, playerShowLen) {
+    for(var i = playerShowIndex; i - playerShowIndex < playerShowLen && i < players.length; i++) {
+        if (players[i].selected) {
+            $("ul.players_list")[0].children[i - playerShowIndex].children[0].children[1].children[1].style.display = "";
+        } else {
+            $("ul.players_list")[0].children[i - playerShowIndex].children[0].children[1].children[1].style.display = "none";
+        }
     }
 }
 

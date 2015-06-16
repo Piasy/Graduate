@@ -63,9 +63,9 @@ function createHRElapseChart(players) {
     return series;
 }
 
-function updateHRElapseChartFirstTime(series, players) {
+function updateHRElapseChartFirstTime(series, players, index) {
     var data = [];
-    var p = players[0];
+    var p = players[index];
     var remark = JSON.parse(localStorage.getItem(p.history));
     if (remark != null && remark.hrelapse != null && remark.hrelapse.length == 8) {
         var sum = 0;

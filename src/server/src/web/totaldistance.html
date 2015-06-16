@@ -47,14 +47,14 @@
         $("img.players_panel.before_btn").click(function () {
             if (playerShowIndex > 0) {
                 playerShowIndex--;
-                updatePlayersPanel(players, playerShowIndex, playerShowLen, series);
+                updatePlayersPanel(players, playerShowIndex, playerShowLen, series, null, false);
             }
         });
 
         $("img.players_panel.after_btn").click(function () {
             if (playerShowIndex + playerShowLen < players.length) {
                 playerShowIndex++;
-                updatePlayersPanel(players, playerShowIndex, playerShowLen, series);
+                updatePlayersPanel(players, playerShowIndex, playerShowLen, series, null, false);
             }
         });
 
@@ -94,7 +94,7 @@
             });
             series = createTotalDistanceChart(players);
 
-            updatePlayersPanel(players, playerShowIndex, playerShowLen, series);
+            updatePlayersPanel(players, playerShowIndex, playerShowLen, series, null, false);
 
             var start_msg = {};
             start_msg.type = "players";

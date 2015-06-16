@@ -82,16 +82,15 @@ function updateHRWithSpeedChartFirstTime(series, players) {
     var data2 = [];
     var data3 = [];
     players.forEach(function (p, i, arr) {
-        /*if (p.selected) {
-         series[i].show();
-         } else {
-         series[i].hide();
-         }*/
         var remark = JSON.parse(localStorage.getItem(p.history));
         if (remark != null && remark.hrwithspeed != null && remark.hrwithspeed.length == 3) {
             data1.push(remark.hrwithspeed[0]);
             data2.push(remark.hrwithspeed[1]);
             data3.push(remark.hrwithspeed[2]);
+        } else {
+            data1.push(0);
+            data2.push(0);
+            data3.push(0);
         }
     });
     series[0].setData(data1);
@@ -100,11 +99,6 @@ function updateHRWithSpeedChartFirstTime(series, players) {
 }
 
 function updateHRWithSpeedChart(series, index, remark) {
-    /*if (player.selected) {
-     series.show();
-     } else {
-     series.hide();
-     }*/
     var points0 = series[0].points;
     var points1 = series[1].points;
     var points2 = series[2].points;
