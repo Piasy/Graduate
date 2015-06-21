@@ -58,6 +58,6 @@ public class WebViewActivity extends Activity {
                 return true;
             }
         });
-        mWebview.loadUrl("http://101.5.236.43:8080/web/welcome.html");
+        mWebview.loadUrl("http://104.236.185.11:8080/web/welcome.html");
     }
 }

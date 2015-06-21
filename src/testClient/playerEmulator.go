@@ -139,7 +139,7 @@ func emulate(player string, ch chan int) {
     bb, err := json.Marshal(&data)
     if err == nil {
       buf := bytes.NewReader(bb)
-      resp, err := http.Post("http://127.0.0.1:8080/api/rawtrainrecord", "application/json; charset=utf-8", buf)
+      resp, err := http.Post("http://104.236.185.11:8080/api/rawtrainrecord", "application/json; charset=utf-8", buf)
       if err == nil {
         defer resp.Body.Close()
         body, err := ioutil.ReadAll(resp.Body)
