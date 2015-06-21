@@ -2,9 +2,10 @@ package com.example.piasy.startup;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.Toast;
 
 /**
  * Created by piasy on 15/6/9.
@@ -16,19 +17,22 @@ public class WebViewActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mWebview  = new WebView(this);
+        setContentView(R.layout.web_view_layout);
 
-        mWebview.getSettings().setJavaScriptEnabled(true); // enable javascript
+        mWebview = (WebView) findViewById(R.id.web_view);
 
-        final Activity activity = this;
-
-        mWebview.setWebViewClient(new WebViewClient() {
-            public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
-                Toast.makeText(activity, description, Toast.LENGTH_SHORT).show();
+        mWebview.setScrollBarStyle(View.SCROLLBARS_OUTSIDE_OVERLAY);
+        WebSettings webSettings = mWebview.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setDomStorageEnabled(true);
+        mWebview.setWebViewClient(new WebViewClient()
+        {
+            public boolean shouldOverrideUrlLoading(WebView view, String url)
+            {
+                view.loadUrl(url);
+                return true;
             }
         });
-
-        mWebview.loadUrl("http://www.baidu.com");
-        setContentView(mWebview );
+        mWebview.loadUrl("http://101.5.236.43:8080/web/welcome.html");
     }
 }
