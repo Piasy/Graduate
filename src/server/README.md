@@ -1,8 +1,11 @@
 ##软件安装：
 1. golang: https://golang.org/
 2. MongoDB: https://www.mongodb.org/
-3. golang的MongoDB驱动: https://labix.org/mgo
-4. beego: http://beego.me/
+3. golang的MongoDB驱动: https://labix.org/mgo  
+  `go get gopkg.in/mgo.v2`
+4. beego: http://beego.me/  
+  `go get github.com/astaxie/beego`  
+  `go get github.com/beego/bee`
 
 ##运行
 1. 运行mongodb server程序
